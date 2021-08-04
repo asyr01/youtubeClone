@@ -44,6 +44,7 @@ body {
 /* All section which includes main content */
 #mainSectionContainer {
   padding-top: 56px;
+  display: flex;
 }
 
 #mainContentContainer {
