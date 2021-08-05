@@ -14,7 +14,7 @@
         <button class="navShowHide">Click Me to Slide!</button>
       </div>
 
-      <div id="sideNavContainer">
+      <div id="sideNavContainer" style="display:none">
 
       </div>
 

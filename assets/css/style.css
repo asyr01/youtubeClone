@@ -32,7 +32,7 @@ body {
 /* slideNavContainer -slidebar -sidebar- styles- */
 #sideNavContainer {
   width: 240px;
-  background-color: red;
+  background-color: #ccc;
   padding-top: 56px;
   position: fixed;
   top: 0;
@@ -45,6 +45,11 @@ body {
 #mainSectionContainer {
   padding-top: 56px;
   display: flex;
+}
+
+/* When slideBar is open, give left padding to main container */
+#mainSectionContainer.leftPadding {
+  padding-left: 240px;
 }
 
 #mainContentContainer {
