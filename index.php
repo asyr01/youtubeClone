@@ -11,7 +11,9 @@
   <body>
     <div id="pageContainer">
       <div id="mastHeadContainer">
-        <button class="navShowHide">Click Me to Slide!</button>
+        <button class="navShowHide">
+          <img src="assets/images/icons/menu.png" alt="menu button">
+        </button>
       </div>
 
       <div id="sideNavContainer" style="display:none">
