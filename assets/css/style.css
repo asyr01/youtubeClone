@@ -29,6 +29,7 @@ body {
   z-index: 1;
 }
 
+/* Hamburger */
 #mastHeadContainer .navShowHide {
   cursor: pointer;
   width: 40px;
@@ -39,10 +40,25 @@ body {
   background-color: transparent;
 }
 
+#mastHeadContainer .navShowHide img {
+  width: 100%;
+}
+
+/* Logo */
+
+#mastHeadContainer .logoContainer {
+  width: 150px;
+  margin-top: 5px;
+}
+
+#mastHeadContainer .logoContainer img {
+  height: 75px;
+}
+
 /* slideNavContainer -slidebar -sidebar- styles- */
 #sideNavContainer {
   width: 240px;
-  background-color: #ccc;
+  background-color: #e2dfdf;
   padding-top: 56px;
   position: fixed;
   top: 0;

@@ -14,6 +14,10 @@
         <button class="navShowHide">
           <img src="assets/images/icons/menu.png" alt="menu button">
         </button>
+
+        <a href="index.php" class="logoContainer">
+        <img src="assets/images/icons/youtube.png" alt="youtube logo" title="YouTube Homepage">
+        </a>
       </div>
 
       <div id="sideNavContainer" style="display:none">
