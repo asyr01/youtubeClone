@@ -38,6 +38,7 @@ body {
   box-sizing: border-box;
   border: none;
   background-color: transparent;
+  margin-bottom: 5px;
 }
 
 #mastHeadContainer .navShowHide img {
@@ -48,7 +49,6 @@ body {
 
 #mastHeadContainer .logoContainer {
   width: 150px;
-  margin-top: 5px;
 }
 
 #mastHeadContainer .logoContainer img {
@@ -72,6 +72,25 @@ body {
   flex: 1;
   max-width: 440px;
   color: #111;
+  padding: 2px 6px;
+  font-size: 14px;
+  font-weight: 100;
+  border: 1px solid #ccc;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-right: none;
+  height: 32px;
+  box-shadow: #eee 0px 1px 2px 0px inset;
+}
+
+/* Search Button */
+#mastHeadContainer .searchBarContainer .searchButton {
+  color: #f8f8f8;
+  border: 1px solid #d3d3d3;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  height: 32px;
+  cursor: pointer;
 }
 
 /* slideNavContainer -slidebar -sidebar- styles- */
