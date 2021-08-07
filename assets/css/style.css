@@ -55,6 +55,25 @@ body {
   height: 75px;
 }
 
+/* SearchBar */
+#mastHeadContainer .searchBarContainer {
+  display: flex;
+  flex: 1;
+  margin: 0 40px;
+}
+
+#mastHeadContainer .searchBarContainer form {
+  display: flex;
+  flex: 1;
+}
+
+/* takes remaining space until it hits 440px */
+#mastHeadContainer .searchBarContainer .searchBar {
+  flex: 1;
+  max-width: 440px;
+  color: #111;
+}
+
 /* slideNavContainer -slidebar -sidebar- styles- */
 #sideNavContainer {
   width: 240px;
