@@ -93,6 +93,10 @@ body {
   cursor: pointer;
 }
 
+#mastHeadContainer .searchBarContainer .searchButton img {
+  height: 20px;
+}
+
 /* slideNavContainer -slidebar -sidebar- styles- */
 #sideNavContainer {
   width: 240px;
