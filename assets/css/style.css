@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 /* pageContainer -parent container styles- */
 #pageContainer {
   width: 100%;
@@ -97,6 +101,18 @@ body {
 
 #mastHeadContainer .searchBarContainer .searchButton img {
   height: 20px;
+}
+
+/* Right Icons (Upload - Profile) */
+#mastHeadContainer .rightIcons {
+  height: 100%;
+}
+
+#mastHeadContainer .rightIcons a:visited,
+#mastHeadContainer .rightIcons a:link,
+#mastHeadContainer .rightIcons a:hover,
+#mastHeadContainer .rightIcons a:active {
+  text-decoration: none;
 }
 
 /* slideNavContainer -slidebar -sidebar- styles- */
