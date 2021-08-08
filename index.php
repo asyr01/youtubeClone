@@ -29,8 +29,14 @@
         </div>
       </div>
 
-      <div id="sideNavContainer" style="display:none">
+      <div class="rightIcons">
+        <a href="upload.php">
 
+        </a>
+      </div>
+
+      <div id="sideNavContainer" style="display:none">
+         <img src="assets/images/icons/upload.png" alt="upload button">
       </div>
 
       <div id="mainSectionContainer">

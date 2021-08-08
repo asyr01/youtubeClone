@@ -90,6 +90,7 @@ body {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   height: 32px;
+  width: 65px;
   cursor: pointer;
 }
 
