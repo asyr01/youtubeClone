@@ -31,12 +31,16 @@
 
       <div class="rightIcons">
         <a href="upload.php">
-
+          <img class="upload" src="assets/images/icons/upload.png" alt="upload button">
+        </a>
+        <!-- There is no link for now because there is a authorization issue -->
+        <a href="#">
+          <img class="profile" src="assets/images/icons/profile.png" alt="profile button">
         </a>
       </div>
 
       <div id="sideNavContainer" style="display:none">
-         <img src="assets/images/icons/upload.png" alt="upload button">
+         
       </div>
 
       <div id="mainSectionContainer">
