@@ -3,11 +3,16 @@
 class VideoDetailsFormProvider {
 
     public function createUploadForm() {
+
         $fileInput = $this->createFileInput();
         $titleInput = $this->createTitleInput();
+        $descriptionInput = $this->createDescriptionInput();
+
+
         return "<form action='processing.php' method='POST'>
                   $fileInput
                   $titleInput
+                  $descriptionInput
                </form>
         ";
     }
@@ -24,5 +29,12 @@ class VideoDetailsFormProvider {
   <input class='form-control' type='text' placeholder='Title' name='titleInput' aria-label='default input example'>
   </div>";
   }
+
+  private function createDescriptionInput() {
+    return "<div class='form-group'>
+    <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'></textarea>
+  </div>";
+    }
 }
+
 ?>
