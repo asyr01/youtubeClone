@@ -42,7 +42,6 @@ class VideoDetailsFormProvider {
       return 
       "<div class='form-group'>
       <select class='form-select' name='privacyInput'>
-            <option selected>Open this select menu</option>
             <option value='0'>Private</option>
             <option value='1'>Public</option>
       </select>
