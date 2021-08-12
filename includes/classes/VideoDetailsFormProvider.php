@@ -47,6 +47,7 @@ class VideoDetailsFormProvider {
       </select>
    </div>";
     }
+
 }
 
 ?>
