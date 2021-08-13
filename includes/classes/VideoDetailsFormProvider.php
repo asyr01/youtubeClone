@@ -56,7 +56,6 @@ class VideoDetailsFormProvider {
     }
 
     private function createCategoriesInput() {
-
     // Retrieve data from categories table
     $query = $this->con->prepare("SELECT * FROM categories");
     $query->execute();
@@ -65,8 +64,11 @@ class VideoDetailsFormProvider {
     <select class='form-select' name='categoryInput'>";
 
     while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-      echo $row["name"] . "<br>";
+      $html .= " <option value='1'>Public</option>";
     }
+    $html .= "</select>
+        </div>";
+        return $html;
   }
 }
 ?>
