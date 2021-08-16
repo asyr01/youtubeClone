@@ -17,6 +17,7 @@
              "username"
             );
        // 2) Process video data (upload)
+            // returns true or false, 3 depends on that to send message
            $VideoProcessor = new VideoProcessor($con);
            $wasSucessful = $videoProcessor->upload($videoUploadData);
 
