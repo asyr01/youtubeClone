@@ -1,7 +1,8 @@
 <?php
    require_once("includes/header.php");
+   require_once("includes/classes/VideoUploadData.php");
 
-   if(!isset($_POST["uploadButton"])) {
+   if(!isset($_POST["uploadBtn"])) {
        echo "No file sent to page.";
        exit();
    } else {
