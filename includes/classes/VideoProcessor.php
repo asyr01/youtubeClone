@@ -10,7 +10,12 @@ class VideoProcessor {
     }
 
     public function upload($videoUploadData) {
-        
+        $targetDir = "uploads/videos/";
+        // uploaded file
+        $videoData = $videoUploadData->videoDataArray;
+
+        $tempFilePath = $targetDir . uniqid() . basename($videoData["name"]);
+
     }
 }
 ?>
