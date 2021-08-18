@@ -4,6 +4,7 @@
 
 class VideoProcessor {
     private $con;
+    
     // 5gb size limit.
     private $sizeLimit = 500000000;
 
@@ -31,7 +32,8 @@ class VideoProcessor {
         // Takes the extension type
       $videoType = pathinfo($filePath, PATHINFO_EXTENSION);
       if(!$this->isValidSize($videoData)) {
-
+            echo "File is too large. Can't be more than." . $this -> sizeLimit . "bytes";
+            return false;
       }
     }
 
