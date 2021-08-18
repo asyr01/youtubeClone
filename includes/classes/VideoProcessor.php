@@ -10,6 +10,7 @@ class VideoProcessor {
 
     public function upload($videoUploadData) {
         $targetDir = "uploads/videos/";
+
         // uploaded file
         $videoData = $videoUploadData->videoDataArray;
 
@@ -17,7 +18,14 @@ class VideoProcessor {
         
         $tempFilePath = str_replace(" ", "_", $tempFilePath);
 
+        $isValidData = $this->processData($videoData, $tempFilePath);
+
         echo $tempFilePath;
+    }
+
+    private function processData($videoData, $filePath) {
+        // Takes the extension type
+      $videoType = pathinfo($filePath, PATHINFO_EXTENSION);
     }
 }
 ?>
