@@ -4,6 +4,10 @@
 
 class VideoProcessor {
     private $con;
+    // 5gb size limit.
+    private $sizeLimit = 500000000;
+
+
     public function __construct($con){
         $this->con = $con;
     }
@@ -26,6 +30,13 @@ class VideoProcessor {
     private function processData($videoData, $filePath) {
         // Takes the extension type
       $videoType = pathinfo($filePath, PATHINFO_EXTENSION);
+      if(!$this->isValidSize($videoData)) {
+
+      }
+    }
+
+    private function isValidSize($data) {
+        return $data["size"] <= $this->sizeLimit;
     }
 }
 ?>
