@@ -35,10 +35,17 @@ class VideoProcessor {
             echo "File is too large. Can't be more than." . $this -> sizeLimit . "bytes";
             return false;
       }
+      else if(!$this->isValidType($videoType)) {
+          
+      }
     }
 
     private function isValidSize($data) {
         return $data["size"] <= $this->sizeLimit;
+    }
+
+    private function isValidType($type) {
+        $lowercased = strtolower($type)
     }
 }
 ?>
