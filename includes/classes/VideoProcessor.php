@@ -20,27 +20,39 @@ class VideoProcessor {
 
         // uploaded file
         $videoData = $videoUploadData->videoDataArray;
-
+        // append an unique id
         $tempFilePath = $targetDir . uniqid() . basename($videoData["name"]);
-        
+        // replace blankspace with underscore
         $tempFilePath = str_replace(" ", "_", $tempFilePath);
-
+        
+        // returns true or false
         $isValidData = $this->processData($videoData, $tempFilePath);
-
-        echo $tempFilePath;
+        
+        if(!$isValidData) {
+            return false;
+        }
+        
+        // if everything is okay move the file
+        if(move_uploaded_file($videoData["tmp_name"], $tempFilePath)) {
+           echo "File moved successfully";
+        }
     }
 
+    // Checks if data is appropriate for being uploaded
     private function processData($videoData, $filePath) {
         // Takes the extension type
       $videoType = pathinfo($filePath, PATHINFO_EXTENSION);
       if(!$this->isValidSize($videoData)) {
             echo "File is too large. Can't be more than." . $this -> sizeLimit . "bytes";
             return false;
-      }
-      else if(!$this->isValidType($videoType)) {
+      }else if(!$this->isValidType($videoType)) {
           echo "Invalid file type";
           return false;
+      }else if($this->hasError($videoData)) {
+          echo "Error code: " . $videoData["error"];
+          return false;
       }
+      return true;
     }
 
     // Checks file size
@@ -52,6 +64,11 @@ class VideoProcessor {
     private function isValidType($type) {
         $lowercased = strtolower($type);
         return in_array($lowercased, $this->allowedTypes);
+    }
+    
+    // Checks if there is another error
+    private function hasError($data) {
+      return $data["error" ] != 0;
     }
 }
 ?>
