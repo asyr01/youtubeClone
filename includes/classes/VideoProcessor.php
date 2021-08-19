@@ -38,7 +38,8 @@ class VideoProcessor {
             return false;
       }
       else if(!$this->isValidType($videoType)) {
-          
+          echo "Invalid file type";
+          return false;
       }
     }
 
