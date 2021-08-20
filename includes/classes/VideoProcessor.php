@@ -34,7 +34,7 @@ class VideoProcessor {
         
         // if everything is okay move the file
         if(move_uploaded_file($videoData["tmp_name"], $tempFilePath)) {
-           echo "File moved successfully";
+          $finalFilePath = $targetDir . uniqid() . ".mp4";
         }
     }
 
