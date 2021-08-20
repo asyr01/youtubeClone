@@ -77,7 +77,7 @@ class VideoProcessor {
     
     // Insert data to the table
     private function insertVideoData($uploadData, $filePath) {
-
+      $query = $this->con->prepare("INSERT INTO videos(title, uploadedBy, description, privacy, category, filePath");
     }
 }
 ?>
