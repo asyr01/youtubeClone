@@ -35,6 +35,10 @@ class VideoProcessor {
         // if everything is okay move the file
         if(move_uploaded_file($videoData["tmp_name"], $tempFilePath)) {
           $finalFilePath = $targetDir . uniqid() . ".mp4";
+          if(!$this->insertVideoData($videoUploadData, $finalFilePath)) {
+              echo "Insert query failed";
+              return false;
+          }
         }
     }
 
@@ -69,6 +73,11 @@ class VideoProcessor {
     // Checks if there is another error
     private function hasError($data) {
       return $data["error" ] != 0;
+    }
+    
+    // Insert data to the table
+    private function insertVideoData($uploadData, $filePath) {
+
     }
 }
 ?>
