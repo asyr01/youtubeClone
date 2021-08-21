@@ -85,7 +85,9 @@ class VideoProcessor {
        $query->bindParam(":description, $uploadData->description");
        $query->bindParam(":privacy, $uploadData->privacy");
        $query->bindParam(":category, $uploadData->category");
-       $query->bindParam(":filePath, $uploadData->filePath");
+       $query->bindParam(":filePath, $filePath");
+       
+       return $query->execute();
     }
 }
 ?>
