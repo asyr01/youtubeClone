@@ -79,6 +79,8 @@ class VideoProcessor {
     private function insertVideoData($uploadData, $filePath) {
       $query = $this->con->prepare("INSERT INTO videos(title, uploadedBy, description, privacy, category, filePath)
        VALUES(:title, :uploadedBy, :description, :privacy, :category, :filePath)");
+
+       $query->bindParam(":title, $uploadData->title");
     }
 }
 ?>
