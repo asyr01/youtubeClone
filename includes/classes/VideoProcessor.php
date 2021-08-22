@@ -9,6 +9,7 @@ class VideoProcessor {
     private $sizeLimit = 500000000;
     // supported file types
     private $allowedTypes = array("mp4", "flv", "webm", "mkv", "vob", "ogv", "ogg", "avi", "wmv", "mov", "mpeg", "mpg");
+    private $ffmpegPath = "ffmpeg/windows/ffmpeg";
 
 
     public function __construct($con){
@@ -92,7 +93,7 @@ class VideoProcessor {
 
     public function convertVideoToMp4($tempFilePath, $finalFilePath) {
         // command to run the convertion operation
-        $cmd = "ffmpeg/windows/ffmpeg -i $tempFilePath $finalFilePath";
+        $cmd = "$ffmpegPath -i $tempFilePath $finalFilePath";
     }
-}
+} 
 ?>
