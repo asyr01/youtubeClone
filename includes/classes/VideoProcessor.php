@@ -89,5 +89,10 @@ class VideoProcessor {
        
        return $query->execute();
     }
+
+    public function convertVideoToMp4($tempFilePath, $finalFilePath) {
+        // command to run the convertion operation
+        $cmd = "ffmpeg/windows/ffmpeg -i $tempFilePath $finalFilePath";
+    }
 }
 ?>
