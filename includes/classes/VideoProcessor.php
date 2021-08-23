@@ -94,7 +94,9 @@ class VideoProcessor {
 
     public function convertVideoToMp4($tempFilePath, $finalFilePath) {
         // command to run the convertion operation
-        $cmd = "$ffmpegPath -i $tempFilePath $finalFilePath";
+        $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2-51";
+        $outputLog = array();
+        exec($cmd, $outputLog, $returnCode);
+       }
     }
-} 
 ?>
