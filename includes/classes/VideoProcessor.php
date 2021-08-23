@@ -41,6 +41,10 @@ class VideoProcessor {
               echo "Insert query failed";
               return false;
           }
+          if(!$this->convertVideoToMp4($tempFilePath, $finalFilePath)) {
+              echo "Upload Failed.";
+              return false;
+          }
         }
     }
 
@@ -93,10 +97,19 @@ class VideoProcessor {
     }
 
     public function convertVideoToMp4($tempFilePath, $finalFilePath) {
-        // command to run the convertion operation
+        // Command to run the convertion operation
         $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2-51";
         $outputLog = array();
         exec($cmd, $outputLog, $returnCode);
+        // Check if there is error and print output
+        if($returnCode != 0) {
+            // Command failed
+            foreach($outputLog as $line) {
+                echo $line . "<br>";
+            }
+           return false;
        }
+       return true;
     }
+}
 ?>
