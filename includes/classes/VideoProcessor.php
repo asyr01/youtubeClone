@@ -9,11 +9,12 @@ class VideoProcessor {
     private $sizeLimit = 500000000;
     // supported file types
     private $allowedTypes = array("mp4", "flv", "webm", "mkv", "vob", "ogv", "ogg", "avi", "wmv", "mov", "mpeg", "mpg");
-    private $ffmpegPath = "ffmpeg/windows/ffmpeg";
+    private $ffmpegPath;
 
 
     public function __construct($con){
         $this->con = $con;
+        $this->ffmpegPath = realpath("ffmpeg/windows/ffmpeg.exe");
     }
 
     public function upload($videoUploadData) {
