@@ -111,5 +111,13 @@ class VideoProcessor {
        }
        return true;
     }
+
+    private function deleteFile($filePath) {
+        if(!unlink($filePath)){
+            echo "Could not delete file\n;";
+            return false;
+        }
+        return true;
+    }
 }
 ?>
