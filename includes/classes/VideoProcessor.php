@@ -45,6 +45,11 @@ class VideoProcessor {
               echo "Upload Failed.";
               return false;
           } 
+
+          if(!$this->deleteFile($tempFilePath)) {
+            echo "Upload Failed.";
+            return false;
+        } 
         }
     }
 
