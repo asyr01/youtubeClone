@@ -37,10 +37,12 @@ class VideoProcessor {
         // if everything is okay move the file
         if(move_uploaded_file($videoData["tmp_name"], $tempFilePath)) {
           $finalFilePath = $targetDir . uniqid() . ".mp4";
+
           if(!$this->insertVideoData($videoUploadData, $finalFilePath)) {
               echo "Insert query failed";
               return false;
           }
+
           if(!$this->convertVideoToMp4($tempFilePath, $finalFilePath)) {
               echo "Upload Failed.";
               return false;
@@ -50,7 +52,7 @@ class VideoProcessor {
             echo "Upload Failed.";
             return false;
         } 
-        }
+      }
     }
 
     // Checks if data is appropriate for being uploaded
@@ -103,7 +105,7 @@ class VideoProcessor {
 
     public function convertVideoToMp4($tempFilePath, $finalFilePath) {
         // Command to run the convertion operation
-        $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2-51";
+        $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2-&1";
         $outputLog = array();
         exec($cmd, $outputLog, $returnCode);
         // Check if there is error and print output
