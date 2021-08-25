@@ -105,9 +105,11 @@ class VideoProcessor {
 
     public function convertVideoToMp4($tempFilePath, $finalFilePath) {
         // Command to run the convertion operation
-        $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2-&1";
+        $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2>&1";
+
         $outputLog = array();
         exec($cmd, $outputLog, $returnCode);
+        
         // Check if there is error and print output
         if($returnCode != 0) {
             // Command failed
@@ -130,6 +132,8 @@ class VideoProcessor {
     public function generateThumbnails($filePath) {
         // Youtube uses this ratio
         $thumbnailSize = "210x118";
+        $numThumbNails = 3;
+        $pathToThumbnail = "uploads/cideos/thumbnails";
     }
 }
 
