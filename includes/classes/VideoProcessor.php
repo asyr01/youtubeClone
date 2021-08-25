@@ -10,11 +10,13 @@ class VideoProcessor {
     // supported file types
     private $allowedTypes = array("mp4", "flv", "webm", "mkv", "vob", "ogv", "ogg", "avi", "wmv", "mov", "mpeg", "mpg");
     private $ffmpegPath;
+    private $ffprobePath;
 
 
     public function __construct($con){
         $this->con = $con;
         $this->ffmpegPath = realpath("ffmpeg/windows/ffmpeg.exe");
+        $this->ffprobePath = realpath("ffmpeg/windows/ffprobe.exe");
     }
 
     public function upload($videoUploadData) {
@@ -49,7 +51,7 @@ class VideoProcessor {
           } 
 
           if(!$this->deleteFile($tempFilePath)) {
-            echo "Upload Failed.";
+            echo "Deleting Failed.";
             return false;
         } 
       }
@@ -109,7 +111,7 @@ class VideoProcessor {
 
         $outputLog = array();
         exec($cmd, $outputLog, $returnCode);
-        
+
         // Check if there is error and print output
         if($returnCode != 0) {
             // Command failed
@@ -132,8 +134,15 @@ class VideoProcessor {
     public function generateThumbnails($filePath) {
         // Youtube uses this ratio
         $thumbnailSize = "210x118";
+        // Get the duartion with ffprobe, and get thumbnails as many as specified.
         $numThumbNails = 3;
-        $pathToThumbnail = "uploads/cideos/thumbnails";
+        $pathToThumbnail = "uploads/videos/thumbnails";
+
+        $duration = $this->getVideoDuration($filePath);
+    }
+
+    private function getVideoDuration() {
+        return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 input.mp4");
     }
 }
 
