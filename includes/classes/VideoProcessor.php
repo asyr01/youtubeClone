@@ -54,6 +54,11 @@ class VideoProcessor {
             echo "Deleting Failed.";
             return false;
         } 
+
+        if(!$this->generateThumbnails($finalFilePath)) {
+            echo "Couldn't generate thumbnails";
+            return false;
+        } 
       }
     }
 
@@ -139,10 +144,12 @@ class VideoProcessor {
         $pathToThumbnail = "uploads/videos/thumbnails";
 
         $duration = $this->getVideoDuration($filePath);
+
+        echo "duration: $duration";
     }
 
-    private function getVideoDuration() {
-        return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 input.mp4");
+    private function getVideoDuration($filePath) {
+        return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
     }
 }
 
