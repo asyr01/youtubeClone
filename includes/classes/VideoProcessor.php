@@ -111,7 +111,7 @@ class VideoProcessor {
         // Check if there is error and print output
         if($returnCode != 0) {
             // Command failed
-            foreach($outputLog as $line) {
+            foreach($outputLog as $line) {  
                 echo $line . "<br>";
             }
            return false;
@@ -126,5 +126,11 @@ class VideoProcessor {
         }
         return true;
     }
+
+    public function generateThumbnails($filePath) {
+        // Youtube uses this ratio
+        $thumbnailSize = "210x118";
+    }
 }
+
 ?>
