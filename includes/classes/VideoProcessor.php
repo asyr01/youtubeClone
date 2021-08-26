@@ -153,13 +153,20 @@ class VideoProcessor {
         echo "duration: $duration";
         return true;
     }
-
+    
+    // returns duration unformatted.
     private function getVideoDuration($filePath) {
         return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
     }
-
+      
+    // formats the duration.
     private function updateDuration($duration, $videoId) {
-
+        // 3600 is the number of seconds in one hour
+       $hours = floor($duration / 3600);
+        // duration minus hours then divide 60 to calculate minutes
+       $mins = floor($duration - ($hours * 3600) / 60);
+        // what remains after dividing 60
+       $secs = floor($duration % 60);
     }
 }
 
