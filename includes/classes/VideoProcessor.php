@@ -145,11 +145,21 @@ class VideoProcessor {
 
         $duration = $this->getVideoDuration($filePath);
 
+        // returns id of the row which is just inserted
+        $videoId = $this->con->lastInsertId();
+
+        $this->updateDuration($duration, $videoId);
+
         echo "duration: $duration";
+        return true;
     }
 
     private function getVideoDuration($filePath) {
         return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
+    }
+
+    private function updateDuration($duration, $videoId) {
+
     }
 }
 
