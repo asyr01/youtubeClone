@@ -172,7 +172,11 @@ class VideoProcessor {
        $mins = ($mins < 10) ? "0" . $mins . ":" : $mins . ":";
        $secs = ($secs < 10) ? "0" . $secs : $secs;
 
-       $duration = $hours . $mins . $secs;
+       $duration = $hours.$mins.$secs;
+
+       $query = $this->con->prepare("UPDATE videos SET duration=:duration WHERE id=:videoId");
+       $query->bindParam(":duration", $duration);
+       $query->bindParam(":videoId", $videoId);
     }
 }
 
