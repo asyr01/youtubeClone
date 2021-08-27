@@ -154,6 +154,21 @@ class VideoProcessor {
             $imageName = uniqid() . ".jpg";
             // ignores first and last couple of seconds
             $interval = ($duration * 0.8) / $numThumbnails * $num;
+            $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
+               // Command to run the convertion operation
+             $cmd = "$this->ffmpegPath -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath 2>&1";
+
+             $outputLog = array();
+             exec($cmd, $outputLog, $returnCode);
+
+            // Check if there is error and print output
+             if($returnCode != 0) {
+              // Command failed
+              foreach($outputLog as $line) {  
+                  echo $line . "<br>";
+              }
+             return false;
+         }
         }
     }
     
