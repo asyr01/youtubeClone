@@ -59,6 +59,7 @@ class VideoProcessor {
             echo "Couldn't generate thumbnails";
             return false;
         } 
+      return true;
       }
     }
 
@@ -167,20 +168,33 @@ class VideoProcessor {
               foreach($outputLog as $line) {  
                   echo $line . "<br>";
               }
-             return false;
-         }
+          }
+          $selected = $num == 1 ? 1 : 0;
+
+          $query = $this->con->prepare("INSERT INTO thumbnails(videoid, filePath, selected) VALUES(:videoId, :filePath, :selected)");
+          $query->bindParam(":videoId", $videoId);
+          $query->bindParam(":filePath", $fullThumbnailPath);
+          $query->bindParam(":selected", $selected);
+
+          $success = $query->execute();
+
+          if(!$success) {
+            echo "Error inserting thumbnail\n";
+            return false;
+          }
+         
         }
+     return true;
     }
     
     // returns duration unformatted.
     private function getVideoDuration($filePath) {
-        return shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
+        // string turned to integer to make calculations by (int)
+        return (int)shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
     }
       
     // formats the duration.
     private function updateDuration($duration, $videoId) {
-        // string turned to integer to make calculations
-        $duration = (int)$duration;
         // 3600 is the number of seconds in one hour
        $hours = floor($duration / 3600);
         // duration minus hours then divide 60 to calculate minutes
