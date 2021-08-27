@@ -140,7 +140,7 @@ class VideoProcessor {
         // Youtube uses this ratio
         $thumbnailSize = "210x118";
         // Get the duartion with ffprobe, and get thumbnails as many as specified.
-        $numThumbNails = 3;
+        $numThumbnails = 3;
         $pathToThumbnail = "uploads/videos/thumbnails";
 
         $duration = $this->getVideoDuration($filePath);
@@ -149,9 +149,12 @@ class VideoProcessor {
         $videoId = $this->con->lastInsertId();
 
         $this->updateDuration($duration, $videoId);
-
-        echo "duration: $duration";
-        return true;
+ 
+        for($num = 1; $num<=$numThumbnails; $num++) {
+            $imageName = uniqid() . ".jpg";
+            // ignores first and last couple of seconds
+            $interval = ($duration * 0.8) / $numThumbnails * $num;
+        }
     }
     
     // returns duration unformatted.
@@ -161,6 +164,8 @@ class VideoProcessor {
       
     // formats the duration.
     private function updateDuration($duration, $videoId) {
+        // string turned to integer to make calculations
+        $duration = (int)$duration;
         // 3600 is the number of seconds in one hour
        $hours = floor($duration / 3600);
         // duration minus hours then divide 60 to calculate minutes
@@ -168,15 +173,18 @@ class VideoProcessor {
         // what remains after dividing 60
        $secs = floor($duration % 60);
 
-       $hours = ($hours < 1) ? "00" : $hours . ":";
+       $hours = ($hours < 1) ? "" : $hours . ":";
        $mins = ($mins < 10) ? "0" . $mins . ":" : $mins . ":";
        $secs = ($secs < 10) ? "0" . $secs : $secs;
 
        $duration = $hours.$mins.$secs;
 
        $query = $this->con->prepare("UPDATE videos SET duration=:duration WHERE id=:videoId");
+
        $query->bindParam(":duration", $duration);
        $query->bindParam(":videoId", $videoId);
+
+       $query->execute();
     }
 }
 
