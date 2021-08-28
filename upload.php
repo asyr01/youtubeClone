@@ -10,13 +10,19 @@
       ?>
 </div>
 
+<script>
+  $("form").submit(() => {
+    $("#loadingModal").modal("show");
+  });
+</script>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
         Please wait. This might take a while.
+        <img src="assets/images/icons/loading-spinner.gif" alt="loading spinner">
       </div>
     </div>
   </div>
