@@ -15,6 +15,21 @@
   </head>
   <body>
 
+  <div class="signInContainer">
+      <div class="column">
+          <div class="header">
+          <img src="assets/images/icons/youtube.png" alt="youtube logo" title="YouTube Homepage">
+          <h3>Sign Up</h3>
+          <span>to continue to YouTube</span>
+          </div>
+
+          <div class="logInForm">
+
+          </div>
+
+          <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
+      </div>
+  </div>
         
   </body>
 </html>
