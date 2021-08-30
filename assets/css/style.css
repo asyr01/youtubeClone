@@ -175,6 +175,19 @@ form .form-group {
   overflow-y: auto;
 }
 
+.signInContainer .column .header {
+  padding: 20px 0;
+}
+
+.signInContainer .column .header h3 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0;
+  padding-bottom: 0;
+  padding-top: 16px;
+}
+
 .signInContainer .column .header img {
   width: 150px;
 }
