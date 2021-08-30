@@ -188,6 +188,10 @@ form .form-group {
   padding-top: 16px;
 }
 
+.signInContainer .column .header span {
+  font-size: 14px;
+}
+
 .signInContainer .column .header img {
   width: 150px;
 }
