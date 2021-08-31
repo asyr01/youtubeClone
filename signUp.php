@@ -34,7 +34,7 @@
             <!-- Email -->
             <input type="email" name="email" placeholder="Email" autocomplete="off" required>
             <!-- Confirm Email -->
-            <input type="email" name="email2" placeholder="Email" autocomplete="off" required>
+            <input type="email" name="email2" placeholder="Confirm Email" autocomplete="off" required>
             <!-- Password -->
             <input type="password" name="password1" placeholder="Password" autocomplete="off" required>
             <!-- Confirm Password -->
@@ -42,7 +42,7 @@
             </form>
           </div>
            <!-- Submit Button -->
-           <input type="submit" name="Submit Button" value="SUBMIT">
+           <input type="submit" name="Submit Button" value="SUBMIT" />
 
           <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
       </div>

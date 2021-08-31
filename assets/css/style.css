@@ -197,7 +197,18 @@ form .form-group {
 }
 
 /* SignIn Form */
+.signInContainer .column .logInForm {
+  padding-top: 24px;
+}
+
 .signInContainer .column .logInForm form {
   display: flex;
   flex-direction: column;
+}
+
+.signInContainer .column .logInForm form input {
+  font-size: 14px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #dedede;
 }
