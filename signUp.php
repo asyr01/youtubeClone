@@ -31,7 +31,6 @@
               <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>
             <!-- Username -->
               <input type="text" name="username" placeholder="Username" autocomplete="off" required>
-            </form>
             <!-- Email -->
             <input type="email" name="email" placeholder="Email" autocomplete="off" required>
             <!-- Confirm Email -->
@@ -40,6 +39,7 @@
             <input type="password" name="password1" placeholder="Password" autocomplete="off" required>
             <!-- Confirm Password -->
             <input type="password" name="password2" placeholder="Confirm Password" autocomplete="off" required>
+            </form>
           </div>
            <!-- Submit Button -->
            <input type="submit" name="Submit Button" value="SUBMIT">

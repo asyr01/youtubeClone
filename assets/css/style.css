@@ -195,3 +195,9 @@ form .form-group {
 .signInContainer .column .header img {
   width: 150px;
 }
+
+/* SignIn Form */
+.signInContainer .column .logInForm form {
+  display: flex;
+  flex-direction: column;
+}
