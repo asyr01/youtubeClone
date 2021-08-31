@@ -31,18 +31,22 @@
               <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>
             <!-- Username -->
               <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+
             <!-- Email -->
             <input type="email" name="email" placeholder="Email" autocomplete="off" required>
             <!-- Confirm Email -->
             <input type="email" name="email2" placeholder="Confirm Email" autocomplete="off" required>
+
             <!-- Password -->
             <input type="password" name="password1" placeholder="Password" autocomplete="off" required>
             <!-- Confirm Password -->
             <input type="password" name="password2" placeholder="Confirm Password" autocomplete="off" required>
+            
+            <!-- Submit Button -->
+            <input type="submit" name="Submit Button" value="SUBMIT" />
             </form>
           </div>
-           <!-- Submit Button -->
-           <input type="submit" name="Submit Button" value="SUBMIT" />
+         
 
           <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
       </div>
