@@ -24,7 +24,7 @@
           </div>
 
           <div class="logInForm">
-            <form action="signUp.php">
+            <form action="signIn.php">
               <!-- Username -->
             <input type="text" name="username" placeholder="Username" required autocomplete="off">
               <!-- Password -->
@@ -34,7 +34,7 @@
             </form>
           </div>
 
-          <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
+          <a class="signInMessage" href="signUp.php">Don't have an account? Sign up here!</a>
       </div>
   </div>
         
