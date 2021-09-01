@@ -177,6 +177,7 @@ form .form-group {
 
 .signInContainer .column .header {
   padding: 20px 0;
+  text-align: center;
 }
 
 .signInContainer .column .header h3 {
@@ -225,4 +226,10 @@ form .form-group {
   border-radius: 3px;
   font-weight: 500;
   margin: 10px auto 20px;
+}
+
+.signInContainer .column .signInMessage {
+  font-size: 14px;
+  font-weight: 400;
+  color: #212529;
 }

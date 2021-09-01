@@ -46,8 +46,6 @@
             <input type="submit" name="Submit Button" value="SUBMIT" />
             </form>
           </div>
-         
-
           <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
       </div>
   </div>

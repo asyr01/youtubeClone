@@ -19,7 +19,7 @@
       <div class="column">
           <div class="header">
           <img src="assets/images/icons/youtube.png" alt="youtube logo" title="YouTube Homepage">
-          <h3>Sign Up</h3>
+          <h3>Sign In</h3>
           <span>to continue to YouTube</span>
           </div>
 
