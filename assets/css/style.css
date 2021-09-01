@@ -232,4 +232,9 @@ form .form-group {
   font-size: 14px;
   font-weight: 400;
   color: #212529;
+  text-decoration: none;
+}
+
+.signInContainer .column .signInMessage:hover {
+  color: #4285f4;
 }

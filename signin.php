@@ -25,7 +25,12 @@
 
           <div class="logInForm">
             <form action="signUp.php">
-              
+              <!-- Username -->
+            <input type="text" name="username" placeholder="Username" required autocomplete="off">
+              <!-- Password -->
+            <input type="password" name="password" placeholder="Password" required>
+             <!-- Button -->
+             <input type="submit" name="submitBtn" value="SUBMIT">
             </form>
           </div>
 
