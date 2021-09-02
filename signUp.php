@@ -1,4 +1,12 @@
-<?php require_once("includes/config.php"); ?>
+<?php
+ require_once("includes/config.php"); 
+ if(isset($_POST["submitBtn"])) {
+   echo "Form Submitted";
+ }
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,7 +51,7 @@
             <input type="password" name="password2" placeholder="Confirm Password" autocomplete="off" required>
             
             <!-- Submit Button -->
-            <input type="submit" name="Submit Button" value="SUBMIT" />
+            <input type="submit" name="submitBtn" value="SUBMIT" />
             </form>
           </div>
           <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
