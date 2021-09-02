@@ -6,15 +6,17 @@
       // prevents tag injection
       $inputText = strip_tags($inputText);
       // remove blank spaces
-      $inputText = str_replace($inputText, " ", "");
+      $inputText = str_replace(" ", "", $inputText);
       // make string lowercase
       $inputText = strtolower($inputText);
       // capitalize first letter
       $inputText = ucfirst($inputText);
+      return $inputText;
     }
 
  if(isset($_POST["submitBtn"])) {
-   $firstName = $_POST["firstName"];
+   $firstName = sanitizeFormString($_POST["firstName"]);
+   echo $firstName;
  }
  ?>
 
