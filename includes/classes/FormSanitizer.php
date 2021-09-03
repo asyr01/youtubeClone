@@ -14,8 +14,15 @@ public static function sanitizeFormString($inputText) {
     $inputText = ucfirst($inputText);
     return $inputText;
   }
-}
 
+public static function sanitizeFormUsername($inputText) {
+    // prevents tag injection
+    $inputText = strip_tags($inputText);
+    // remove blank spaces
+    $inputText = str_replace(" ", "", $inputText);
+    return $inputText;
+  }
+}
 ?>
 
 
