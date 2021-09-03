@@ -1,21 +1,9 @@
 <?php
  require_once("includes/config.php"); 
-
-  // Sanitizing form data -trim the spaces etc, prevent html tags to prevent sql/script injection etc, capitalize first letter-
-    function sanitizeFormString($inputText) {
-      // prevents tag injection
-      $inputText = strip_tags($inputText);
-      // remove blank spaces
-      $inputText = str_replace(" ", "", $inputText);
-      // make string lowercase
-      $inputText = strtolower($inputText);
-      // capitalize first letter
-      $inputText = ucfirst($inputText);
-      return $inputText;
-    }
+ require_once("includes/classes/FormSanitizer.php"); 
 
  if(isset($_POST["submitBtn"])) {
-   $firstName = sanitizeFormString($_POST["firstName"]);
+   $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
    echo $firstName;
  }
  ?>
