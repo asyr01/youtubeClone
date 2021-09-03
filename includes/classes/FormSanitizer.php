@@ -3,6 +3,7 @@
 class FormSanitizer {
 
 // Sanitizing form data -trim the spaces etc, prevent html tags to prevent sql/script injection etc, capitalize first letter-
+
 public static function sanitizeFormString($inputText) {
     // prevents tag injection
     $inputText = strip_tags($inputText);
