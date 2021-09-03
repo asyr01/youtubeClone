@@ -22,6 +22,20 @@ public static function sanitizeFormUsername($inputText) {
     $inputText = str_replace(" ", "", $inputText);
     return $inputText;
   }
+
+  public static function sanitizeFormPassword($inputText) {
+    // prevents tag injection
+    $inputText = strip_tags($inputText);
+    return $inputText;
+  }
+
+  public static function sanitizeFormEmail($inputText) {
+    // prevents tag injection
+    $inputText = strip_tags($inputText);
+    // remove blank spaces
+    $inputText = str_replace(" ", "", $inputText);
+    return $inputText;
+  }
 }
 ?>
 
