@@ -1,7 +1,6 @@
 <!-- Inserts data, Validates the data entered, if first name is more than 2 char, username is already exist etc -->
 
 <?php
-require_once('./Constants.php');
 
 class Account {
   private $con;
@@ -18,7 +17,7 @@ class Account {
 
   // Validate first name
   private function validateFirstName($fn) {
-    if(strlen($fn) > 24 || strlen($fn) < 2 ) {
+    if(strlen($fn) > 25 || strlen($fn) < 2 ) {
         array_push($this->errArray, Constants::$firstNameCharacters);
     }
   }
