@@ -1,8 +1,11 @@
 <!-- Inserts data, Validates the data entered, if first name is more than 2 char, username is already exist etc -->
 
 <?php
+require_once('./Constants.php');
+
 class Account {
   private $con;
+  private $errArray = array();
 
   public function __construct($con){
       $this->con = $con;
@@ -10,14 +13,14 @@ class Account {
   
   // Register user to the site. Insert info to table. 
   public function register($fn, $ln, $un, $em, $em2, $pw, $pw2) {
-    echo $fn . "\n";
-    echo $ln . "\n";
-    echo $un . "\n";
-    echo $em . "\n";
-    echo $em2. "\n";
-    echo $pw . "\n";
-    echo $pw2 . "\n";
+    $this->validateFirstName($fn);
   }
 
+  // Validate first name
+  private function validateFirstName($fn) {
+    if(strlen($fn) > 24 || strlen($fn) < 2 ) {
+        array_push($this->errArray, Constants::$firstNameCharacters);
+    }
+  }
 }
 ?>
