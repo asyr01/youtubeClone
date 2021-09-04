@@ -13,6 +13,12 @@
 
    $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
    $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
+
+   echo $firstName . "\n";
+   echo $lastName . "\n";
+   echo $username . "\n";
+   echo $email . "\n";
+   echo $password . "\n";
  }
  ?>
 
@@ -56,7 +62,7 @@
             <input type="email" name="email2" placeholder="Confirm Email" autocomplete="off" required>
 
             <!-- Password -->
-            <input type="password" name="password1" placeholder="Password" autocomplete="off" required>
+            <input type="password" name="password" placeholder="Password" autocomplete="off" required>
             <!-- Confirm Password -->
             <input type="password" name="password2" placeholder="Confirm Password" autocomplete="off" required>
             
