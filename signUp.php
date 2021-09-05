@@ -51,6 +51,10 @@
         
           <div class="logInForm">
             <form action="signUp.php" method="POST">
+              <!-- Print error if exists  -->
+              <?php
+               echo $account->getError(Constants::$firstNameCharacters);
+              ?>
              <!-- First Name -->
             <input type="text" name="firstName" placeholder="First Name" autocomplete="off" required>
             <!-- Last Name -->

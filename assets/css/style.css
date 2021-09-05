@@ -238,3 +238,10 @@ form .form-group {
 .signInContainer .column .signInMessage:hover {
   color: #4285f4;
 }
+
+.errorMessage {
+  color: #f00;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
