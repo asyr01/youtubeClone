@@ -48,7 +48,7 @@
           <h3>Sign Up</h3>
           <span>to continue to YouTube</span>
           </div>
-
+        
           <div class="logInForm">
             <form action="signUp.php" method="POST">
              <!-- First Name -->

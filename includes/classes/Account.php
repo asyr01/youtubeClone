@@ -21,5 +21,13 @@ class Account {
         array_push($this->errArray, Constants::$firstNameCharacters);
     }
   }
+
+  // Prints error outputs
+  public function getError($error) {
+    // If found in array
+    if(in_array($error, $this->errArray)) {
+        return "<span class='errorMessage'>$error</span>";
+    }
+  }
 }
 ?>
