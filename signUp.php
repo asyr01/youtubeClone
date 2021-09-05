@@ -51,17 +51,18 @@
         
           <div class="logInForm">
             <form action="signUp.php" method="POST">
-              <!-- Print error if exists  -->
-              <?php
-               echo $account->getError(Constants::$firstNameCharacters);
-              ?>
+          
+            <!-- Print error if exists  -->
+          <?php echo $account->getError(Constants::$firstNameCharacters);?>
              <!-- First Name -->
             <input type="text" name="firstName" placeholder="First Name" autocomplete="off" required>
-            <?php
-               echo $account->getError(Constants::$lastNameCharacters);
-              ?>
+
+          <?php echo $account->getError(Constants::$lastNameCharacters)?>
             <!-- Last Name -->
               <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>
+
+          <?php echo $account->getError(Constants::$usernameCharacters)?>
+          <?php echo $account->getError(Constants::$usernameExists)?>
             <!-- Username -->
               <input type="text" name="username" placeholder="Username" autocomplete="off" required>
 
