@@ -57,6 +57,9 @@
               ?>
              <!-- First Name -->
             <input type="text" name="firstName" placeholder="First Name" autocomplete="off" required>
+            <?php
+               echo $account->getError(Constants::$lastNameCharacters);
+              ?>
             <!-- Last Name -->
               <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>
             <!-- Username -->
