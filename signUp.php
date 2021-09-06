@@ -66,6 +66,8 @@
               <input type="text" name="username" placeholder="Username" autocomplete="off" required>
 
           <?php echo $account->getError(Constants::$emailsDontMatch)?>
+          <?php echo $account->getError(Constants::$emailInvalid)?>
+          <?php echo $account->getError(Constants::$emailExists)?>
             <!-- Email -->
             <input type="email" name="email" placeholder="Email" autocomplete="off" required>
             <!-- Confirm Email -->
