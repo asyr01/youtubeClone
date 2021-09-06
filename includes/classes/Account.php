@@ -40,7 +40,7 @@ class Account {
         return;
     }
     // Checks if selected username exists in table
-    $query = $this->con->prepare("SELECT username FROM users WHERE username=':un'");
+    $query = $this->con->prepare("SELECT username FROM users WHERE username=:un");
     $query->bindParam(":un", $un);
     $query->execute();
     // If query returns a row, print error
@@ -63,13 +63,12 @@ class Account {
     };
 
     // Checks if selected username exists in table
-    $query = $this->con->prepare("SELECT email FROM users WHERE email=':em'");
+    $query = $this->con->prepare("SELECT email FROM users WHERE email=:em");
     $query->bindParam(":em", $em);
     $query->execute();
     // If query returns a row, print error
     if($query->rowCount() !=0){
       array_push($this->errArray, Constants::$emailExists);
-      echo "error";
     }
   }
 
