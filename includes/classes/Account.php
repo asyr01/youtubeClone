@@ -38,12 +38,20 @@ class Account {
         return;
     }
     // Checks if selected username exists in table
-    $query = $this->con->prepare("SELECT username FROM users WHERE username=:un");
+    $query = $this->con->prepare("SELECT username FROM users WHERE username=':un'");
     $query->bindParam(":un", $un);
     $query->execute();
     // If query returns a row, print error
     if($query->rowCount() !=0){
       array_push($this->errArray, Constants::$usernameExists);
+    }
+  }
+
+   // Validate emails if emails matches, then check if it already exists.
+   private function validateEmails($em, $em2) {
+    if($em != $em2) {
+        array_push($this->errArray, Constants::$emailsDontMatch);
+        return;
     }
   }
 

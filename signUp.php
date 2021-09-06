@@ -51,7 +51,6 @@
         
           <div class="logInForm">
             <form action="signUp.php" method="POST">
-          
             <!-- Print error if exists  -->
           <?php echo $account->getError(Constants::$firstNameCharacters);?>
              <!-- First Name -->
