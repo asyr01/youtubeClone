@@ -6,6 +6,7 @@ class Account {
   private $con;
   private $errArray = array();
 
+  
   public function __construct($con){
       $this->con = $con;
   }
@@ -54,20 +55,22 @@ class Account {
         array_push($this->errArray, Constants::$emailsDontMatch);
         return;
     }
+    
     // Built-in php filter, checks if valid.
     if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
       array_push($this->errArray, Constants::$emailInvalid);
         return;
     };
 
-    // Checks if selected email exists in table
+    // Checks if selected username exists in table
     $query = $this->con->prepare("SELECT email FROM users WHERE email=':em'");
     $query->bindParam(":em", $em);
     $query->execute();
     // If query returns a row, print error
     if($query->rowCount() !=0){
-       array_push($this->errArray, Constants::$emailExists);
-        }
+      array_push($this->errArray, Constants::$emailExists);
+      echo "error";
+    }
   }
 
   // Prints error outputs
