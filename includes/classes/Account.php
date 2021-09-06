@@ -15,6 +15,7 @@ class Account {
     $this->validateFirstName($fn);
     $this->validateLastName($ln);
     $this->validateUsername($un);
+    $this->validateEmails($em, $em2);
   }
 
   // Validate first name
@@ -53,6 +54,14 @@ class Account {
         array_push($this->errArray, Constants::$emailsDontMatch);
         return;
     }
+    // Checks if selected username exists in table
+    $query = $this->con->prepare("SELECT email FROM users WHERE email=':em'");
+    $query->bindParam(":em", $em);
+    $query->execute();;
+    // If query returns a row, print error
+    if($query->rowCount() !=0){
+       array_push($this->errArray, Constants::$usernameExists);
+        }
   }
 
   // Prints error outputs

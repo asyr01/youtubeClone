@@ -59,12 +59,13 @@
           <?php echo $account->getError(Constants::$lastNameCharacters)?>
             <!-- Last Name -->
               <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>
-
+           
           <?php echo $account->getError(Constants::$usernameCharacters)?>
           <?php echo $account->getError(Constants::$usernameExists)?>
             <!-- Username -->
               <input type="text" name="username" placeholder="Username" autocomplete="off" required>
 
+          <?php echo $account->getError(Constants::$emailsDontMatch)?>
             <!-- Email -->
             <input type="email" name="email" placeholder="Email" autocomplete="off" required>
             <!-- Confirm Email -->
