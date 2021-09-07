@@ -17,6 +17,7 @@ class Account {
     $this->validateLastName($ln);
     $this->validateUsername($un);
     $this->validateEmails($em, $em2);
+    $this->validatePasswords($pw, $pw2);
   }
 
   // Validate first name
@@ -71,6 +72,14 @@ class Account {
       array_push($this->errArray, Constants::$emailExists);
     }
   }
+
+    // Validate passwords if passwords matches, then check if includes characters.
+    private function validatePasswords($pw, $pw2) {
+      if($pw != $pw2) {
+          array_push($this->errArray, Constants::$pwsDontMatch);
+          return;
+      }
+    }
 
   // Prints error outputs
   public function getError($error) {

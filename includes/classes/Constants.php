@@ -12,5 +12,7 @@ class Constants {
    public static $emailsDontMatch = "Emails do not match, please check again";
    public static $emailInvalid = "Email is invalid, please enter a valid email";
    public static $emailExists = "This email adress already exists in our system";
+
+   public static $pwsDontMatch = "Passwords do not match, please check again";
 }
 ?>
