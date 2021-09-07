@@ -15,5 +15,7 @@ class Constants {
 
    public static $pwsDontMatch = "Passwords do not match, please check again";
    public static $pwsNotAlphanumeric = "Password can only contain letters and numbers";
+   public static $pwCharacters = "Your password must be between 6 and 30 characters";
+   
 }
 ?>

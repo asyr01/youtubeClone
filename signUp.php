@@ -73,7 +73,9 @@
             <!-- Confirm Email -->
             <input type="email" name="email2" placeholder="Confirm Email" autocomplete="off" required>
 
-            <?php echo $account->getError(Constants::$pwsDontMatch)?>
+          <?php echo $account->getError(Constants::$pwsDontMatch)?>
+          <?php echo $account->getError(Constants::$pwsNotAlphanumeric)?>
+          <?php echo $account->getError(Constants::$pwCharacters)?>
             <!-- Password -->
             <input type="password" name="password" placeholder="Password" autocomplete="off" required>
             <!-- Confirm Password -->

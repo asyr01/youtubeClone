@@ -73,16 +73,22 @@ class Account {
     }
   }
 
-    // Validate passwords if passwords matches, then check if it includes characters.
-    private function validatePasswords($pw, $pw2) {
+  // Validate passwords if passwords matches, then check if it includes characters.
+  private function validatePasswords($pw, $pw2) {
       if($pw != $pw2) {
           array_push($this->errArray, Constants::$pwsDontMatch);
           return;
       }
+
       // only numbers and letters. -special characters don't really make much safer. preg_match cheks if password matches the reg exp.
       if(preg_match("/[^A-Za-z0-9]/", $pw)) {
         array_push($this->errArray, Constants::$pwsNotAlphanumeric);
         return;
+     }
+     
+     // Check lengt of password
+     if(strlen($pw) > 30 || strlen($pw) < 6 ) {
+      array_push($this->errArray, Constants::$pwCharacters);
      }
     }
 
