@@ -14,5 +14,6 @@ class Constants {
    public static $emailExists = "This email adress already exists in our system";
 
    public static $pwsDontMatch = "Passwords do not match, please check again";
+   public static $pwsNotAlphanumeric = "Password can only contain letters and numbers";
 }
 ?>
