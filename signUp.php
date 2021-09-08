@@ -64,26 +64,26 @@ function getInputValue($name) {
           <div class="logInForm">
             <form action="signUp.php" method="POST">
             <!-- Print error if exists  -->
-          <?php echo $account->getError(Constants::$firstNameCharacters);?>
+        <?php echo $account->getError(Constants::$firstNameCharacters);?>
              <!-- First Name -->
-            <input type="text" name="firstName" value="" placeholder="First Name" autocomplete="off" required>
+            <input type="text" name="firstName" value="<?php getInputValue('firstName');?>" placeholder="First Name" autocomplete="off" required>
 
           <?php echo $account->getError(Constants::$lastNameCharacters)?>
             <!-- Last Name -->
-              <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>
+              <input type="text" name="lastName" value=<?php getInputValue('lastName');?> placeholder="Last Name" autocomplete="off" required>
            
           <?php echo $account->getError(Constants::$usernameCharacters)?>
           <?php echo $account->getError(Constants::$usernameExists)?>
             <!-- Username -->
-              <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+              <input type="text" name="username" value=<?php getInputValue('username');?> placeholder="Username" autocomplete="off" required>
 
           <?php echo $account->getError(Constants::$emailsDontMatch)?>
           <?php echo $account->getError(Constants::$emailInvalid)?>
           <?php echo $account->getError(Constants::$emailExists)?>
             <!-- Email -->
-            <input type="email" name="email" placeholder="Email" autocomplete="off" required>
+            <input type="email" name="email" value=<?php getInputValue('email');?> placeholder="Email" autocomplete="off" required>
             <!-- Confirm Email -->
-            <input type="email" name="email2" placeholder="Confirm Email" autocomplete="off" required>
+            <input type="email" name="email2" value=<?php getInputValue('email2');?> placeholder="Confirm Email" autocomplete="off" required>
 
           <?php echo $account->getError(Constants::$pwsDontMatch)?>
           <?php echo $account->getError(Constants::$pwsNotAlphanumeric)?>
