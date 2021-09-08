@@ -20,8 +20,20 @@
    $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
    
    $wasSuccessful = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
-
+ if($wasSuccessful) {
+   // Success
+    
+   // Redirect user to index page
  }
+
+}
+
+function getInputValue($name) {
+  if(isset($_POST[$name])) {
+    echo $_POST[$name];
+  }
+}
+
  ?>
 
 
@@ -54,7 +66,7 @@
             <!-- Print error if exists  -->
           <?php echo $account->getError(Constants::$firstNameCharacters);?>
              <!-- First Name -->
-            <input type="text" name="firstName" placeholder="First Name" autocomplete="off" required>
+            <input type="text" name="firstName" value="" placeholder="First Name" autocomplete="off" required>
 
           <?php echo $account->getError(Constants::$lastNameCharacters)?>
             <!-- Last Name -->
