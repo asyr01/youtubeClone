@@ -18,6 +18,17 @@ class Account {
     $this->validateUsername($un);
     $this->validateEmails($em, $em2);
     $this->validatePasswords($pw, $pw2);
+
+    if(empty($this->errArray)){
+       return $this->insertUserDetails($fn, $ln, $un, $em, $pw);
+    } else {
+      return false;
+    }
+  }
+  
+  // Inserts user data to the table
+  public function insertUserDetails($fn, ln, un, em, pw) {
+
   }
 
   // Validate first name
@@ -90,7 +101,7 @@ class Account {
      if(strlen($pw) > 30 || strlen($pw) < 6 ) {
       array_push($this->errArray, Constants::$pwCharacters);
      }
-    }
+  }
 
   // Prints error outputs
   public function getError($error) {
