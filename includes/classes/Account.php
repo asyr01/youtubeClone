@@ -27,7 +27,7 @@ class Account {
   }
   
   // Inserts user data to the table
-  public function insertUserDetails($fn, ln, un, em, pw) {
+  public function insertUserDetails($fn, $ln, $un, $em, $pw) {
 
   }
 
