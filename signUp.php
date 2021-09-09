@@ -21,10 +21,12 @@
    $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
    
    $wasSuccessful = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
+
  if($wasSuccessful) {
-   // Success
-    
+   echo "success";
    // Redirect user to index page
+ } else {
+   echo 'fail';
  }
 
 }

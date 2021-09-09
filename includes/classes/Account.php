@@ -34,7 +34,7 @@ class Account {
       // default profile pic
       $profilePic = "assets/images/profilePictures/default.png";
 
-      // query to insert the users' data
+      // Query to insert the users' data
       $query = $this->con->prepare("INSERT INTO users (firstName, lastName, username, email, password, profilePic) 
       VALUES (:fn, :ln, :un, :em, :pw, :pic)");
 
@@ -46,8 +46,8 @@ class Account {
       $query->bindParam(':pw', $pw);
       $query->bindParam(':pic', $profilePic);
 
-      // execute the query
-      $query->execute();
+      // Execute the query
+      return $query->execute();
       }
 
   // Validate first name
