@@ -28,7 +28,8 @@ class Account {
   
   // Inserts user data to the table
   public function insertUserDetails($fn, $ln, $un, $em, $pw) {
-      return true;
+      // Hash the password
+      $pw = hash("sha512", $pw);
   }
 
   // Validate first name
