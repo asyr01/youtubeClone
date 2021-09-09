@@ -7,6 +7,7 @@
  // Creates an instance of Account class
  $account = new Account($con);
 
+
  if(isset($_POST["submitBtn"])) {
    $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
    $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);

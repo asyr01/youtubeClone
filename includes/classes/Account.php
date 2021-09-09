@@ -30,6 +30,8 @@ class Account {
   public function insertUserDetails($fn, $ln, $un, $em, $pw) {
       // Hash the password
       $pw = hash("sha512", $pw);
+      // defaultr profile pic
+      $profilePic = "assets/images/profilePictures/default.png";
   }
 
   // Validate first name
