@@ -30,9 +30,25 @@ class Account {
   public function insertUserDetails($fn, $ln, $un, $em, $pw) {
       // Hash the password
       $pw = hash("sha512", $pw);
-      // defaultr profile pic
+
+      // default profile pic
       $profilePic = "assets/images/profilePictures/default.png";
-  }
+
+      // query to insert the users' data
+      $query = $this->con->prepare("INSERT INTO users (firstName, lastName, username, email, password, profilePic) 
+      VALUES (:fn, :ln, :un, :em, :pw, :pic)");
+
+      // Bind values to the placeholders
+      $query->bindParam(':fn', $fn);
+      $query->bindParam(':ln', $ln);
+      $query->bindParam(':un', $un);
+      $query->bindParam(':em', $em);
+      $query->bindParam(':pw', $pw);
+      $query->bindParam(':pic', $profilePic);
+
+      // execute the query
+      $query->execute();
+      }
 
   // Validate first name
   private function validateFirstName($fn) {
