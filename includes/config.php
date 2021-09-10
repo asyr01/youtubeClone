@@ -1,5 +1,7 @@
 <?php 
 ob_start(); // turns on output buffering
+session_start();
+
 date_default_timezone_set('Europe/Istanbul'); // Sets Timezone
 
 // Try & Catch statement for PDO connection

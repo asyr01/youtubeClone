@@ -26,6 +26,7 @@
    // Store username into a session variable
       $_SESSION["userLoggedIn"] = $username;
    // Redirect user to index page
+      header("Location: index.php");
  } else {
    echo 'fail';
  }
