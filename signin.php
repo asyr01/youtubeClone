@@ -32,9 +32,9 @@ function getInputValue($name) {
           </div>
 
           <div class="logInForm">
-            <form action="signIn.php">
+            <form action="signIn.php" method="POST">
               <!-- Username -->
-            <input type="text" name="username" placeholder="Username" required autocomplete="off">
+            <input type="text" name="username" placeholder="Username" value="<?php getInputValue('username');?>" required autocomplete="off">
               <!-- Password -->
             <input type="password" name="password" placeholder="Password" required>
              <!-- Button -->
