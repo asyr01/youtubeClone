@@ -1,4 +1,12 @@
-<?php require_once("includes/config.php"); ?>
+<?php require_once("includes/config.php");
+
+function getInputValue($name) {
+  if(isset($_POST[$name])) {
+    echo $_POST[$name];
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
