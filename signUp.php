@@ -23,7 +23,8 @@
    $wasSuccessful = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
 
  if($wasSuccessful) {
-   echo "success";
+   // Store username into a session variable
+      $_SESSION["userLoggedIn"] = $username;
    // Redirect user to index page
  } else {
    echo 'fail';
