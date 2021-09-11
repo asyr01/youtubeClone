@@ -1,10 +1,11 @@
 <?php require_once("includes/config.php");
 require_once("includes/classes/Account.php"); 
 require_once("includes/classes/Constants.php"); 
+require_once("includes/classes/FormSanitizer.php"); 
 
 if(isset($_POST["submitBtn"])) {
-  $username = $_POST["username"];
-  $password = $_POST["password"];
+  $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+  $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
   
   $account = New Account($con);
   $wasSuccessful = $account->login($username, $password);
