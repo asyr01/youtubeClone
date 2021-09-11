@@ -1,5 +1,19 @@
 <?php require_once("includes/config.php");
 
+if(isset($_POST["submitBtn"])) {
+
+
+  if($wasSuccessful) {
+  // Store username into a session variable
+     $_SESSION["userLoggedIn"] = $username;
+  // Redirect user to index page
+     header("Location: index.php");
+   } else {
+  echo 'fail';
+   }
+
+}
+
 function getInputValue($name) {
   if(isset($_POST[$name])) {
     echo $_POST[$name];
