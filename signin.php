@@ -1,7 +1,13 @@
 <?php require_once("includes/config.php");
+require_once("includes/classes/Account.php"); 
+require_once("includes/classes/Constants.php"); 
 
 if(isset($_POST["submitBtn"])) {
-
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+  
+  $account = New Account($con);
+  $wasSuccessful = $account->login($username, $password);
 
   if($wasSuccessful) {
   // Store username into a session variable
