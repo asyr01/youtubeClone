@@ -2,6 +2,8 @@
 
 <?php
 
+require_once('../classes/Constants.php')
+
 class Account {
   private $con;
   private $errArray = array();
@@ -11,11 +13,24 @@ class Account {
       $this->con = $con;
   }
 
-   public function login(un, pw){
+   public function login($un, $pw){
    // Hash the password to compare stored one.
    $pw = hash("sha512", $pw);
+
    // Check DB to validate credentials
-   
+   $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+   $query->bindParam(':un', $un);
+   $query->bindParam(':pw', $pw);
+
+   // If it returns a row, so it means it found a user in db login will be succesful.
+   $query->execute();
+   if(query->rowCount() == 1){
+     return true;
+   } else {
+     array_push($this->errArray, Constants::$loginFailed);
+     return false;
+   }
+
   }
   
   // Register user to the site. Insert info to table. 

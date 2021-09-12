@@ -2,6 +2,7 @@
 <?php
 
 class Constants {
+   // sign up errors
    public static $firstNameCharacters = "Your first name must be between 2 and 25 characters";
 
    public static $lastNameCharacters = "Your last name must be between 2 and 25 characters";
@@ -16,6 +17,9 @@ class Constants {
    public static $pwsDontMatch = "Passwords do not match, please check again";
    public static $pwsNotAlphanumeric = "Password can only contain letters and numbers";
    public static $pwCharacters = "Your password must be between 6 and 30 characters";
+
+   // log in errors
+   public static $loginFailed = "Your username or password was incorrect ";
    
 }
 ?>
