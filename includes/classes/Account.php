@@ -2,7 +2,7 @@
 
 <?php
 
-require_once('../classes/Constants.php')
+require_once('../classes/Constants.php');
 
 class Account {
   private $con;
@@ -24,7 +24,7 @@ class Account {
 
    // If it returns a row, so it means it found a user in db login will be succesful.
    $query->execute();
-   if(query->rowCount() == 1){
+   if($query->rowCount() == 1){
      return true;
    } else {
      array_push($this->errArray, Constants::$loginFailed);
