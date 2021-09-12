@@ -2,8 +2,6 @@
 
 <?php
 
-require_once('../classes/Constants.php');
-
 class Account {
   private $con;
   private $errArray = array();
@@ -30,7 +28,6 @@ class Account {
      array_push($this->errArray, Constants::$loginFailed);
      return false;
    }
-
   }
   
   // Register user to the site. Insert info to table. 
