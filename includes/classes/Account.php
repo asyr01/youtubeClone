@@ -10,6 +10,13 @@ class Account {
   public function __construct($con){
       $this->con = $con;
   }
+
+   public function login(un, pw){
+   // Hash the password to compare stored one.
+   $pw = hash("sha512", $pw);
+   // Check DB to validate credentials
+   
+  }
   
   // Register user to the site. Insert info to table. 
   public function register($fn, $ln, $un, $em, $em2, $pw, $pw2) {
