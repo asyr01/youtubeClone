@@ -4,7 +4,7 @@ require_once("includes/config.php");
 require_once("includes/classes/User.php");
 
 $usernameLoggedIn = isset($_SESSION["userLoggedIn"]) ? $_SESSION["userLoggedIn"] : "";
-$userLoggedInOb = new User($con, $usernameLoggedIn);
+$userLoggedInObj = new User($con, $usernameLoggedIn);
 
 ?>
 
