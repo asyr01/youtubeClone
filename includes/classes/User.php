@@ -12,14 +12,36 @@ class User {
         $query->bindParam(":un", $username);
         $query->execute();
  
-        // store data in the sqlData variable
+        // instead of making a query request every time data stored in sqlData variable
         $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getUsername() {
         return $this->sqlData["username"];
     }
+    
+    public function getFullName() {
+        return $this->sqlData["firstName"] . " " . $this->sqlData["lastName"];
+    }
 
+    public function getFirstName() {
+        return $this->sqlData["firstName"];
+    }
 
+    public function getLastName() {
+        return $this->sqlData["lastName"];
+    }
+
+    public function getEmail() {
+        return $this->sqlData["email"];
+    }
+
+    public function getProfilePic() {
+        return $this->sqlData["profilePic"];
+    }
+    
+    public function getSignUpDate() {
+        return $this->sqlData["signUpDate"];
+    }
 }
 ?>
