@@ -2,7 +2,7 @@
 
 <?php 
 if(isset($_SESSION["userLoggedIn"])) {
-    echo "User is logged in as " . $_SESSION["userLoggedIn"];
+    echo "User is logged in as ";
 } else {
     echo "not logged in";
 }
