@@ -1,11 +1,10 @@
-<?php require_once("includes/header.php");?>
+<?php require_once("includes/header.php");
 
-<?php 
-if(isset($_SESSION["userLoggedIn"])) {
-    echo "User is logged in as " . $userLoggedInObj->getUsername();
-} else {
-    echo "not logged in";
-}
+// if id dpesn't match an existing one
+ if(!isset($_GET["id"])) {
+  echo "No URL passed into page";
+  exit();
+ }
 ?>
 
 <?php require_once("includes/footer.php");?>
