@@ -21,7 +21,7 @@ if(isset($_POST["submitBtn"])) {
   // Redirect user to index page
      header("Location: index.php");
    } else {
-    echo 'fail';
+    // fail
    }
 
 }

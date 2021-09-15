@@ -14,7 +14,7 @@
              $_POST["descriptionInput"],
              $_POST["privacyInput"],
              $_POST["categoryInput"],
-             "username"
+             $userLoggedInObj->getUsername()
             );
        // 2) Process video data (upload)
             // returns true or false, 3 depends on that to send message
