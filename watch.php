@@ -5,6 +5,7 @@
   echo "No URL passed into page";
   exit();
  }
+ 
 ?>
 
 <?php require_once("includes/footer.php");?>
