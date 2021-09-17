@@ -60,6 +60,11 @@ class Video {
     public function getDuration() {
         return $this->sqlData["duration"];
     }
-    
+
+    // a simple function to increment the views
+    public function incrementViews() {
+
+        $query = $this-con->prepare();
+    }
 }
 ?>
