@@ -10,7 +10,8 @@ require_once("includes/classes/Video.php");
   
    // Video class instantiation
   $video = new Video($con, $_GET["id"], $userLoggedInObj);
-  echo $video->getTitle();
+  $video->incrementViews();
+  
 ?>
 
 <?php require_once("includes/footer.php"); ?>
