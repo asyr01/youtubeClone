@@ -63,8 +63,11 @@ class Video {
 
     // a simple function to increment the views
     public function incrementViews() {
-
-        $query = $this-con->prepare();
+        $query = $this->con->prepare("UPDATE videos SET views=views+1 WHERE id=:id");
+        
+        $query->bindParam(":id", $videoId);
+        $videoId = $this->getId();
+        $query->execute();
     }
 }
 ?>
