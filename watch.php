@@ -1,6 +1,7 @@
 <?php 
 require_once("includes/header.php");
 require_once("includes/classes/Video.php");
+require_once("includes/classes/VideoPlayer.php");
 
 // if id dpesn't match an existing one
  if(!isset($_GET["id"])) {
@@ -13,5 +14,9 @@ require_once("includes/classes/Video.php");
   $video->incrementViews();
   
 ?>
+
+<div class="watchLeftColumn">
+  
+</div>
 
 <?php require_once("includes/footer.php"); ?>
