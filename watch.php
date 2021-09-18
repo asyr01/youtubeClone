@@ -1,6 +1,5 @@
 <?php 
 require_once("includes/header.php");
-require_once("includes/classes/Video.php");
 require_once("includes/classes/VideoPlayer.php");
 
 // if id dpesn't match an existing one
