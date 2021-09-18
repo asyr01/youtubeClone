@@ -14,7 +14,11 @@ public function create($autoPlay) {
     } else {
         $autoPlay = "";
     }
-}
-
+    $filePath = $this->video->getFilePath();
+    return "<video class='videoPlayer' controls autoplay='$autoPlay'>
+              <source src='$filePath' type = 'video/mp4'>
+              Your browser does not support the video tag.
+           </video>";
+  }
 }
 ?>
