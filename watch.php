@@ -15,7 +15,10 @@ require_once("includes/classes/VideoPlayer.php");
 ?>
 
 <div class="watchLeftColumn">
-  
+   <?php
+     $videoPlayer = new VideoPlayer($video);
+     echo $videoPlayer->create(true);
+    ?>
 </div>
 
 <?php require_once("includes/footer.php"); ?>
