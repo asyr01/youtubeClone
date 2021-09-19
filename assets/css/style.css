@@ -245,3 +245,9 @@ form .form-group {
   font-weight: 400;
   text-align: center;
 }
+
+/* Watch.php Video */
+
+.watchLeftColumn {
+  flex: 1;
+}
