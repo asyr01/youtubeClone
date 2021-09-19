@@ -21,4 +21,8 @@ require_once("includes/classes/VideoPlayer.php");
     ?>
 </div>
 
+<div class="suggestions">
+  
+</div>
+
 <?php require_once("includes/footer.php"); ?>
