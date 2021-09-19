@@ -251,3 +251,14 @@ form .form-group {
 .watchLeftColumn {
   flex: 1;
 }
+
+.watchLeftColumn .videoPlayer {
+  width: 100%;
+}
+
+.suggestions {
+  max-width: 420px;
+  flex-grow: 1;
+  height: 100%;
+  padding-left: 24px;
+}
