@@ -1,6 +1,9 @@
 <?php 
+
+// Video page
 require_once("includes/header.php");
 require_once("includes/classes/VideoPlayer.php");
+require_once("includes/classes/VideoInfoSection.php");
 
 // if id dpesn't match an existing one
  if(!isset($_GET["id"])) {
