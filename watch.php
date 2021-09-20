@@ -21,6 +21,9 @@ require_once("includes/classes/VideoInfoSection.php");
    <?php
      $videoPlayer = new VideoPlayer($video);
      echo $videoPlayer->create(true);
+     
+     $VideoInfoSection = new VideoInfoSection($con, $video, $userLoggedInObj);
+     echo $VideoInfoSection->create();
     ?>
 </div>
 

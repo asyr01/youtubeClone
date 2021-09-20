@@ -16,7 +16,16 @@ class VideoInfoSection {
     
     // createPrimaryInfo includes title views like/dislike.
     private function createPrimaryInfo() {
-        
+        $title = $this->video->getTitle();
+        $views = $this->video->getViews();
+
+        return "<div class='videoInfo'>
+                <h1>$title</h1>
+
+                 <div class='bottomSection'>
+                  <span class='viewCount'>$views</span>
+                 </div>
+                </div>";
     }
 
     // createSecondaryInfo includes  who uploaded it, subscribe, upload date.
