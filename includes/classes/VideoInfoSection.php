@@ -11,8 +11,18 @@ class VideoInfoSection {
     }
     
     public function create() {
-        
+        return $this->createPrimaryInfo() . $this->createSecondaryInfo();
       }
+    
+    // createPrimaryInfo includes title views like/dislike.
+    private function createPrimaryInfo() {
+        
+    }
+
+    // createSecondaryInfo includes  who uploaded it, subscribe, upload date.
+    private function createSecondaryInfo(){
+
+    }
 
 }
 
