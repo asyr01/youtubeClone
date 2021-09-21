@@ -262,3 +262,8 @@ form .form-group {
   height: 100%;
   padding-left: 24px;
 }
+
+.watchLeftColumn .videoInfo {
+  width: 100%;
+  padding-top: 20px 0px 8px 0;
+}
