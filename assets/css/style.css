@@ -275,3 +275,13 @@ form .form-group {
   font-weight: 400;
   line-height: 24px;
 }
+
+.watchLeftColumn .videoInfo .bottomSection {
+  display: flex;
+}
+
+.videoInfo .bottomSection .viewCount {
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 16px;
+  flex: 1;
+}
