@@ -79,6 +79,23 @@ class Video {
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE videoId = :videoId");
         $videoId = $this->getId();
         $query->bindParam(":videoId", $videoId);
+        $query->execute();
+        
+        // put returned count to in array called data
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+        return $data["count"];
+    }
+
+    public function getDislikes() {
+        // Select the number of rows returned count(*) means number of rows it found
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM dislikes WHERE videoId = :videoId");
+        $videoId = $this->getId();
+        $query->bindParam(":videoId", $videoId);
+        $query->execute();
+        
+        // put returned count to in array called data
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+        return $data["count"];
     }
 
 }
