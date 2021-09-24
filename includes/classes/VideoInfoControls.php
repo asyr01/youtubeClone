@@ -21,6 +21,9 @@ class VideoInfoControls {
     }
 
     private function createLikeButton() {
+        $text = $this->video->getLikes();
+        $videoId = $this->video->getId();
+        $action = "likeVideo(this, $videoId)";
         return ButtonProvider::createButton("Like", "", "", "");
     }
 
