@@ -73,5 +73,13 @@ class Video {
         // Increment the views value in the array
         $this->sqlData["views"] = $this->sqlData["views"] + 1;
     }
+
+    public function getLikes() {
+        // Select the number of rows returned count(*) means number of rows it found
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE videoId = :videoId");
+        $videoId = $this->getId();
+        $query->bindParam(":videoId", $videoId);
+    }
+
 }
 ?>
