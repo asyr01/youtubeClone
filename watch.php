@@ -16,6 +16,8 @@ require_once("includes/classes/VideoInfoSection.php");
       $video->incrementViews();
 ?>
 
+<script src="assets/js/videoPlayerActions.js"></script>
+
 <div class="watchLeftColumn">
    <?php
      // Create Video Player
