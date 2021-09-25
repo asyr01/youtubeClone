@@ -97,6 +97,5 @@ class Video {
         $data = $query->fetch(PDO::FETCH_ASSOC);
         return $data["count"];
     }
-
 }
 ?>
