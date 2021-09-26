@@ -1,3 +1,4 @@
 <?php
-echo $_POST["videoId"];
+    require_once("../includes/config.php");
+    $videoId = $_POST["videoId"];
 ?>
