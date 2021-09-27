@@ -9,6 +9,6 @@
     $userLoggedInObj = new User($con, $username);
     $video = new Video($con, $videoId, $userLoggedInObj);
     
-    // insert a like
+    // insert a video like
     echo $video->like();
 ?>

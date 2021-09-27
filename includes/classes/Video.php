@@ -103,6 +103,20 @@ class Video {
         $query = $this->con->prepare("SELECT * FROM likes WHERE username = :username AND videoId = :videoId");
         $username = $this->userLoggedInObj->getUsername();
         $query->bindParam(":username", $username);
+        $query->bindParam(":videoId", $id);
+        $query->execute();
+        
+        // If a row returns from query executed, so user liked the video.
+        if($query->rowCount() > 0) {
+          // User has already liked
+          echo "liked";
+        } else {
+            // insert a like to the likes table
+            $query = $this->con->prepare("INSERT INTO likes(username, videoId) VALUES(:username, :videoId)");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":videoId", $id);
+            $query->execute();
+        }
     }
 }
 ?>
