@@ -101,6 +101,8 @@ class Video {
     public function like() {
         $id = $this->getId();
         $query = $this->con->prepare("SELECT * FROM likes WHERE username = :username AND videoId = :videoId");
+        $username = $this->userLoggedInObj->getUsername();
+        $query->bindParam(":username", $username);
     }
 }
 ?>
