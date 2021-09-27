@@ -97,5 +97,10 @@ class Video {
         $data = $query->fetch(PDO::FETCH_ASSOC);
         return $data["count"];
     }
+
+    public function like() {
+        $id = $this->getId();
+        $query = $this->con->prepare("SELECT * FROM likes WHERE username = :username AND videoId = :videoId");
+    }
 }
 ?>

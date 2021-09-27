@@ -8,5 +8,7 @@
       
     $userLoggedInObj = new User($con, $username);
     $video = new Video($con, $videoId, $userLoggedInObj);
-    $video->like();
+    
+    // insert a like
+    echo $video->like();
 ?>
