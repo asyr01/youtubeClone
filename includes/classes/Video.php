@@ -99,6 +99,7 @@ class Video {
     }
 
     public function like() {
+        // This query checks if video liked.
         $id = $this->getId();
         $query = $this->con->prepare("SELECT * FROM likes WHERE username = :username AND videoId = :videoId");
         $username = $this->userLoggedInObj->getUsername();
@@ -108,7 +109,10 @@ class Video {
         
         // If a row returns from query executed, so user liked the video.
         if($query->rowCount() > 0) {
-          // User has already liked
+          $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND videoId = :videoId");
+          $query->bindParam(":username", $username);
+          $query->bindParam(":videoId", $id);
+          $query->execute();
           echo "liked";
         } else {
             // insert a like to the likes table
