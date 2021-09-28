@@ -109,12 +109,18 @@ class Video {
         
         // If a row returns from query executed, so user liked the video.
         if($query->rowCount() > 0) {
+            // Undo a like
           $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND videoId = :videoId");
           $query->bindParam(":username", $username);
           $query->bindParam(":videoId", $id);
           $query->execute();
-          echo "liked";
         } else {
+            // Delete if it was a dislike
+            $query = $this->con->prepare("DELETE FROM disllikes WHERE username=:username AND videoId = :videoId");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":videoId", $id);
+            $query->execute();
+
             // insert a like to the likes table
             $query = $this->con->prepare("INSERT INTO likes(username, videoId) VALUES(:username, :videoId)");
             $query->bindParam(":username", $username);
