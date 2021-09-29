@@ -7,5 +7,8 @@ function likeVideo(button, videoId) {
 
     likeButton.addClass('active');
     dislikeButton.removeClass('active');
+
+    // parse the data
+    let result = JSON.parse(data);
   });
 }
