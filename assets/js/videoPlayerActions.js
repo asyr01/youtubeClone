@@ -10,5 +10,6 @@ function likeVideo(button, videoId) {
 
     // parse the data
     let result = JSON.parse(data);
+    console.log(result);
   });
 }

@@ -119,9 +119,7 @@ class Video {
               "likes" => -1,
               "dislikes" => 0
           );
-          
-          return json_encode($result);
-          
+          return json_encode($result);        
         } else {
             // Delete if it was a dislike
             $query = $this->con->prepare("DELETE FROM disllikes WHERE username=:username AND videoId = :videoId");
