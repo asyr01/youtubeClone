@@ -16,4 +16,5 @@ function likeVideo(button, videoId) {
 
 function updateLikesValue(element, num) {
   let likesCountVal = element.text() || 0;
+  element.text(parseInt(likesCountVal));
 }
