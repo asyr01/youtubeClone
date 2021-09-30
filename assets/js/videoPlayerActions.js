@@ -13,3 +13,7 @@ function likeVideo(button, videoId) {
     console.log(result);
   });
 }
+
+function updateLikesValue(element, num) {
+  let likesCountVal = element.text() || 0;
+}
