@@ -10,11 +10,12 @@ function likeVideo(button, videoId) {
 
     // parse the data
     let result = JSON.parse(data);
-    console.log(result);
+    updateLikesValue(likeButton.find('.text'), result.likes);
+    updateLikesValue(dislikeButton.find('.text'), result.dislikes);
   });
 }
 
 function updateLikesValue(element, num) {
   let likesCountVal = element.text() || 0;
-  element.text(parseInt(likesCountVal));
+  element.text(parseInt(likesCountVal) + parseInt(num));
 }
