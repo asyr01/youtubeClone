@@ -16,6 +16,7 @@ function likeVideo(button, videoId) {
     // If they unlike it
     if (result.likes < 0) {
       likeButton.removeClass('active');
+      likeButton.find('img:first');
     }
   });
 }
