@@ -12,6 +12,11 @@ function likeVideo(button, videoId) {
     let result = JSON.parse(data);
     updateLikesValue(likeButton.find('.text'), result.likes);
     updateLikesValue(dislikeButton.find('.text'), result.dislikes);
+
+    // If they unlike it
+    if (result.likes < 0) {
+      likeButton.removeClass('active');
+    }
   });
 }
 
