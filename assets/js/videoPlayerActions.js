@@ -16,8 +16,17 @@ function likeVideo(button, videoId) {
     // If they unlike it
     if (result.likes < 0) {
       likeButton.removeClass('active');
-      likeButton.find('img:first');
+      likeButton
+        .find('img:first')
+        .attr('src', 'assets/images/icons/thumb-up.png');
+    } else {
+      likeButton
+        .find('img:first')
+        .attr('src', 'assets/images/icons/thumb-up-active.png');
     }
+    dislikeButton
+      .find('img:first')
+      .attr('src', 'assets/images/icons/thumb-down.png');
   });
 }
 
