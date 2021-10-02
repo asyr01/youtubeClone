@@ -32,6 +32,11 @@ class VideoInfoControls {
             $imageSrc = "assets/images/icons/thumb-up-active.png";
         }
 
+         // if video disliked
+         if($this->video->wasDislikedBy()) {
+            $imageSrc = "assets/images/icons/thumb-down-active.png";
+        }
+
         return ButtonProvider::createButton("$text", "$imageSrc", "$action", "$class");
     }
 
