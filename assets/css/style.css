@@ -296,4 +296,7 @@ form .form-group {
   padding: 0;
   background-color: transparent;
   border: none;
+  color: rgba(17, 17, 17, 0.4);
+  font-weight: 500;
+  font-size: 13px;
 }
