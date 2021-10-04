@@ -1,5 +1,4 @@
 <?php 
-
 // Video page
 require_once("includes/header.php");
 require_once("includes/classes/VideoPlayer.php");
