@@ -3,8 +3,10 @@
 
 class ButtonProvider {
 
+public static $signInFunction = "notSignedIn()";
+
 public static function createLink($link) {
-    
+    return User::isLoggedIn() ? $link : ButtonProvider::$signInFunction;
 }
 
 public static function createButton($text, $imageSrc, $action, $class ) {
