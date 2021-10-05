@@ -25,15 +25,27 @@ class VideoInfoSection {
         return "<div class='videoInfo'>
                 <h1>$title</h1>
                  <div class='bottomSection'>
-                  <span class='viewCount'>$views</span>
+                  <span class='viewCount'>$views views</span>
                   $controls
                  </div>
                 </div>";
     }
 
     // createSecondaryInfo includes  who uploaded it, subscribe, upload date.
-    private function createSecondaryInfo(){
+    private function createSecondaryInfo(){ 
+      $description = $this->video->getDescription();
+       
+      return "
+      <div class='secondaryInfo'>
+         <div class='topRow'>
+         
+         </div>
 
+         <div class='bottomRow'>
+            $description
+         </div>
+      </div>
+      ";
     }
 
 }
