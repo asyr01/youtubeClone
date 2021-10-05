@@ -37,12 +37,13 @@ class VideoInfoSection {
     // Variables for taking the data
       $description = $this->video->getDescription();
       $uploadDate = $this->video->getUploadDate();
-      $profileButton = $this->video->getProfileButton();
+      $uploadedBy = $this->video->getUploadedBy();
+      $profileButton = ButtonProvider::createUserProfileButton($this->con, $uploadedBy);
        
       return "
       <div class='secondaryInfo'>
          <div class='topRow'>
-         
+            $profileButton
          </div>
 
          <div class='bottomRow'>

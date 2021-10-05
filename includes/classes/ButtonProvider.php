@@ -31,8 +31,10 @@ public static function createUserProfileButton($con, $username) {
         $link = "profile.php?username=$username";
 
         return "
-         
-        ";
+            <a href='$link'>
+               <img src='$profilePic' class='profilePicture'>
+            </a>
+            ";
       }
 
 }
