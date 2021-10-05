@@ -22,7 +22,19 @@ public static function createButton($text, $imageSrc, $action, $class ) {
          $image
          <span class='text'>$text</span>
         </button>";
-    }
+}
+
+
+public static function createUserProfileButton($con, $username) {
+        $userObj = new User($con, $username);
+        $profilePic = $userObj->getProfilePic();
+        $link = "profile.php?username=$username";
+
+        return "
+         
+        ";
+      }
+
 }
 
 ?>

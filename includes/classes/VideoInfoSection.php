@@ -33,7 +33,11 @@ class VideoInfoSection {
 
     // createSecondaryInfo includes  who uploaded it, subscribe, upload date.
     private function createSecondaryInfo(){ 
+
+    // Variables for taking the data
       $description = $this->video->getDescription();
+      $uploadDate = $this->video->getUploadDate();
+      $profileButton = $this->video->getProfileButton();
        
       return "
       <div class='secondaryInfo'>
@@ -42,7 +46,7 @@ class VideoInfoSection {
          </div>
 
          <div class='bottomRow'>
-            $description
+
          </div>
       </div>
       ";
