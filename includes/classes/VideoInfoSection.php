@@ -47,7 +47,9 @@ class VideoInfoSection {
 
             <div class='uploadInfo'>
               <span class='owner'>
-                <a href='profile.php'>
+                <a href='profile.php?username=$uploadedBy'>
+                $uploadedBy
+                </a>
               </span>
             </div>
          </div>
