@@ -52,7 +52,9 @@ class Video {
     }
 
     public function getUploadDate() {
-        return $this->sqlData["uploadDate"];
+        $date = $this->sqlData["uploadDate"];
+        // Format the date
+        return date("M j Y");
     }
 
     public function getViews() {

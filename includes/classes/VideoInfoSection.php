@@ -51,6 +51,9 @@ class VideoInfoSection {
                 $uploadedBy
                 </a>
               </span>
+              <span class='date'>
+                Published on $uploadDate
+              </span>
             </div>
          </div>
 
