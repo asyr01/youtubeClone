@@ -44,6 +44,12 @@ class VideoInfoSection {
       <div class='secondaryInfo'>
          <div class='topRow'>
             $profileButton
+
+            <div class='uploadInfo'>
+              <span class='owner'>
+                <a href='profile.php'>
+              </span>
+            </div>
          </div>
 
          <div class='bottomRow'>
