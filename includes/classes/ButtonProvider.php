@@ -24,6 +24,19 @@ public static function createButton($text, $imageSrc, $action, $class ) {
         </button>";
 }
 
+public static function createHyperlinkButton($text, $imageSrc, $href, $class ) {
+    // Checks if image source passed
+    $image = ($imageSrc == null) ? "": "<img src='$imageSrc'>";
+    return "
+    <a href='$href'>
+        <button class='$class'>
+          $image
+          <span class='text'>$text</span>
+        </button>
+    </a>
+    ";
+}
+
 
 public static function createUserProfileButton($con, $username) {
         $userObj = new User($con, $username);
@@ -37,7 +50,16 @@ public static function createUserProfileButton($con, $username) {
             ";
       }
 
+public static function createEditVideoButton($video) {
+    $href = "editVideo.php?videoId=$videoId";
 
+    $button = "";
+
+    return "<div class='editVideoButtonContainer'>
+                $button
+            </div>
+    ";
+}
 
 }
 
