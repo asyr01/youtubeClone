@@ -54,7 +54,7 @@ class Video {
     public function getUploadDate() {
         $date = $this->sqlData["uploadDate"];
         // Format the date
-        return date("M j Y");
+        return date("M j, Y", strtotime($date));
     }
 
     public function getViews() {
