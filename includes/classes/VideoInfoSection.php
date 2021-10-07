@@ -43,10 +43,10 @@ class VideoInfoSection {
       // Subscribe / Edit Button
       if($uploadedBy == $this->userLoggedInObj->getUsername()) {
         // Edit Button
-        $actionButton =
+        $actionButton = ButtonProvider::createEditVideoButton($this->video->getId());
       } else {
         // Subscribe Button
-
+        $actionButton = "SUBSCRIBE";
       }
        
       return "
@@ -60,12 +60,10 @@ class VideoInfoSection {
                 $uploadedBy
                 </a>
               </span>
-              <span class='date'>
-                Published on $uploadDate
-              </span>
+              <span class='date'>Published on $uploadDate </span>
             </div>
+            $actionButton
          </div>
-
          <div class='bottomRow'>
 
          </div>
