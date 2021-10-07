@@ -52,8 +52,7 @@ public static function createUserProfileButton($con, $username) {
 
 public static function createEditVideoButton($video) {
     $href = "editVideo.php?videoId=$videoId";
-
-    $button = "";
+    $button = ButtonProvider::createHyperlinkButton("EDIT VIDEO", null, $href, "edit button");
 
     return "<div class='editVideoButtonContainer'>
                 $button
