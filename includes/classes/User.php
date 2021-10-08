@@ -49,5 +49,9 @@ class User {
     public function getSignUpDate() {
         return $this->sqlData["signUpDate"];
     }
+
+    public function isSubscribedTo($userTo) {
+      $query = $this->con->prepare("SELECT * FROM subscribers WHERE userTo = :userTo AND userFrom = :userFrom");
+    }
 }
 ?>

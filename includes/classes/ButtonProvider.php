@@ -26,7 +26,7 @@ public static function createButton($text, $imageSrc, $action, $class ) {
         ";
 }
 
-public static function createHyperlinkButton($text, $imageSrc, $href, $class ) {
+public static function createHyperlinkButton($text, $imageSrc, $href, $class) {
     // Checks if image source passed
     $image = ($imageSrc == null) ? "": "<img src='$imageSrc'>";
     return "
