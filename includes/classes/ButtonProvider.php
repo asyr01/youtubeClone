@@ -61,10 +61,16 @@ public static function createEditVideoButton($videoId) {
     ";
  }
 
+ // Create a subscribe or unsubscribe button by checking with isSubscribedTo
  public static function createSubscriberButton($con, $userToObj, $userLoggedInObj) {
-    $isSubscribedTo = $userLoggedInObj->isSubscribedTo($userObj->getUsername());
+    $userTo = $userToObj->getUsername();
+    $userLoggedIn = $userLoggedInObj->getUsername();
+
+    $isSubscribedTo = $userLoggedInObj->isSubscribedTo($userTo);
     $buttonText = $isSubscribedTo ? "SUBSCRIBED" : "SUBSCRIBE";
-    $buttonText .= " " $userToObj->getSubscriberCount();
+    $buttonText .= " " . $userToObj->getSubscriberCount();;
+    $buttonClass = $isSubscribedTo ? "unsubscribe button" : "subscribe button";
+    $action = "subscribe(\"$userTo\", \"$userLoggedIn\", this)";
  }
 
 }
