@@ -61,6 +61,11 @@ public static function createEditVideoButton($videoId) {
     ";
  }
 
-}
+ public static function createSubscriberButton($con, $userToObj, $userLoggedInObj) {
+    $isSubscribedTo = $userLoggedInObj->isSubscribedTo($userObj->getUsername());
+    $buttonText = $isSubscribedTo ? "SUBSCRIBED" : "SUBSCRIBE";
+    $buttonText .= " " $userToObj->getSubscriberCount();
+ }
 
+}
 ?>
