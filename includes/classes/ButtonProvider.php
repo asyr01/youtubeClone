@@ -71,6 +71,14 @@ public static function createEditVideoButton($videoId) {
     $buttonText .= " " . $userToObj->getSubscriberCount();;
     $buttonClass = $isSubscribedTo ? "unsubscribe button" : "subscribe button";
     $action = "subscribe(\"$userTo\", \"$userLoggedIn\", this)";
+
+    $button = ButtonProvider::createButton($buttonText, null, $action, $buttonClass);
+
+    return "
+        <div class='subscribeButtonContainer'>
+            $button
+        </div>
+        ";
  }
 
 }
