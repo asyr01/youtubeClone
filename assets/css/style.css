@@ -286,7 +286,7 @@ form .form-group {
   flex: 1;
 }
 
-/* Buttons / Like - Dislike */
+/* VıdeoInfoControls Buttons / Like - Dislike */
 .videoInfo .bottomSection .controls {
   flex: 1;
   text-align: right;
@@ -306,4 +306,22 @@ form .form-group {
   height: 20px;
   width: 20px;
   margin: 4px 8px 8px 8px;
+}
+
+/* VideoInfo Top Row and Description */
+.secondaryInfo .topRow {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+/* applies all profile pictures -profile, comment- */
+.profilePicture {
+  height: 100%;
+}
+
+.secondaryInfo .topRow .profilePicture {
+  margin-right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
