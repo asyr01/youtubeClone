@@ -325,3 +325,16 @@ form .form-group {
   height: 48px;
   border-radius: 50%;
 }
+
+.secondaryInfo .topRow .uploadInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.secondaryInfo .topRow .uploadInfo .date {
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 13px;
+  font-weight: 400;
+}
