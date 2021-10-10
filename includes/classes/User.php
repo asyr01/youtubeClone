@@ -59,7 +59,7 @@ class User {
       $query->execute();
 
       // return true or false
-      return $query->rowCount > 0;
+      return $query->rowCount() > 0;
     }
 
     public function getSubscriberCount() {
