@@ -387,7 +387,7 @@ form .form-group {
   color: rgba(17, 17, 17, 0.6);
 }
 
-.topRow .subscribeButtonContainer .edit {
+.topRow .editVideoButtonContainer .edit {
   background-color: #2692ed;
   color: #fff;
 }
