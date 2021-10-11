@@ -354,7 +354,15 @@ form .form-group {
   margin-bottom: 20px;
 }
 
+/* centers button in the parent container */
 .secondaryInfo .topRow .subscribeButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* centers button in the parent container */
+.secondaryInfo .topRow .editVideoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -367,4 +375,19 @@ form .form-group {
   border-radius: 2px;
   border: none;
   font-size: 14px;
+}
+
+.topRow .subscribeButtonContainer .subscribe {
+  background-color: #f00;
+  color: #fff;
+}
+
+.topRow .subscribeButtonContainer .unsubscribe {
+  background-color: #eee;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.topRow .subscribeButtonContainer .edit {
+  background-color: #2692ed;
+  color: #fff;
 }
