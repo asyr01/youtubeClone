@@ -338,3 +338,9 @@ form .form-group {
   font-size: 13px;
   font-weight: 400;
 }
+
+/* Description Container & Subscribe Button */
+.watchLeftColumn .secondaryInfo .descriptionContainer {
+  margin-left: 64px;
+  max-width: 615px;
+}
