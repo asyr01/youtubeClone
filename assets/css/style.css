@@ -353,3 +353,18 @@ form .form-group {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
+
+.secondaryInfo .topRow .subscribeButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.secondaryInfo .subscribeButtonContainer .button {
+  padding: 6px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 2px;
+  border: none;
+  font-size: 14px;
+}
