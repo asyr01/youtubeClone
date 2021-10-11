@@ -343,4 +343,13 @@ form .form-group {
 .watchLeftColumn .secondaryInfo .descriptionContainer {
   margin-left: 64px;
   max-width: 615px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.watchLeftColumn .secondaryInfo {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
