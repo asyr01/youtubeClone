@@ -391,3 +391,12 @@ form .form-group {
   background-color: #2692ed;
   color: #fff;
 }
+
+.secondaryInfo .topRow .uploadInfo .owner {
+  font-size: 14px;
+  font-weight: 500;
+}
+.uploadInfo .owner a {
+  color: #000;
+  text-decoration: none;
+}
