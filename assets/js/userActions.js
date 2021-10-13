@@ -4,8 +4,8 @@ function subscribe(userTo, userFrom, button) {
     return;
   }
   $.post('ajax/subscribe.php', { userTo: userTo, userFrom: userFrom }).done(
-    function () {
-      console.log('done');
+    function (data) {
+      console.log(data);
     }
   );
 }
