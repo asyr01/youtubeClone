@@ -10,6 +10,21 @@
     $query->bindParam(":userTo", $userTo);
     $query->bindParam(":userFrom", $userFrom);
     $query->execute();
+
+    if($query->rowCount() == 0) {
+      // INSERT
+      $query->$con->prepare("INSERT INTO subscribers(userTo, userFrom) VALUES(:userTo, :userFrom)");
+      $query->bindParam(":userTo", $userTo);
+      $query->bindParam(":userFrom", $userFrom);
+      $query->execute();
+    } else {
+      // DELETE
+      $query->$con->prepare("DELETE FROM subscribers WHERE userTo=:userTo AND userFrom=:userFrom");
+      $query->bindParam(":userTo", $userTo);
+      $query->bindParam(":userFrom", $userFrom);
+      $query->execute();
+    }
+
     // if subbed - delete
 
     // if not subbed - insert
