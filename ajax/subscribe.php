@@ -24,12 +24,12 @@
       $query->bindParam(":userFrom", $userFrom);
       $query->execute();
     }
+  
+    $query->$con->prepare("SELECT * FROM subscribers WHERE userTo=:userTo");
+    $query->bindParam(":userTo", $userTo);
+    $query->execute();
 
-    // if subbed - delete
-
-    // if not subbed - insert
-
-    // return new number of subs
+    echo $query->rowCount();
  } else {
      echo "One or more parameters are not passed into subscribe.php the file";
  }
