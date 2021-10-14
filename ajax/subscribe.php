@@ -3,7 +3,13 @@
 
  if(isset($_POST['userTo']) && isset($_POST['userFrom'])) {
     // check if the user is subbed
+    $userTo = $_POST['userTo'];
+    $userFrom = $_POST['userFrom'];
 
+    $query->$con->prepare("SELECT * FROM subscribers WHERE userTo=:userTo AND userFrom=:userFrom");
+    $query->bindParam(":userTo", $userTo);
+    $query->bindParam(":userFrom", $userFrom);
+    $query->execute();
     // if subbed - delete
 
     // if not subbed - insert
