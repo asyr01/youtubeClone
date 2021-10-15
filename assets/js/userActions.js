@@ -4,8 +4,11 @@ function subscribe(userTo, userFrom, button) {
     return;
   }
   $.post('ajax/subscribe.php', { userTo: userTo, userFrom: userFrom }).done(
-    function (data) {
-      console.log(data);
+    function (count) {
+      if (count != null) {
+      } else {
+        alert('something went wrong');
+      }
     }
   );
 }
