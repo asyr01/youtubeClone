@@ -10,7 +10,11 @@ class CommentSection {
     }
     
     public function create() {
-        
+        return $this->createCommentSection();
+      }
+
+      private function createCommentSection() {
+
       }
 
 }
