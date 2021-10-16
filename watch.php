@@ -27,6 +27,10 @@ require_once("includes/classes/CommentSection.php");
      // Create Video Info
      $VideoInfoSection = new VideoInfoSection($con, $video, $userLoggedInObj);
      echo $VideoInfoSection->create();
+
+     // Create Comment Section
+     $CommentSection = new CommentSection($con, $video, $userLoggedInObj);
+     echo $CommentSection->create();
     ?>
 </div>
 
