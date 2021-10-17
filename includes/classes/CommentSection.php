@@ -16,6 +16,14 @@ class CommentSection {
       private function createCommentSection() {
         // variable keeps number of comments that returned from db
         $numComments =  $this->video->getNumberOfComments();
+        $postedBy = $this->userLoggedInObj->getUsername();
+        $videoId = $this->video->getId();
+
+        $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
+        $commentAction = "postComment(this, '$postedBy', $videoId, null, 'comments')";
+
+        $commentButton = ButtonProvider::createUserProfileButton("COMMENT", null, $commentAction, "postComment");
+
         echo $numComments;
       }
 
