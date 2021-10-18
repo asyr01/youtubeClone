@@ -24,7 +24,13 @@ class CommentSection {
         $commentButton = ButtonProvider::createButton("COMMENT", null, $commentAction, "postComment");
 
         // Get comments HTML
-        
+        return "
+        <div class='commentSection'>
+          <div class='header'>
+            <span class='commentCount'>$numComments Comments</span>
+          </div>
+        </div>  
+        ";
       }
 
 }
