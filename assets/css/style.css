@@ -401,3 +401,11 @@ form .form-group {
   color: #000;
   text-decoration: none;
 }
+
+/* Comment Form */
+.watchLeftColumn .commentSection .header {
+  margin-top: 24px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+}
