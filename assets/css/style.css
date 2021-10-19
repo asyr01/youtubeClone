@@ -425,11 +425,21 @@ form .form-group {
   display: flex;
 }
 
-.commentSection .header .commentBodyClass {
+.commentSection .header .commentForm textarea {
   flex: 1;
   border: none;
   resize: none;
   background-color: transparent;
   font-size: 14px;
   color: #111;
+}
+
+.commentSection .header .commentForm .postComment {
+  height: 36px;
+  background-color: #2692e6;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  padding: 0 15px;
+  border-radius: 2px;
 }
