@@ -410,9 +410,26 @@ form .form-group {
   flex-direction: column;
 }
 
-.watchLeftColumn .commentSection .profilePicture {
+.commentSection .header .commentForm .profilePicture {
   margin-right: 16px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
+}
+
+.commentSection .header .commentCount {
+  margin-bottom: 24px;
+}
+
+.commentSection .header .commentForm {
+  display: flex;
+}
+
+.commentSection .header .commentBodyClass {
+  flex: 1;
+  border: none;
+  resize: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #111;
 }
