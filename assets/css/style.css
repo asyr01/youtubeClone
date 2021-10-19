@@ -409,3 +409,10 @@ form .form-group {
   display: flex;
   flex-direction: column;
 }
+
+.watchLeftColumn .commentSection .profilePicture {
+  margin-right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
