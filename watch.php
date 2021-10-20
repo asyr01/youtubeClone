@@ -17,6 +17,7 @@ require_once("includes/classes/CommentSection.php");
 ?>
 
 <script src="assets/js/videoPlayerActions.js"></script>
+<script src="assets/commentActions.js"></script>
 
 <div class="watchLeftColumn">
    <?php
