@@ -6,6 +6,9 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
 
   // insert it to the table
   if (commentText) {
+    $.post('ajax/postComment.php').done(function () {
+      alert('done');
+    });
   } else {
     alert("You can't post an empty comment");
   }
