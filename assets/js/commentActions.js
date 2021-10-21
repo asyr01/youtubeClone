@@ -4,9 +4,12 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
   const commentText = textarea.val();
   textarea.val('');
 
-  // insert it to the table
+  // make an ajax call, insert it to the table
   if (commentText) {
-    $.post('ajax/postComment.php').done(function () {
+    $.post('ajax/postComment.php', {
+      commentText: commentText,
+      postedBy: posetedBy,
+    }).done(function () {
       alert('done');
     });
   } else {
