@@ -8,9 +8,11 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
   if (commentText) {
     $.post('ajax/postComment.php', {
       commentText: commentText,
-      postedBy: posetedBy,
+      postedBy: postedBy,
+      videoId: videoId,
+      responseTo: replyTo,
     }).done(function () {
-      alert('done');
+      alert(data);
     });
   } else {
     alert("You can't post an empty comment");
