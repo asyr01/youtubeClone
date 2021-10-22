@@ -11,7 +11,7 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
       postedBy: postedBy,
       videoId: videoId,
       responseTo: replyTo,
-    }).done(function () {
+    }).done(function (data) {
       alert(data);
     });
   } else {

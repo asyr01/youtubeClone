@@ -8,8 +8,16 @@
         $query->bindParam(":videoId", $videoId);
         $query->bindParam(":responseTo", $responseTo);
         $query->bindParam(":body", $commentText);
-    }
- else {
+
+        $postedBy = $_POST['postedBy'];
+        $videoId = $POST['videoId'];
+        $responseTo = $POST['responseTo'];
+        $commentText = $POST['commentText'];
+
+        $query->execute();
+
+        // return new comment HTML
+    }else {
      echo "One or more parameters are not passed into subscribe.php the file";
  }
 ?>
