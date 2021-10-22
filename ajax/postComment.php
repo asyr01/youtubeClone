@@ -10,12 +10,11 @@
         $query->bindParam(":body", $commentText);
 
         $postedBy = $_POST['postedBy'];
-        $videoId = $POST['videoId'];
-        $responseTo = $POST['responseTo'];
-        $commentText = $POST['commentText'];
+        $videoId = $_POST['videoId'];
+        $responseTo = $_POST['responseTo'];
+        $commentText = $_POST['commentText'];
 
         $query->execute();
-
         // return new comment HTML
     }else {
      echo "One or more parameters are not passed into subscribe.php the file";

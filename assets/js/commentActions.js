@@ -11,8 +11,8 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
       postedBy: postedBy,
       videoId: videoId,
       responseTo: replyTo,
-    }).done(function (data) {
-      alert(data);
+    }).done(function () {
+      alert('success');
     });
   } else {
     alert("You can't post an empty comment");
