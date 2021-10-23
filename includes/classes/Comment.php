@@ -20,6 +20,10 @@ class Comment {
       $this->videoId = $videoId;
 
     }
+
+    public function create() {
+
+    }
 }
 
 ?>
