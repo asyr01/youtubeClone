@@ -13,8 +13,12 @@ class Comment {
             // overwrite input variable
             $input = $query->fetch(PDO::FETCH_ASSOC);
         }
-      // if input is sqlData
+
+      // input is sqlData at that point
       $this->sqlData = $input;
+      $this->con = $con;
+      $this->videoId = $videoId;
+
     }
 }
 
