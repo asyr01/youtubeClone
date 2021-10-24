@@ -22,7 +22,15 @@ class Comment {
     }
 
     public function create() {
+        $body = $this->sqlData["body"];
+        $body = $this->sqlData["postedBy"];
+        $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
 
+        return "<div class='itemContainer'>
+                    <div class='comment'>
+                    
+                    </div>
+                </div>";
     }
 }
 
