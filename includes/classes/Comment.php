@@ -1,5 +1,7 @@
 <?php
 
+require_once("./ButtonProvider.php");
+
 class Comment {
     private $con, $sqlData, $userLoggedInObj, $videoId;
 
@@ -25,6 +27,7 @@ class Comment {
         $body = $this->sqlData["body"];
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
+        $timespan = ""; // TODO get Timespan
 
         return "<div class='itemContainer'>
                     <div class='comment'>
@@ -34,6 +37,10 @@ class Comment {
                             <a href='profile.php?username=$postedBy'>
                                 <span class='username'>$postedBy</span>
                             </a>
+                            <span class='timestamp'>$timespan</span>
+                        </div>
+                        <div class='body'>
+                            $body
                         </div>
                       </div>
                     </div>
