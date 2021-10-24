@@ -23,12 +23,19 @@ class Comment {
 
     public function create() {
         $body = $this->sqlData["body"];
-        $body = $this->sqlData["postedBy"];
+        $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
 
         return "<div class='itemContainer'>
                     <div class='comment'>
-                    
+                      $profileButton
+                      <div class='mainContainer'>
+                        <div class='commentHeader'>
+                            <a href='profile.php?username=$postedBy'>
+                                <span class='username'>$postedBy</span>
+                            </a>
+                        </div>
+                      </div>
                     </div>
                 </div>";
     }
