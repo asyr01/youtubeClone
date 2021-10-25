@@ -11,12 +11,37 @@ class CommentControls {
     }
 
     public function create() {
+
+        $replyButton = $this->createReplyButton();
+        $likesCount = $this->createLikesCount();
         $likeButton = $this->createLikeButton();
         $dislikeButton = $this->createDislikeButton();
+        $replySection = $this->createReplySection();
+
         return "<div class='controls'>
                     $likeButton
                     $dislikeButton
                 </div>";
+    }
+
+    private function createReplyButton(){
+        $text = "REPLY";
+        $action = "toggleReply(this)";
+
+        return ButtonProvider::createButton($text, null, $action, null);
+    }
+
+    private function createLikesCount(){
+        $text = $this->comment->getLikes();
+        
+        // if there is no like show nothing
+        if($text == 0) $text = "";
+
+        return "<span class='likesCount'>$text</span>";
+    }
+
+    private function createReplySection(){
+        return "";
     }
 
     // Creates a like button using ButtonProvider
