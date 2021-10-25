@@ -1,11 +1,12 @@
 <?php
 
-require_once("./ButtonProvider.php");
+require_once("ButtonProvider.php");
 
 class Comment {
     private $con, $sqlData, $userLoggedInObj, $videoId;
 
     public function __construct($con, $input, $userLoggedInObj, $videoId){
+        echo "id: $input";
         if(!is_array($input)) {
             // if input is not an array and it's an id
             $query = $con->prepare("SELECT * FROM comments where id=:id");

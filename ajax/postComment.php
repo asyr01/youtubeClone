@@ -5,6 +5,7 @@
 
   // Check if a comment submitted
  if(isset($_POST['commentText']) && isset($_POST['postedBy']) && isset($_POST['videoId'])) {
+        $userLoggedInObj = new User($con, $_SESSION["userLoggedIn"]);
         $query = $con->prepare("INSERT INTO comments(postedBy, videoId, responseTo, body) VALUES(:postedBy, :videoId, :responseTo, :body)");
         $query->bindParam(":postedBy", $postedBy);
         $query->bindParam(":videoId", $videoId);
@@ -13,13 +14,12 @@
 
         $postedBy = $_POST['postedBy'];
         $videoId = $_POST['videoId'];
-        $responseTo = $_POST['responseTo'];
+        $responseTo = isset($_POST['responseTo']) ? $_POST['responseTo'] : 0;
         $commentText = $_POST['commentText'];
 
         $query->execute();
 
         // return new comment HTML, lastInsertId contains last inserted id.
-        $userLoggedInObj = new User($con, $_SESSION["userLoggedIn"]);
         // Comment Class instantiated.
         $newComment = new Comment($con, $con->lastInsertId(), $userLoggedInObj, $videoId);
         echo $newComment->create();
