@@ -46,8 +46,8 @@ class CommentControls {
 
     // Creates a like button using ButtonProvider
     private function createLikeButton() {
-        $videoId = $this->comment->getId();
         $commentId = $this->comment->getId();
+        $videoId = $this->comment->getVideoId();
         $action = "likeComment($commentId,this, $videoId)";
         $class = "likeButton";
 
@@ -62,7 +62,7 @@ class CommentControls {
 
     private function createDislikeButton() {
         $commentId = $this->comment->getId();
-        $videoId = $this->comment->getId();
+        $videoId = $this->comment->getVıdeoId();
         $action = "dislikeComment($commentId,this, $videoId)";
         $class = "dislikeButton";
 
