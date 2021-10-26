@@ -46,6 +46,10 @@ class Comment {
                     </div>
                 </div>";
     }
+
+    public function getLikes() {
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE commentId=:commentId");
+    }
 }
 
 ?>
