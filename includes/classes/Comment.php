@@ -47,6 +47,14 @@ class Comment {
                 </div>";
     }
 
+    public function getId() {
+        return $this->sqlData["id"];
+    }
+
+    public function getVıdeoId() {
+        return $this->videoId;
+    }
+
     public function getLikes() {
         // This query get number of likes from DB
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE commentId=:commentId");
