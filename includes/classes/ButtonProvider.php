@@ -80,6 +80,5 @@ public static function createEditVideoButton($videoId) {
         </div>
         ";
  }
-
 }
 ?>

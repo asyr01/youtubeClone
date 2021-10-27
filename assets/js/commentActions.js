@@ -12,7 +12,7 @@ function postComment(button, postedBy, videoId, replyTo, containerClass) {
       videoId: videoId,
       responseTo: replyTo,
     }).done(function (comment) {
-      $('.' + containerClass.prepend(comment));
+      $('.' + containerClass).prepend(comment);
     });
   } else {
     alert("You can't post an empty comment");

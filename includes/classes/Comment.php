@@ -22,6 +22,7 @@ class Comment {
       $this->sqlData = $input;
       $this->con = $con;
       $this->videoId = $videoId;
+      $this->userLoggedInObj = $userLoggedInObj;
 
     }
 
@@ -49,6 +50,7 @@ class Comment {
                         </div>
                       </div>
                     </div>
+                    $commentControls
                 </div>";
     }
 
@@ -56,7 +58,7 @@ class Comment {
         return $this->sqlData["id"];
     }
 
-    public function getVıdeoId() {
+    public function getVideoId() {
         return $this->videoId;
     }
 

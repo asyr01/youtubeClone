@@ -11,7 +11,6 @@ class CommentControls {
     }
 
     public function create() {
-
         $replyButton = $this->createReplyButton();
         $likesCount = $this->createLikesCount();
         $likeButton = $this->createLikeButton();
@@ -62,7 +61,7 @@ class CommentControls {
 
     private function createDislikeButton() {
         $commentId = $this->comment->getId();
-        $videoId = $this->comment->getVıdeoId();
+        $videoId = $this->comment->getVideoId();
         $action = "dislikeComment($commentId,this, $videoId)";
         $class = "dislikeButton";
 
