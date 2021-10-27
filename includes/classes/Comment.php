@@ -1,6 +1,8 @@
 <?php
 
 require_once("ButtonProvider.php");
+require_once("CommentControls.php");
+
 
 class Comment {
     private $con, $sqlData, $userLoggedInObj, $videoId;
@@ -28,6 +30,9 @@ class Comment {
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
         $timespan = ""; // TODO get Timespan
+
+        $commentControlsObj = new CommentControls($this->con, $this, $this->userLoggedInObj);
+        $commentControls = $commentControlsObj->create();
 
         return "<div class='itemContainer'>
                     <div class='comment'>
