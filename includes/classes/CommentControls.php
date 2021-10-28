@@ -22,7 +22,9 @@ class CommentControls {
                     $likesCount
                     $likeButton
                     $dislikeButton
-                </div>";
+                </div>
+            $replySection 
+        ";
     }
 
     private function createReplyButton(){
@@ -47,10 +49,21 @@ class CommentControls {
        $commentId = $this->comment->getId();
 
        $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
-
+       
        $cancelButtonAction = "toggleReply(this)";
        $cancelButton = ButtonProvider::createButton("Cancel", null, $cancelButtonAction, "cancelComment");
 
+       $postButtonAction = "postComment(this, \"$postedBy\", $videoId, $commentId, \"repliesSection\")";
+       $postButton = ButtonProvider::createButton("Reply", null, $postButtonAction, "postComment");
+
+       return "
+       <div class='commentForm' hidden>
+             $profileButton
+        <textarea class='commentBodyClass' placeholder='Add a public  comment'></textarea>
+             $cancelButton
+             $postButton
+       </div>
+       ";
     }
 
     // Creates a like button using ButtonProvider
