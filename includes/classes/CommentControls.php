@@ -42,7 +42,15 @@ class CommentControls {
     }
 
     private function createReplySection(){
-        return "";
+       $postedBy = $this->userLoggedInObj->getUsername();
+       $videoId = $this->comment->getVideoId();
+       $commentId = $this->comment->getId();
+
+       $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
+
+       $cancelButtonAction = "toggleReply(this)";
+       $cancelButton = ButtonProvider::createButton("Cancel", null, $cancelButtonAction, "cancelComment");
+
     }
 
     // Creates a like button using ButtonProvider
