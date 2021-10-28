@@ -18,6 +18,8 @@ class CommentControls {
         $replySection = $this->createReplySection();
 
         return "<div class='controls'>
+                    $replyButton
+                    $likesCount
                     $likeButton
                     $dislikeButton
                 </div>";

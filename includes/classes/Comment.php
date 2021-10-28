@@ -21,8 +21,8 @@ class Comment {
       // input is sqlData at that point
       $this->sqlData = $input;
       $this->con = $con;
-      $this->videoId = $videoId;
       $this->userLoggedInObj = $userLoggedInObj;
+      $this->videoId = $videoId;
 
     }
 
