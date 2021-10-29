@@ -410,7 +410,8 @@ form .form-group {
   flex-direction: column;
 }
 
-.commentSection .header .commentForm .profilePicture {
+.commentSection .header .commentForm .profilePicture,
+.commentSection .comment .profilePicture {
   margin-right: 16px;
   width: 48px;
   height: 48px;
@@ -421,7 +422,8 @@ form .form-group {
   margin-bottom: 24px;
 }
 
-.commentSection .header .commentForm {
+.commentSection .header .commentForm,
+.itemContainer .commentForm {
   display: flex;
 }
 
@@ -443,3 +445,5 @@ form .form-group {
   padding: 0 15px;
   border-radius: 2px;
 }
+
+/* Comment section, reply comment */

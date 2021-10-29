@@ -57,7 +57,7 @@ class CommentControls {
        $postButton = ButtonProvider::createButton("Reply", null, $postButtonAction, "postComment");
 
        return "
-       <div class='commentForm' hidden>
+       <div class='commentForm' >
              $profileButton
         <textarea class='commentBodyClass' placeholder='Add a public  comment'></textarea>
              $cancelButton
