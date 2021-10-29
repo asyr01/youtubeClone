@@ -427,7 +427,8 @@ form .form-group {
   display: flex;
 }
 
-.commentSection .header .commentForm textarea {
+.commentSection .header .commentForm textarea,
+.itemContainer .commentForm textarea {
   flex: 1;
   border: none;
   resize: none;
@@ -436,7 +437,9 @@ form .form-group {
   color: #111;
 }
 
-.commentSection .header .commentForm .postComment {
+.commentSection .header .commentForm .postComment,
+.itemContainer .commentForm .postComment,
+.itemContainer .commentForm .cancelComment {
   height: 36px;
   background-color: #2692e6;
   color: #fff;
@@ -447,3 +450,7 @@ form .form-group {
 }
 
 /* Comment section, reply comment */
+
+.itemContainer .commentForm textarea {
+  height: 30px;
+}
