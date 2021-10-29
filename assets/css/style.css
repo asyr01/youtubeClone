@@ -450,7 +450,38 @@ form .form-group {
 }
 
 /* Comment section, reply comment */
-
 .itemContainer .commentForm textarea {
   height: 30px;
+}
+
+.itemContainer .commentForm .cancelComment {
+  background-color: transparent;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .commentForm .cancelComment:hover {
+  color: #000;
+}
+
+.commentSection .itemContainer {
+  margin-bottom: 16px;
+}
+
+.commentSection .comment {
+  display: flex;
+}
+
+.commentSection .commentHeader {
+  margin-bottom: 2px;
+}
+
+.commentSection .commentHeader a {
+  text-decoration: none;
+}
+
+.commentSection .comment .username {
+  margin-right: 8px;
+  color: #111;
+  font-size: 13px;
+  font-weight: 500;
 }
