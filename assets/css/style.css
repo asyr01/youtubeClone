@@ -491,3 +491,16 @@ form .form-group {
   font-weight: 400;
   line-height: 20px;
 }
+
+.itemContainer .controls {
+  margin-left: 64px;
+}
+
+.itemContainer .controls button {
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.6);
+}
