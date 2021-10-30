@@ -485,3 +485,9 @@ form .form-group {
   font-size: 13px;
   font-weight: 500;
 }
+
+.commentSection .comment .mainContainer .body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
