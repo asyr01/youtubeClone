@@ -411,7 +411,8 @@ form .form-group {
 }
 
 .commentSection .header .commentForm .profilePicture,
-.commentSection .comment .profilePicture {
+.commentSection .comment .profilePicture,
+.commentForm .profilePicture {
   margin-right: 16px;
   width: 48px;
   height: 48px;
@@ -496,11 +497,29 @@ form .form-group {
   margin-left: 64px;
 }
 
-.itemContainer .controls button {
+.itemContainer .controls button,
+.itemContainer .controls .likesCount {
   height: 32px;
   background-color: transparent;
   border: none;
   font-size: 13px;
   font-weight: 500;
   color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .controls button {
+  cursor: pointer;
+}
+
+.itemContainer .controls .likesCount {
+  margin: 0 5px;
+}
+
+.itemContainer .controls button img {
+  height: 16px;
+}
+
+.itemContainer .commentForm .profilePicture {
+  width: 30px;
+  height: 30px;
 }
