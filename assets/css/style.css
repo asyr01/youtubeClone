@@ -523,3 +523,11 @@ form .form-group {
   width: 30px;
   height: 30px;
 }
+
+/* Comment timestamp */
+.comment .commentHeader .timestamp {
+  color: #888;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
