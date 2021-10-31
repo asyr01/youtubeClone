@@ -23,14 +23,13 @@ class Comment {
       $this->con = $con;
       $this->userLoggedInObj = $userLoggedInObj;
       $this->videoId = $videoId;
-
     }
 
     public function create() {
         $body = $this->sqlData["body"];
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
-        $timespan = ""; // TODO get Timespan
+        $timespan = $this->time_elapsed_string($this->sqlData["datePosted"]);
 
         $commentControlsObj = new CommentControls($this->con, $this, $this->userLoggedInObj);
         $commentControls = $commentControlsObj->create();
