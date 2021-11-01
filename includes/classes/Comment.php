@@ -26,6 +26,7 @@ class Comment {
     }
 
     public function create() {
+        $id = $this->sqlData["id"];
         $body = $this->sqlData["body"];
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
@@ -34,6 +35,12 @@ class Comment {
         $commentControlsObj = new CommentControls($this->con, $this, $this->userLoggedInObj);
         $commentControls = $commentControlsObj->create();
 
+        $numResponses =  $this->getNumberOfReplies();
+        $viewRepliesText = "";
+
+        if($numResponses > 0) {
+            $viewRepliesText = "<span class='repliesSection viewReplies' onclick='getReplies()'></span>"
+        }
         return "<div class='itemContainer'>
                     <div class='comment'>
                       $profileButton
