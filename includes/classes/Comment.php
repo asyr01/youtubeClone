@@ -73,6 +73,9 @@ class Comment {
         $query->bindParam(":responseTo", $id);
         $id= $this->sqlData["id"];
         $query->execute();
+
+        // The fetchColumn() method returns the value of the column specified by the $column index. If the result set has no more rows, the method returns false.
+        return $query->fetchColumn();
     }
 
     public function time_elapsed_string($datetime, $full = false) {
