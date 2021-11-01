@@ -37,12 +37,13 @@ class Comment {
         $commentControls = $commentControlsObj->create();
 
         $numResponses =  $this->getNumberOfReplies();
-        $viewRepliesText = "";
 
         if($numResponses > 0) {
             $viewRepliesText = "<span class='repliesSection viewReplies' onclick='getReplies($id, this, $videoId)'>
               View all $numResponses replies
             </span>";
+        } else {
+            $viewRepliesText = "<div class='repliesSection'><div>";
         }
 
         return "<div class='itemContainer'>
@@ -61,10 +62,20 @@ class Comment {
                       </div>
                     </div>
                     $commentControls
+                    $viewRepliesText
                 </div>";
     }
 
-    function time_elapsed_string($datetime, $full = false) {
+   
+    public function getNumberOfReplies() {
+        // responseTo is video id comment belongs to
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM comments WHERE responseTo=:responseTo");
+        $query->bindParam(":responseTo", $id);
+        $id= $this->sqlData["id"];
+        $query->execute();
+    }
+
+    public function time_elapsed_string($datetime, $full = false) {
         $now = new DateTime;
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);
