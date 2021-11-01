@@ -27,6 +27,7 @@ class Comment {
 
     public function create() {
         $id = $this->sqlData["id"];
+        $videoId = $this->getVideoId;
         $body = $this->sqlData["body"];
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
@@ -39,8 +40,11 @@ class Comment {
         $viewRepliesText = "";
 
         if($numResponses > 0) {
-            $viewRepliesText = "<span class='repliesSection viewReplies' onclick='getReplies()'></span>"
+            $viewRepliesText = "<span class='repliesSection viewReplies' onclick='getReplies($id, this, $videoId)'>
+              View all $numResponses replies
+            </span>";
         }
+
         return "<div class='itemContainer'>
                     <div class='comment'>
                       $profileButton
