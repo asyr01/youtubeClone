@@ -27,7 +27,7 @@ class Comment {
 
     public function create() {
         $id = $this->sqlData["id"];
-        $videoId = $this->getVideoId;
+        $videoId = $this->getVideoId();
         $body = $this->sqlData["body"];
         $postedBy = $this->sqlData["postedBy"];
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
