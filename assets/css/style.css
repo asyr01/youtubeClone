@@ -533,5 +533,5 @@ form .form-group {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
