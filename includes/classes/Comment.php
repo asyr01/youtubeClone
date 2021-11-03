@@ -171,7 +171,7 @@ class Comment {
         // If a row returns from query executed, so user liked the video.
         if($this->wasLikedBy()) {
             // User has already liked
-            $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentvideoId=:commentId");
+            $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
@@ -226,7 +226,7 @@ class Comment {
             $query->bindParam(":commentId", $id);
             $query->execute();
 
-            return  1 + $count;
+            return  -1 - $count;
         }
     }
 }

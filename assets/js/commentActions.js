@@ -25,7 +25,7 @@ function toggleReply(button) {
   commentForm.toggleClass('hidden');
 }
 
-function likeComment(commentId, button, videeoId) {
+function likeComment(commentId, button, videoId) {
   $.post('ajax/likeVideo.php', { videoId: videoId }).done(function (data) {
     // Update button image
     let likeButton = $(button);
@@ -57,7 +57,7 @@ function likeComment(commentId, button, videeoId) {
 }
 
 // It will make an ajax call to dislike the video
-function dislikeVideo(commentId,  button, videoId) {
+function dislikeVideo(commentId, button, videoId) {
   $.post('ajax/likeComment.php', {
     commentId: commentId,
     videoId: videoId,
