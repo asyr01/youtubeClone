@@ -199,6 +199,36 @@ class Comment {
             return 1 + $count;
         }
     }
+
+    public function dislike() {
+        $id = $this->getId();
+        $username = $this->userLoggedInObj->getUsername();
+        
+        if($this->wasDislikedBy()) {
+            // User has already liked
+            $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":commentId", $id);
+            $query->execute();
+
+            return 1;
+        }
+        else {
+            $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentId=:commentId");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":commentId", $id);
+            $query->execute();
+
+            $count = $query->rowCount();
+
+            $query = $this->con->prepare("INSERT INTO dislikes(username, commentId) VALUES(:username, :commentId)");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":commentId", $id);
+            $query->execute();
+
+            return  1 + $count;
+        }
+    }
 }
 
 ?>
