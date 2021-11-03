@@ -162,6 +162,43 @@ class Comment {
 
         return $numLikes - $numDislikes;
     }
+
+    
+    public function like() {
+        $id = $this->getId();
+        $username = $this->userLoggedInObj->getUsername();
+        
+        // If a row returns from query executed, so user liked the video.
+        if($this->wasLikedBy()) {
+            // User has already liked
+            $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentvideoId=:commentId");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":commentId", $id);
+            $query->execute();
+
+            // will return one number unlike video like dislike.
+            return -1;
+        }
+        else {
+            // Delete if it was a dislike
+            $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":commentId", $id);
+            $query->execute();
+
+
+            // count will return one if there is a dislike
+            $count = $query->rowCount();
+
+            // insert a like to the likes table
+            $query = $this->con->prepare("INSERT INTO likes(username, commentId) VALUES(:username, :commentId)");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":commentId", $id);
+            $query->execute();
+
+            return 1 + $count;
+        }
+    }
 }
 
 ?>

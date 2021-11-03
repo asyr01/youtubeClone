@@ -57,7 +57,7 @@ function likeComment(commentId, button, videeoId) {
 }
 
 // It will make an ajax call to dislike the video
-function dislikeVideo(commentId, button, videoId) {
+function dislikeVideo(commentId,  button, videoId) {
   $.post('ajax/likeComment.php', {
     commentId: commentId,
     videoId: videoId,
