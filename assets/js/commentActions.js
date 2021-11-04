@@ -61,7 +61,7 @@ function dislikeVideo(commentId, button, videoId) {
   $.post('ajax/likeComment.php', {
     commentId: commentId,
     videoId: videoId,
-  }).done(function (data) {
+  }).done(function (numToChange) {
     // Update button image
     let dislikeButton = $(button);
     let likeButton = $(button).siblings('.likeButton');
@@ -71,9 +71,9 @@ function dislikeVideo(commentId, button, videoId) {
 
     // parse the data
     let likesCount = $(button).siblings('.likesCount');
-    updateLikesValue(likeButton.find('.text'), result.likes);
+    updateLikesValue(likesCount, numToChange);
 
-    if (result.dislikes < 0) {
+    if (numToChange < 0) {
       dislikeButton.removeClass('active');
       dislikeButton
         .find('img:first')
