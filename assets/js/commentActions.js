@@ -70,9 +70,8 @@ function dislikeVideo(commentId, button, videoId) {
     likeButton.removeClass('active');
 
     // parse the data
-    let result = JSON.parse(data);
+    let likesCount = $(button).siblings('.likesCount');
     updateLikesValue(likeButton.find('.text'), result.likes);
-    updateLikesValue(dislikeButton.find('.text'), result.dislikes);
 
     if (result.dislikes < 0) {
       dislikeButton.removeClass('active');
@@ -91,3 +90,8 @@ function dislikeVideo(commentId, button, videoId) {
 }
 
 function dislikeComment(commentId, button, videeoId) {}
+
+function updateLikesValue(element, num) {
+  let likesCountVal = element.text() || 0;
+  element.text(parseInt(likesCountVal) + parseInt(num));
+}
