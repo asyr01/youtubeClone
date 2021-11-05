@@ -40,7 +40,7 @@ class CommentSection {
           </div>
 
           <div class='comments'>
-          
+             $commentItems
           </div>
         </div>  
         ";
