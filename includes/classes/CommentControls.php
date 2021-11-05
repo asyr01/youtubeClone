@@ -17,7 +17,7 @@ class CommentControls {
         $dislikeButton = $this->createDislikeButton();
         $replySection = $this->createReplySection();
 
-        return "<div class='controls'>
+        return "<div class='controls '>
                     $replyButton
                     $likesCount
                     $likeButton
@@ -55,7 +55,7 @@ class CommentControls {
        $postButton = ButtonProvider::createButton("Reply", null, $postButtonAction, "postComment");
 
        return "
-       <div class='commentForm' >
+       <div class='commentForm hidden' >
              $profileButton
         <textarea class='commentBodyClass' placeholder='Add a public  comment'></textarea>
              $cancelButton
