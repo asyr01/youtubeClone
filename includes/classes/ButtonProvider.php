@@ -1,4 +1,3 @@
- <!-- Creates a buton with passed parameters -->
 <?php
 
 class ButtonProvider {

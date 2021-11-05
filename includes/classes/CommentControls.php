@@ -36,10 +36,8 @@ class CommentControls {
 
     private function createLikesCount(){
         $text = $this->comment->getLikes();
-        
         // if there is no like show nothing
         if($text == 0) $text = "";
-
         return "<span class='likesCount'>$text</span>";
     }
 
