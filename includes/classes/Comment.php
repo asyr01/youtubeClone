@@ -227,11 +227,11 @@ class Comment {
         }
     }
 
-    public function getREplies() {
+    public function getReplies() {
           // To get only the comments we give responseTo = 0
-          $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId AND responseTo=0 ORDER BY datePosted ASC");
+          $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
          
-          $query->bindParam(":videoId", $id);
+          $query->bindParam(":commentId", $id);
           $id = $this->getId();  
   
           $query->execute();
