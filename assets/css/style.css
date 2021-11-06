@@ -142,6 +142,8 @@ a:hover {
   padding: 10px 30px;
   display: flex;
   flex: 1;
+  background-color: #fafafa;
+  box-sizing: border-box;
 }
 
 /* Upload.php */
