@@ -541,4 +541,11 @@ form .form-group {
 /* Comment Replies Section */
 .comment .repliesSection {
   padding-left: 64px;
+  margin-top: 10px;
+}
+
+.repliesSection .viewReplies {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
