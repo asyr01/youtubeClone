@@ -537,3 +537,8 @@ form .form-group {
 .hidden {
   display: none !important;
 }
+
+/* Comment Replies Section */
+.comment .repliesSection {
+  padding-left: 64px;
+}
