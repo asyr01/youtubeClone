@@ -544,7 +544,7 @@ form .form-group {
   margin-top: 10px;
 }
 
-.repliesSection .viewReplies {
+.commentSection .itemContainer .viewReplies {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
