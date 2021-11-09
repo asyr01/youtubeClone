@@ -14,10 +14,18 @@ class VideoGrid {
         if($videos == null) {
           $gridItems = $this->generateItems();
         }else {
-          $gridItems = $this->generateItemsFromVideos($video);
+          $gridItems = $this->generateItemsFromVideos($videos);
         }
-        return "<div class='$this->gridClass'> 
-                    
+
+        $header = "";
+
+        if($title != null){
+          $header = $this->createGridHeader($title, $showFilter);
+        }
+
+        return "$header
+                <div class='$this->gridClass'> 
+                    $gridItems
                  </div>
                 ";
     }
@@ -30,6 +38,9 @@ class VideoGrid {
       
     }
 
+    public function createGridHeader() {
+
+    }
 }
 
 ?>
