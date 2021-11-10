@@ -9,18 +9,22 @@ class VideoGridItem {
     public function create() {
         $thumbnail = $this->createThumbnail();
         $details = $this->createDetails();
-
+        $url = "watch.php?id=" . $this->video->getId();
         return "
         
         ";
     }
 
     private function createThumbnail() {
-
+        return "
+        
+        ";
     }
 
     private function createDetails() {
+        return "
         
+        ";
     }
 }
 
