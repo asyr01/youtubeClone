@@ -7,7 +7,20 @@ class VideoGridItem {
     }
 
     public function create() {
-        return "";
+        $thumbnail = $this->createThumbnail();
+        $details = $this->createDetails();
+
+        return "
+        
+        ";
+    }
+
+    private function createThumbnail() {
+
+    }
+
+    private function createDetails() {
+        
     }
 }
 
