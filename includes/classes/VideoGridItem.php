@@ -22,13 +22,13 @@ class VideoGridItem {
 
     private function createThumbnail() {
         return "
-        
+            TEST
         ";
     }
 
     private function createDetails() {
         return "
-        
+            ED
         ";
     }
 }
