@@ -239,5 +239,9 @@ class Video {
 
         return $comments;
     }
+
+    public function getThumbnail() {
+        $query = $this->con->prepare("SELECT filePath from thumbnails WHERE videoId = :videoId AND selected=1");
+    }
 }
 ?>
