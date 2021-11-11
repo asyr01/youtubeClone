@@ -241,7 +241,14 @@ class Video {
     }
 
     public function getThumbnail() {
+        // query request to get thumbnail
         $query = $this->con->prepare("SELECT filePath from thumbnails WHERE videoId = :videoId AND selected=1");
+        $query->bindParam(":videoId", $videoId);
+        $videoId = $this->getId();
+        $query->execute();
+
+        // since we are only selecting one column we can return like that
+        return $query->fetchColumn();
     }
 }
 ?>

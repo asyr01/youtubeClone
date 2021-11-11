@@ -539,7 +539,7 @@ form .form-group {
 }
 
 /* Comment Replies Section */
-.comment .repliesSection {
+.comments .repliesSection {
   padding-left: 64px;
   margin-top: 10px;
 }
