@@ -34,9 +34,7 @@ class VideoGridItem {
     }
 
     private function createDetails() {
-        return "
-            ED
-        ";
+        return "";
     }
 }
 
