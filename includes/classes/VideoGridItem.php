@@ -21,8 +21,9 @@ class VideoGridItem {
     }
 
     private function createThumbnail() {
+        $thumbnail = $this->video->getVideoThumbnail();
         return "
-            TEST
+            
         ";
     }
 
