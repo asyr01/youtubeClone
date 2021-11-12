@@ -565,3 +565,20 @@ form .form-group {
   margin-right: 4px;
   margin-bottom: 24px;
 }
+
+.videoGridItem .thumbnail {
+  width: 210px;
+  height: 118px;
+  position: relative;
+}
+
+.videoGridItem .thumbnail img {
+  width: 100%;
+  height: 100%;
+}
+
+.videoGridItem .thumbnail .duration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
