@@ -555,3 +555,13 @@ form .form-group {
   display: flex;
   flex-wrap: wrap;
 }
+
+.suggestions .videoGridItem {
+  display: flex;
+  height: auto;
+}
+
+.videoGridItem {
+  margin-right: 4px;
+  margin-bottom: 24px;
+}
