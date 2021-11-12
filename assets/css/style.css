@@ -259,7 +259,7 @@ form .form-group {
 }
 
 .suggestions {
-  max-width: 420px;
+  max-width: 425px;
   flex-grow: 1;
   height: 100%;
   padding-left: 24px;
@@ -548,4 +548,10 @@ form .form-group {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+}
+
+/* Video Grid */
+.videoGrid {
+  display: flex;
+  flex-wrap: wrap;
 }

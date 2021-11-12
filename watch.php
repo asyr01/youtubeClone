@@ -41,7 +41,6 @@ require_once("includes/classes/CommentSection.php");
     $videoGrid = new VideoGrid($con, $userLoggedInObj);
     echo $videoGrid->create(null, null, false);
   ?>
-
 </div>
 
 <?php require_once("includes/footer.php"); ?>
