@@ -57,6 +57,13 @@ class Video {
         return date("M j, Y", strtotime($date));
     }
 
+    public function getTimeStamp() {
+        // S enables us to use suffix
+        $date = $this->sqlData["uploadDate"];
+        // Format the date
+        return date("M jS, Y", strtotime($date));
+    }
+
     public function getViews() {
         return $this->sqlData["views"];
     }

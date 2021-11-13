@@ -38,7 +38,7 @@ class VideoGridItem {
         $username = $this->video->getUploadedBy();
         $views  = $this->video->getViews();
         $description = $this->video->getDescription();
- 
+        $timestamp = $this->video->getTimeStamp();
 
         return "
 
