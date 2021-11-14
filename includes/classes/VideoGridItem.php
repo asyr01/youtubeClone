@@ -59,7 +59,8 @@ class VideoGridItem {
         } else  {
             $description = $this->video->getDescription();
             $description = (strlen($description) > 350) ? substr($description, 0, 347) . "..." : $description;
-
+            
+            return "<span class='description'>$description</span>";
         }
     }
 }
