@@ -52,6 +52,16 @@ class VideoGridItem {
             </div>
         ";
     }
+
+    private function createDescription() {
+        if(!$this->largeMode) {
+            return "";
+        } else  {
+            $description = $this->video->getDescription();
+            $description = (strlen($description) > 350) ? substr($description, 0, 347) . "..." : $description;
+
+        }
+    }
 }
 
 ?>
