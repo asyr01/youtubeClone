@@ -596,3 +596,12 @@ form .form-group {
   font-weight: 500;
   line-height: 12px;
 }
+
+.suggestions .videoGridItem .details {
+  margin-right: 24px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+}
