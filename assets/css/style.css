@@ -572,6 +572,10 @@ form .form-group {
   position: relative;
 }
 
+.suggestions .videoGridItem .thumbnail {
+  margin-right: 8px;
+}
+
 .videoGridItem .thumbnail img {
   width: 100%;
   height: 100%;
