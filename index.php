@@ -2,8 +2,16 @@
 
 <div class='videoSection'>
 <?php 
+    $subscriptionsProvider = new SubscriptionsProvider($con, $userLoggedInObj);
+    $subscriptionVideos = $subscriptionsProvider->getVideos();
+
     $videoGrid = new VideoGrid($con, $userLoggedInObj->getUsername());
-    echo $videoGrid->create(null, 'Recommended', false);
+
+    if(User::isLoggedIn() && sizeof($subscriptionVideos) > 0) {
+        echo $videoGrid->create($subscriptionVideos, 'Subscriptions', false);
+    }
+
+
 ?>
 </div>
 
