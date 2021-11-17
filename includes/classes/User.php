@@ -71,5 +71,12 @@ class User {
       // returns number of rows -subscribers-
       return $query->rowCount();
     }
+
+    public function getSubscriptions() {
+        $query = $this->con->prepare("SELECT userTo FROM subscribers WHERE userFrom = :userFrom");
+        $username = $this->getUsername();
+        $query->bindParam(":userFrom", $username);
+        $query->execute();
+    }
 }
 ?>
