@@ -43,6 +43,10 @@ class SubscriptionsProvider {
          }
 
          $videoQuery->execute();
+         while($row = $videoQuery->fetch(PDO::FETCH_ASSOC)) {
+             $video = new Video($this->con, $row, $this->userLoggedInObj);
+             array_push($videos, $video);
+         }
 
        }
         return $videos;
