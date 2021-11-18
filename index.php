@@ -11,6 +11,7 @@
         echo $videoGrid->create($subscriptionVideos, 'Subscriptions', false);
     }
 
+    echo $videoGrid->create($subscriptionVideos, 'Recommended', false);
 
 ?>
 </div>
