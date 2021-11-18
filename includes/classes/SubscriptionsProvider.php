@@ -17,7 +17,7 @@ class SubscriptionsProvider {
        
         $condition = "";
         $i = 0;
-        
+
        //   $query = "SELECT * FROM videos WHERE uplaodedBy = user1 or uplaodedBy = user2 OR uplaodedBy = user3";
        //   $query->bindParam(1, "user1");
        //   $query->bindParam(2, "user2");
@@ -32,10 +32,19 @@ class SubscriptionsProvider {
            }
            $i++;
          }
-         $videoSql = "SELECT * FROM videos $condition";
+         $videoSql = "SELECT * FROM videos $condition ORDER BY uploadDate DESC";
+         $videoQuery = $this->con->prepare($videoSql);
+         $i = 1;
+
+         foreach($subscriptions as  $sub) {
+             $videoQuery->bindParam($i, $subUsername);
+             $subUsername = $sub->getUsername();
+             $i++;
+         }
+
+         $videoQuery->execute();
+
        }
-
-
         return $videos;
     }
 }
