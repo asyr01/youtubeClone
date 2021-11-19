@@ -43,12 +43,17 @@ class VideoGrid {
         return $elementsHtml;
     }
 
+
+    // takes videos as an array then generate gridItems from them.
     public function generateItemsFromVideos($videos){
         $elementsHtml = "";
 
         foreach($videos as $video){
           $item = new VideoGridItem($video, $this->largeMode);
+          $elementsHtml .= $item->create();
         }
+
+        return $elementsHtml;
     }
 
     public function createGridHeader($title, $showFilter) {
