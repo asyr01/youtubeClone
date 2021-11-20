@@ -2,7 +2,10 @@
 
 require_once("includes/header.php");
 
-echo $_GET["term"];
+if(!isset($_GET["term"]) || $_GET["term"] == "") {
+  echo "You must enter a search term";
+  exit();
+}
 ?>
 
 
