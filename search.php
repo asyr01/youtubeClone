@@ -1,5 +1,6 @@
 <?php
 require_once("includes/header.php");
+require_once("includes/classes/SearchResultsProvider.php");
 
 if(!isset($_GET["term"]) || $_GET["term"] == "") {
   echo "You must enter a search term";
