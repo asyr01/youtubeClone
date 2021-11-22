@@ -17,7 +17,20 @@ if(!isset($_GET["orderBy"]) || $_GET["orderBy"] == "views") {
 
 $searchResultsProvider = new SearchResultsProvider($con, $userLoggedInObj);
 $videos = $searchResultsProvider->getVideos($term, $orderBy);
+
+$videoGrid = new VideoGrid($con, $userLoggedInObj);
 ?>
+
+<div class="largeVideoGridContainer">
+  <?php
+    if(sizeof($videos) > 0) {
+
+    } else {
+      echo "No results found";
+    }
+  ?>
+</div>
+
 
 
 
