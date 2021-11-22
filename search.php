@@ -14,6 +14,9 @@ if(!isset($_GET["orderBy"]) || $_GET["orderBy"] == "views") {
 } else {
     $orderBy = "uploadDate";
 }
+
+$searchResultsProvider = new SearchResultsProvider($con, $userLoggedInObj);
+$videos = $searchResultsProvider->getVideos($term, $orderBy);
 ?>
 
 
