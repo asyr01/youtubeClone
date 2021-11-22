@@ -66,6 +66,13 @@ class VideoGrid {
                    $filter
                  </div>";
     }
+
+    public function createLarge($videos, $title, $showFilter) {
+      // add the class of large and overwrite largeMode
+      $this->gridClass .= " large";
+      $this->largeMode = true;
+      return $this->create($videos, $title, $showFilter);
+    }
 }
 
 ?>
