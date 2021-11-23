@@ -60,7 +60,9 @@ class VideoGrid {
       $filter = "";
 
       if($showFilter) {
-        $link = "http://$_SERVER[HTTP_HOST]";
+        $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $urlArray = parse_url($link);
+        $query = $urlArray["query"];
       }
 
       return "<div class='videoGridHeader'>
