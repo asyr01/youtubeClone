@@ -59,7 +59,9 @@ class VideoGrid {
     public function createGridHeader($title, $showFilter) {
       $filter = "";
 
-      // create filter in array.
+      if($showFilter) {
+        $link = "http://$_SERVER[HTTP_HOST]";
+      }
 
       return "<div class='videoGridHeader'>
                    <div class='left'>$title</div>
