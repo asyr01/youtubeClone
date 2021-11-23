@@ -60,9 +60,14 @@ class VideoGrid {
       $filter = "";
 
       if($showFilter) {
+        // take the whole url
         $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $urlArray = parse_url($link);
+        // Take query string, turn it an array and set orderBy again
         $query = $urlArray["query"];
+        parse_str($query, $params);
+        unset($params["orderBy"]);
+        $newQuery = http_build_query($params);
       }
 
       return "<div class='videoGridHeader'>
