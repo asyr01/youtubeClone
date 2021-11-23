@@ -63,11 +63,20 @@ class VideoGrid {
         // take the whole url
         $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $urlArray = parse_url($link);
+
         // Take query string, turn it an array and set orderBy again
         $query = $urlArray["query"];
         parse_str($query, $params);
         unset($params["orderBy"]);
         $newQuery = http_build_query($params);
+
+        $newUrl = basename($_SERVER["PHP_SELF"]) . "?" .$newQuery;
+
+        $filter = "<div class='videoGridHeader'>
+                      <span>OrderBy:</span>
+                      <a href='$newUrl&orderBy=uploadDate'>Upload Date</a>
+                      <a href='$newUrl&orderBy=views'>Most Viewed</a>
+                  </div>";
       }
 
       return "<div class='videoGridHeader'>
