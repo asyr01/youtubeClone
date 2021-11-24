@@ -646,3 +646,27 @@ form .form-group {
   flex-direction: column;
   flex: 1;
 }
+
+.videoGrid.large .videoGridItem {
+  height: auto;
+  display: flex;
+}
+
+.videoGrid.large .videoGridItem .thumbnail {
+  width: 266px;
+  height: 138px;
+  margin-right: 16px;
+}
+
+.videoGrid.large .videoGridItem .details {
+  max-width: 600px;
+}
+
+.videoGrid.large .videoGridItem .details .title {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.videoGridItem .details .description {
+  color: rgba(17, 17, 17, 0.6);
+}

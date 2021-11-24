@@ -40,8 +40,7 @@ class Comment {
 
         if($numResponses > 0) {
             $viewRepliesText = "<span class='repliesSection viewReplies' onclick='getReplies($id, this, $videoId)'>
-              View all $numResponses replies
-            </span>";
+              View all $numResponses replies </span>";
         } else {
             $viewRepliesText = "<div class='repliesSection'><div>";
         }
@@ -66,10 +65,10 @@ class Comment {
                 </div>";
     }
 
-   
+
     public function getNumberOfReplies() {
         // responseTo is video id comment belongs to
-        $query = $this->con->prepare("SELECT count(*) as 'count' FROM comments WHERE responseTo=:responseTo");
+        $query = $this->con->prepare("SELECT count(*) FROM comments WHERE responseTo=:responseTo");
         $query->bindParam(":responseTo", $id);
         $id= $this->sqlData["id"];
         $query->execute();
@@ -78,14 +77,14 @@ class Comment {
         return $query->fetchColumn();
     }
 
-    public function time_elapsed_string($datetime, $full = false) {
+     function time_elapsed_string($datetime, $full = false) {
         $now = new DateTime;
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);
-    
+
         $diff->w = floor($diff->d / 7);
         $diff->d -= $diff->w * 7;
-    
+
         $string = array(
             'y' => 'year',
             'm' => 'month',
@@ -102,7 +101,7 @@ class Comment {
                 unset($string[$k]);
             }
         }
-    
+
         if (!$full) $string = array_slice($string, 0, 1);
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
@@ -156,15 +155,15 @@ class Comment {
 
         $data = $query->fetch(PDO::FETCH_ASSOC);
         $numDislikes = $data["count"];
-        
+
         return $numLikes - $numDislikes;
     }
 
-    
+
     public function like() {
         $id = $this->getId();
         $username = $this->userLoggedInObj->getUsername();
-        
+
         // If a row returns from query executed, so user liked the video.
         if($this->wasLikedBy()) {
             // User has already liked
@@ -200,7 +199,7 @@ class Comment {
     public function dislike() {
         $id = $this->getId();
         $username = $this->userLoggedInObj->getUsername();
-        
+
         if($this->wasDislikedBy()) {
             // User has already liked
             $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
@@ -230,19 +229,19 @@ class Comment {
     public function getReplies() {
           // To get only the comments we give responseTo = 0
           $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
-         
           $query->bindParam(":commentId", $id);
-          $id = $this->getId();  
-  
+
+          $id = $this->getId();
+
           $query->execute();
-      
+
           $comments = "";
           $videoId = $this->getVideoId();
           while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-              $comment = new Comment($this->con, $row, $this->userLoggedInObj, $id);
+              $comment = new Comment($this->con, $row, $this->userLoggedInObj, $videoId);
               $comments .= $comment->create();
           }
-  
+
           return $comments;
     }
 }
