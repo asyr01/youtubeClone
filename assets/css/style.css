@@ -642,6 +642,7 @@ form .form-group {
   flex: 1;
 }
 
+/* search */
 .videoGrid.large {
   flex-direction: column;
   flex: 1;
@@ -669,4 +670,28 @@ form .form-group {
 
 .videoGridItem .details .description {
   color: rgba(17, 17, 17, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.largeVideoGridContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoGridHeader .right {
+  text-align: right;
+}
+
+.videoGridHeader a {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.videoGridHeader a::after {
+  content: ' |';
+}
+
+.videoGridHeader a:last-child::after {
+  content: ' ';
 }
