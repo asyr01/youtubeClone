@@ -52,10 +52,10 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
           <img class="upload" src="assets/images/icons/upload.png" alt="upload button">
         </a>
         <!-- There is no link for now because there is a authorization issue -->
-        <a href="#">
-          <img class="profile" src="assets/images/profilePictures/default.png" alt="profile button">
-        </a>
-      </div>
+        <?php
+          echo ButtonProvider::createUserProfileNavigationButton($con, $userLoggedInObj->getUsername());
+        ?>
+        </div>
       </div>
 
       <div id="sideNavContainer" style="display:none">
