@@ -79,5 +79,11 @@ public static function createEditVideoButton($videoId) {
         </div>
         ";
  }
+
+  public static function createUserProfileNavigatiomButton($con, $userLoggedInObj) {
+      if(User::isLoggedIn()) {
+        return ButtonProvider::createUserProfileButton($con, $userLoggedInObj);
+    }
+  }
 }
 ?>
