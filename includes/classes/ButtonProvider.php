@@ -80,9 +80,12 @@ public static function createEditVideoButton($videoId) {
         ";
  }
 
-  public static function createUserProfileNavigatiomButton($con, $userLoggedInObj) {
+  // Creates UserProfileButton if user signed in.
+  public static function createUserProfileNavigatiomButton($con, $username) {
       if(User::isLoggedIn()) {
-        return ButtonProvider::createUserProfileButton($con, $userLoggedInObj);
+        return ButtonProvider::createUserProfileButton($con, $username);
+    }else {
+        return "<a href='signIn.php'></a>";
     }
   }
 }
