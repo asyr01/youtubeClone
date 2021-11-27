@@ -725,3 +725,14 @@ form .form-group {
   color: #111;
   font-size: 14px;
 }
+
+#sideNavContainer .navigationItem a {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding: 0 24px;
+}
+
+#sideNavContainer .navigationItem a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
