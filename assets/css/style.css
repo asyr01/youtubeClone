@@ -702,25 +702,25 @@ form .form-group {
 }
 
 /* Sidebar */
-.sideNavContainer .navigationItems {
+#sideNavContainer .navigationItems {
   overflow-y: auto;
 }
 
-.sideNavContainer .navigationItem {
+#sideNavContainer .navigationItem {
   display: flex;
   height: 40px;
 }
 
-.sideNavContainer .navigationItem img {
+#sideNavContainer .navigationItem img {
   height: 18px;
   margin-right: 27px;
 }
 
-.sideNavContainer .navigationItem span {
+#sideNavContainer .navigationItem span {
   flex: 1;
 }
 
-.sideNavContainer .navigationItem span {
+#sideNavContainer .navigationItem span {
   flex: 1;
   color: #111;
   font-size: 14px;
