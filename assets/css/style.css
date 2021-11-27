@@ -710,3 +710,18 @@ form .form-group {
   display: flex;
   height: 40px;
 }
+
+.sideNavContainer .navigationItem img {
+  height: 18px;
+  margin-right: 27px;
+}
+
+.sideNavContainer .navigationItem span {
+  flex: 1;
+}
+
+.sideNavContainer .navigationItem span {
+  flex: 1;
+  color: #111;
+  font-size: 14px;
+}
