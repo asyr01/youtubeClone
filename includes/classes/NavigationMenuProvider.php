@@ -18,7 +18,7 @@ class NavigationMenuProvider {
             $menuHtml .= $this->createNavItem("Log Out", 'assets/images/icons/logout.png', 'logout.php');
         }
 
-        // create subscriptions section
+        $menuHtml .= $this->createSubscriptionsSection();
 
         return "<div class='navigationItems'>
                     $menuHtml
@@ -34,6 +34,10 @@ class NavigationMenuProvider {
             </a>
         </div>
         ";
+    }
+
+    private function createSubscriptionsSection(){
+
     }
 }
 ?>
