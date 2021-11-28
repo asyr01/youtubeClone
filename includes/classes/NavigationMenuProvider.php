@@ -37,7 +37,12 @@ class NavigationMenuProvider {
     }
 
     private function createSubscriptionsSection(){
-
+        $subscriptions = $this->userLoggedInObj->getSubscriptions();
+        $html = "<span class='heading'>Subscriptions</span>";
+        foreach($subscriptions as $sub) {
+            $subUsername = $sub->getUsername();
+            $html .= $this->createNavItem($subUsername, $sub->getProfilePic(), "profile.php?username=");
+        }
     }
 }
 ?>
