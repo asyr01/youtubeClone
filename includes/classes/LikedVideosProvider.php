@@ -18,8 +18,8 @@ class LikedVideosProvider {
         $query->execute();
 
         while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            $video = new Video($this->con, $row["videoId"], $this->userLoggedInObj);
-            array_push($videos, $video);
+            // using a square paranthese same with array_push(videos, video)
+            $videos[] = new Video($this->con, $row["videoId"], $this->userLoggedInObj);
         }
         
         return $videos;
