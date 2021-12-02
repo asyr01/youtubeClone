@@ -9,8 +9,6 @@ require_once("includes/classes/VideoGridItem.php");
 require_once("includes/classes/SubscriptionsProvider.php");
 require_once("includes/classes/NavigationMenuProvider.php");
 
-session_destroy();
-
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION["userLoggedIn"] : "";
 $userLoggedInObj = new User($con, $usernameLoggedIn);
 
