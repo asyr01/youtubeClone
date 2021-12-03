@@ -11,7 +11,7 @@ class LikedVideosProvider {
     public function getVideos() {
         $videos = array();
 
-        $query = $this->con->prepare("SELECT videoId * FROM likes WHERE username = :username AND commentId = 0
+        $query = $this->con->prepare("SELECT videoId FROM likes WHERE username = :username AND commentId = 0
                              ORDER BY id DESC");
         $query->bindParam(":username", $username);
         $username = $this->userLoggedInObj->getUsername();
