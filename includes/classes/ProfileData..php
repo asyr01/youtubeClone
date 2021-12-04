@@ -1,12 +1,11 @@
 <?php
 
 class ProfileData {
-    private $con, $userLoggedInObj, $profileUsername;
+    private $con, $profileUserObj;
 
-    public function __construct($con, $userLoggedInObj, $profileUsername){
+    public function __construct($con, $profileUserObj){
         $this->con = $con;
-        $this->userLoggedInObj = $userLoggedInObj;
-        $this->profileUsername = $profileUsername;
+        $this->profileUserObj = $profileUserObj;
     }
     
 }
