@@ -3,9 +3,9 @@
 class ProfileData {
     private $con, $profileUserObj;
 
-    public function __construct($con, $profileUserObj){
+    public function __construct($con, $profileUsername){
         $this->con = $con;
-        $this->profileUserObj = $profileUserObj;
+        $this->profileUserObj = new User($con, $profileUsername);
     }
     
 }
