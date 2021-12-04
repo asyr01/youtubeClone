@@ -7,6 +7,11 @@ class ProfileData {
         $this->con = $con;
         $this->profileUserObj = new User($con, $profileUsername);
     }
+
+
+    public function getProfileUsername() {
+        return $this->profileUserObj->getUsername();
+    }
     
 }
 
