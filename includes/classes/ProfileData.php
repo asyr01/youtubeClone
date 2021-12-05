@@ -18,6 +18,8 @@ class ProfileData {
         $query->bindParam(":username", $profileUsername);
         $profileUsername = $this->getProfileUsername();
         $query->execute();
+
+        return $query->rowCount() != 0;
     }
 }
 ?>
