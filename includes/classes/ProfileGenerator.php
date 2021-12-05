@@ -15,8 +15,5 @@ class ProfileGenerator {
     public function create() {
         $profileUsername = $this->profileData->getProfileUsername();
     }
-
-
 }
-
 ?>
