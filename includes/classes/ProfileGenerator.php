@@ -14,6 +14,9 @@ class ProfileGenerator {
 
     public function create() {
         $profileUsername = $this->profileData->getProfileUsername();
+        if(!$this->profileData->userExists()){
+            return "User does not exist";
+        }
     }
-}
+}  
 ?>
