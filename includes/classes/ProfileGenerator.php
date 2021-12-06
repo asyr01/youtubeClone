@@ -19,8 +19,8 @@ class ProfileGenerator {
         }
 
         $coverPhotoSection = $this->createCoverPhotoSection();
-        $coverHeaderSection = $this->createHeaderSection();
-        $coverTopSection = $this->createTopSection();
+        $headerSection = $this->createHeaderSection();
+        $tabsSection = $this->createTabsSection();
     }
 }  
 ?>
