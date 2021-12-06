@@ -32,7 +32,7 @@ class ProfileGenerator {
     }
 
     public function createCoverPhotoSection() {
-
+        $coverPhotoSrc = $this->profileData->getCoverPhoto();
     }
 
     public function createHeaderSection() {
