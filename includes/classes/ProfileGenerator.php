@@ -17,6 +17,10 @@ class ProfileGenerator {
         if(!$this->profileData->userExists()){
             return "User does not exist";
         }
+
+        $coverPhotoSection = $this->createCoverPhotoSection();
+        $coverHeaderSection = $this->createHeaderSection();
+        $coverTopSection = $this->createTopSection();
     }
 }  
 ?>
