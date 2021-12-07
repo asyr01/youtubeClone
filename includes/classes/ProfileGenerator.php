@@ -36,8 +36,8 @@ class ProfileGenerator {
         $name = $this->profileData->getProfileUserFullName();
 
         return "<div class='coverPhotoContainer'>
-                    <img src='$coverPhotoSrc' class='coverPhoto'>
                     <span class='channelName'>$name</span>
+                    <img src='$coverPhotoSrc' class='coverPhoto'>
                 </div>";
     }
 
