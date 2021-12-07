@@ -25,5 +25,10 @@ class ProfileData {
     public function getCoverPhoto() {
         return "assets/images/coverPhotos/default-cover-photo.jpg";
     }
+
+    public function getProfileUserFullName() {
+        return $this->profileUserObj->getFullName();
+    }
+
 }
 ?>
