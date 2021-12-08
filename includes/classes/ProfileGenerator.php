@@ -45,6 +45,20 @@ class ProfileGenerator {
         $profileImage = $this->profileData->getProfilePic();   
         $name = $this->profileData->getProfileUserFullName();
         $subCount = $this->profileData->getSubscriberCount();
+
+        return "<div class='profileHeader'>
+                    <div class='userInfoContainer'>
+                        <img src='$profileImage' class='profileImage'>
+                        <div class='userInfo'>
+                            <span class='title'>$name</span>
+                            <span class='title'>$subCount subscribers</span>
+                        </div>
+                    </div>
+
+                    <div class='buttonContainer'>
+
+                    </div>
+                </div>";
     }
 
     public function createTabsSection() {
