@@ -757,7 +757,6 @@ form .form-group {
 
 .coverPhotoContainer {
   height: 200px;
-  flex: 1;
   position: relative;
 }
 
@@ -772,8 +771,9 @@ form .form-group {
   position: absolute;
   top: calc(50% - 40px);
   font-size: 50px;
-  color: #000;
+  color: #fff;
   text-align: center;
   width: 100%;
   letter-spacing: 5px;
+  font-weight: 500;
 }

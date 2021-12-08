@@ -30,5 +30,9 @@ class ProfileData {
         return $this->profileUserObj->getFullName();
     }
 
+    public function getProfilePic() {
+        return $this->profileUserObj->getProfilePic();
+    }
+
 }
 ?>

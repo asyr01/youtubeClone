@@ -42,7 +42,7 @@ class ProfileGenerator {
     }
 
     public function createHeaderSection() {
-        
+        $profileImage = $this->profileData->getProfilePic();      
     }
 
     public function createTabsSection() {
