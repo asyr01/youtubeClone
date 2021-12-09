@@ -748,6 +748,7 @@ form .form-group {
   display: block;
 }
 
+/* Profile.php */
 /* Cover Section */
 .profileContainer {
   display: flex;
@@ -776,4 +777,11 @@ form .form-group {
   width: 100%;
   letter-spacing: 5px;
   font-weight: 500;
+}
+
+/* Profile Header Section */
+.profileHeader {
+  padding: 15px 100px 0px 100px;
+  display: flex;
+  height: 100px;
 }
