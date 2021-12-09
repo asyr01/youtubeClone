@@ -785,3 +785,13 @@ form .form-group {
   display: flex;
   height: 100px;
 }
+
+.userInfoContainer {
+  display: flex;
+  flex: 1;
+}
+
+.profileHeader .userInfoContainer .profileImage {
+  height: 80px;
+  width: 80px;
+}
