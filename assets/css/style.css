@@ -795,3 +795,21 @@ form .form-group {
   height: 80px;
   width: 80px;
 }
+
+.profileHeader .userInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profileHeader .userInfo .title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #111;
+}
+
+.profileHeader .userInfo .subscriberCount {
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.6);
+}

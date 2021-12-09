@@ -51,7 +51,7 @@ class ProfileGenerator {
                         <img src='$profileImage' class='profileImage'>
                         <div class='userInfo'>
                             <span class='title'>$name</span>
-                            <span class='title'>$subCount subscribers</span>
+                            <span class='subscriberCount'>$subCount subscribers</span>
                         </div>
                     </div>
 
