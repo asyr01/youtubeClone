@@ -42,9 +42,14 @@ class ProfileGenerator {
     }
 
     public function createHeaderSection() {
+        // creates subscriber button and user info
         $profileImage = $this->profileData->getProfilePic();   
         $name = $this->profileData->getProfileUserFullName();
         $subCount = $this->profileData->getSubscriberCount();
+
+  
+
+        $button = $this->createHeaderButton();
 
         return "<div class='profileHeader'>
                     <div class='userInfoContainer'>
@@ -67,6 +72,12 @@ class ProfileGenerator {
 
     public function createContentSection() {
         
+    }
+
+    private function createHeaderButton() {
+        if($this->userLoggedInObj->getUsername() == $this->profileData->getProfileUsername()) {
+            return "";
+        }
     }
 }  
 ?>

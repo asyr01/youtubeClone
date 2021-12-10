@@ -794,6 +794,7 @@ form .form-group {
 .profileHeader .userInfoContainer .profileImage {
   height: 80px;
   width: 80px;
+  margin-right: 5px;
 }
 
 .profileHeader .userInfo {
