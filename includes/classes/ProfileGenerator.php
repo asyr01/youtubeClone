@@ -61,7 +61,9 @@ class ProfileGenerator {
                     </div>
 
                     <div class='buttonContainer'>
-
+                     <div class='buttonItem'>
+                        $button
+                     </div>
                     </div>
                 </div>";
     }
@@ -77,6 +79,8 @@ class ProfileGenerator {
     private function createHeaderButton() {
         if($this->userLoggedInObj->getUsername() == $this->profileData->getProfileUsername()) {
             return "";
+        } else {
+            return ButtonProvider::createSubscriberButton();
         }
     }
 }  

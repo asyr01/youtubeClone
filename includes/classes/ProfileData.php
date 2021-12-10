@@ -8,6 +8,9 @@ class ProfileData {
         $this->profileUserObj = new User($con, $profileUsername);
     }
 
+    public function getProfileUserObj() {
+        return $this->profileUserObj;
+    }
 
     public function getProfileUsername() {
         return $this->profileUserObj->getUsername();
