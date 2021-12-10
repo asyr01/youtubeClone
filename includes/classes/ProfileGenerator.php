@@ -1,6 +1,6 @@
 <?php
-
 require_once("ProfileData.php");
+
 
 class ProfileGenerator {
 
