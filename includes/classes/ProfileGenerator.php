@@ -80,7 +80,11 @@ class ProfileGenerator {
         if($this->userLoggedInObj->getUsername() == $this->profileData->getProfileUsername()) {
             return "";
         } else {
-            return ButtonProvider::createSubscriberButton();
+            return ButtonProvider::createSubscriberButton(
+                $this->con,
+                $this->profileData->getProfileUserObj(),
+                $this->userLoggedInObj,
+            );
         }
     }
 }  
