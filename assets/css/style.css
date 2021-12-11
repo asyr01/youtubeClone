@@ -814,3 +814,7 @@ form .form-group {
   font-size: 14px;
   color: rgba(17, 17, 17, 0.6);
 }
+
+.profileHeader .buttonContainer {
+  flex: 1;
+}
