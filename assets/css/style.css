@@ -825,3 +825,16 @@ form .form-group {
   display: flex;
   align-items: center;
 }
+
+.profileHeader .buttonContainer .buttonItem button.subscribe {
+  background-color: red;
+}
+
+.profileHeader .buttonContainer .buttonItem button {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
