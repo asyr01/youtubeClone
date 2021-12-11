@@ -816,5 +816,12 @@ form .form-group {
 }
 
 .profileHeader .buttonContainer {
+  display: flex;
   flex: 1;
+  justify-content: flex-end;
+}
+
+.profileHeader .buttonContainer .buttonItem {
+  display: flex;
+  align-items: center;
 }
