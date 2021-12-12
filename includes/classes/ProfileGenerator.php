@@ -71,11 +71,11 @@ class ProfileGenerator {
     public function createTabsSection() {
         return "
        <ul class='nav nav-tabs' role='tablist'>
-         <li class='nav-item' role='presentation'>
-          <button class='nav-link active' id='videos-tab' data-bs-toggle='tab' data-bs-target='#videos' type='button' role='tab' aria-controls='videos' aria-selected='true'>VIDEOS</button>
+         <li class='nav-item'>
+          <a class='nav-link active' id='videos-tab' data-toggle='tab' href='#videos' role='tab' aria-controls='videos' aria-selected='true'>VIDEOS</a>
          </li>
-         <li class='nav-item' role='presentation'>
-            <button class='nav-link' id='about-tab' data-bs-toggle='tab' data-bs-target='#about' type='button' role='tab' aria-controls='about' aria-selected='false'>ABOUT</button>
+         <li class='nav-item'>
+            <a class='nav-link' id='about-tab' data-toggle='tab' href='#about' role='tab' aria-controls='about' aria-selected='false'>ABOUT</a>
          </li>
        </ul>
         ";
