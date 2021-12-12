@@ -827,9 +827,13 @@ form .form-group {
 }
 
 .profileHeader .buttonContainer .buttonItem button.subscribe {
-  background-color: red;
+  background-color: #f00;
+  color: #fff;
 }
 
+.profileHeader .buttonContainer .buttonItem button.unsubscribe {
+  color: rgba(17, 17, 17, 0.6);
+}
 .profileHeader .buttonContainer .buttonItem button {
   padding: 10px 15px;
   font-size: 14px;
