@@ -82,7 +82,18 @@ class ProfileGenerator {
     }
 
     public function createContentSection() {
-        
+        return "
+         <div class='tab-content channelContent'>
+
+          <div class='tab-pane fade show active' id='videos' role='tabpanel' aria-labelledby='videos-tab'>
+            Videos Tab
+          </div>
+
+          <div class='tab-pane fade' id='about' role='tabpanel' aria-labelledby='about-tab'>
+            About Tab
+          </div>
+        </div>
+        ";
     }
 
     private function createHeaderButton() {
