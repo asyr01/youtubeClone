@@ -82,6 +82,9 @@ class ProfileGenerator {
     }
 
     public function createContentSection() {
+
+        $videos = $this->profileData->getUsersVideos();
+        
         return "
          <div class='tab-content channelContent'>
 

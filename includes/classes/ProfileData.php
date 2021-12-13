@@ -40,5 +40,10 @@ class ProfileData {
     public function getSubscriberCount() {
         return $this->profileUserObj->getSubscriberCount();
     }
+
+    public function getUsersVideos()  {
+        $query = $this->con->prepare("SELECT * FROM videos WHERE uploadedBy = :uploadedBy ORDER BY uploadDate DESC");
+        
+    }
 }
 ?>
