@@ -92,6 +92,8 @@ class ProfileGenerator {
             $videoGridHtml = "<span>This user has no videos</span>";
         }
 
+        $aboutSection = $this->createAboutSection();
+
         return "
          <div class='tab-content channelContent'>
 
@@ -116,6 +118,21 @@ class ProfileGenerator {
                 $this->userLoggedInObj,
             );
         }
+    }
+
+    private function createAboutSection() {
+        $html = "<div class='section'>
+                    <div class='title'>
+                        <span>Details</span>
+                    </div>
+                    <div class='values'>";
+
+        // ADD CONTENT
+
+
+        $html .= "</div></div>";
+
+        return $html;
     }
 }  
 ?>

@@ -849,3 +849,7 @@ form .form-group {
   border: 1px solid #ddd;
   border-top: none;
 }
+
+.navItem a {
+  color: rgba(17, 17, 17, 0.6);
+}
