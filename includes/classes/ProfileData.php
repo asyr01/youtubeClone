@@ -67,11 +67,11 @@ class ProfileData {
     }
 
     private function getTotalViews() {
-
-    };
+        return "TEST";
+    }
 
     private function getSignUpDate() {
-        
-    };
+        return "TEST 2";
+    }
 }
 ?>

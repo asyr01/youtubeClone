@@ -102,7 +102,7 @@ class ProfileGenerator {
           </div>
 
           <div class='tab-pane fade' id='about' role='tabpanel' aria-labelledby='about-tab'>
-            About Tab
+             $aboutSection
           </div>
         </div>
         ";
@@ -127,7 +127,10 @@ class ProfileGenerator {
                     </div>
                     <div class='values'>";
 
-        // ADD CONTENT
+        $details = $this->profileData->getAllUserDetails();
+        foreach($details as  $key => $value) {
+            $html .= "<span>$key: $value</span>";
+        }
 
 
         $html .= "</div></div>";
