@@ -842,3 +842,10 @@ form .form-group {
   border-radius: 2px;
   cursor: pointer;
 }
+
+.profileContainer .channelContent {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+}
