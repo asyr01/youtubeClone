@@ -23,7 +23,8 @@ class SettingsFormProvider {
     public function createPasswordsForm() {
         $oldPasswordInput = $this->createPasswordInput("oldPassword", "Old password");
         $newPasswordInput = $this->createPasswordInput("newPassword", "New password");
-        $newPassword2Input = $this->createPasswordInput("newPassword", "New password");
+        $newPassword2Input = $this->createPasswordInput("newPassword", "Confirm new password");
+        $saveButton = $this->createSavePasswordButton();
 
 
         return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
@@ -31,6 +32,7 @@ class SettingsFormProvider {
                      $oldPasswordInput
                      $newPasswordInput 
                      $newPassword2Input
+                     $saveButton
                </form>
         ";
     }
@@ -62,5 +64,12 @@ class SettingsFormProvider {
     </button>";
  }
  
+ // Password change settings
+ 
+ private function createPasswordInput($name, $placeholder) {
+    return "<div class='form-group'>
+        <input class='form-control' type='password' placeholder='$placeholder' name='$name' required>
+    </div>";
+}
 }
 ?>
