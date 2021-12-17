@@ -3,7 +3,6 @@
 class SettingsFormProvider {
 
     public function createUserDetailsForm() {
-
         $firstNameInput = $this->createFirstNameInput(null);
         $lastNameInput = $this->createLastNameInput(null);
         $emailInput = $this->createEmailInput(null);
@@ -11,10 +10,27 @@ class SettingsFormProvider {
 
 
         return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
+                     <span class='title'>User details</span>
                      $firstNameInput
                      $lastNameInput
                      $emailInput
                      $saveButton
+               </form>
+        ";
+    }
+
+    
+    public function createPasswordsForm() {
+        $oldPasswordInput = $this->createPasswordInput("oldPassword", "Old password");
+        $newPasswordInput = $this->createPasswordInput("newPassword", "New password");
+        $newPassword2Input = $this->createPasswordInput("newPassword", "New password");
+
+
+        return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
+                     <span class='title'>User details</span>
+                     $oldPasswordInput
+                     $newPasswordInput 
+                     $newPassword2Input
                </form>
         ";
     }
