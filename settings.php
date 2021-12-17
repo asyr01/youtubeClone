@@ -17,6 +17,7 @@ $formProvider = new SettingsFormProvider();
     <div class='formSection'>
         <?php
             echo $formProvider->createUserDetailsForm();
+            echo $formProvider->createPasswordsForm();
         ?>
     </div>
 </div>

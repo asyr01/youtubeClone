@@ -28,7 +28,7 @@ class SettingsFormProvider {
 
 
         return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
-                     <span class='title'>User details</span>
+                     <span class='title'>Change password</span>
                      $oldPasswordInput
                      $newPasswordInput 
                      $newPassword2Input
@@ -65,6 +65,12 @@ class SettingsFormProvider {
  }
  
  // Password change settings
+
+ private function createSavePasswordButton() {
+    return "<button type='submit' class='btn btn-primary' name='savePasswordButton'>
+        Save
+    </button>";
+ }
  
  private function createPasswordInput($name, $placeholder) {
     return "<div class='form-group'>
