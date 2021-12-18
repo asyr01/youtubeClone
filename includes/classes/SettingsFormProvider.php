@@ -2,10 +2,10 @@
 
 class SettingsFormProvider {
 
-    public function createUserDetailsForm() {
-        $firstNameInput = $this->createFirstNameInput(null);
-        $lastNameInput = $this->createLastNameInput(null);
-        $emailInput = $this->createEmailInput(null);
+    public function createUserDetailsForm($firstName, $lastName, $email) {
+        $firstNameInput = $this->createFirstNameInput($firstName);
+        $lastNameInput = $this->createLastNameInput($lastName);
+        $emailInput = $this->createEmailInput($email);
         $saveButton = $this->createSaveUserDetailsButton();
 
 
