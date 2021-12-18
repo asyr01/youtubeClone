@@ -59,17 +59,25 @@ class SettingsFormProvider {
  }
 
  private function createSaveUserDetailsButton() {
-    return "<button type='submit' class='btn btn-primary' name='saveDetailsButton'>
-        Save
-    </button>";
+    return "
+    <div class='col-md-12 text-center'>
+        <button type='submit' class='btn btn-primary' name='saveDetailsButton'>
+            Save
+        </button>
+    </div>
+    ";
  }
  
  // Password change settings
 
  private function createSavePasswordButton() {
-    return "<button type='submit' class='btn btn-primary' name='savePasswordButton'>
-        Save
-    </button>";
+    return "
+    <div class='col-md-12 text-center'>
+        <button type='submit' class='btn btn-primary' name='savePasswordButton'>
+            Save
+        </button>
+    </div>
+    ";
  }
  
  private function createPasswordInput($name, $placeholder) {
