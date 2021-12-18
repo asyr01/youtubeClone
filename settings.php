@@ -16,7 +16,10 @@ $formProvider = new SettingsFormProvider();
 <div class='settingsContainer column'>
     <div class='formSection'>
         <?php
-            echo $formProvider->createUserDetailsForm();   
+            echo $formProvider->createUserDetailsForm(
+                isset($_POST["firstName"]) ? $_POST["firstName"] : $userLoggedInObj->getFirstName(),
+              
+            );   
         ?>
     </div>
 
