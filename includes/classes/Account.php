@@ -44,6 +44,13 @@ class Account {
       return false;
     }
   }
+
+  // Updates user details
+  public function updateDetails($fn, $ln, $em, $un){
+    $this->validateFirstName($fn);
+    $this->validateLastName($ln);
+    $this->validateNewEmail($em, $un);
+  }
   
   // Inserts user data to the table
   public function insertUserDetails($fn, $ln, $un, $em, $pw) {
@@ -112,7 +119,7 @@ class Account {
         return;
     };
 
-    // Checks if selected username exists in table
+    // Checks if selected email exists in table
     $query = $this->con->prepare("SELECT email FROM users WHERE email=:em");
     $query->bindParam(":em", $em);
     $query->execute();
@@ -121,6 +128,26 @@ class Account {
       array_push($this->errArray, Constants::$emailExists);
     }
   }
+
+  // Validate emails if email exists.
+  private function validateNewEmail($em, $un) {
+    // Built-in php filter, checks if valid.
+    if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+      array_push($this->errArray, Constants::$emailInvalid);
+        return;
+    }
+    
+    // Checks if selected email exists in table
+    $query = $this->con->prepare("SELECT email FROM users WHERE email=:em AND username != :un");
+    $query->bindParam(":em", $em);
+    $query->bindParam(":un", $un);
+    $query->execute();
+    // If query returns a row, print error
+    if($query->rowCount() !=0){
+      array_push($this->errArray, Constants::$emailExists);
+    }
+  }
+  
 
   // Validate passwords if passwords matches, then check if it includes characters.
   private function validatePasswords($pw, $pw2) {
