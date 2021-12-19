@@ -11,6 +11,13 @@ if(!User::isLoggedIn()) {
 
 $formProvider = new SettingsFormProvider();
 
+if(isset($_POST["saveDetailsButton"])) {
+
+}
+if(isset($_POST["savePasswordButton"])) {
+    
+}
+
 ?>
 
 <div class='settingsContainer column'>
