@@ -50,6 +50,12 @@ class Account {
     $this->validateFirstName($fn);
     $this->validateLastName($ln);
     $this->validateNewEmail($em, $un);
+
+    if(empty($this->errArray)){
+      // Update the details
+    } else {
+      return false;
+    }
   }
   
   // Inserts user data to the table
