@@ -47,13 +47,21 @@ class Account {
 
   // Updates user details
   public function updateDetails($fn, $ln, $em, $un){
+    // Validate the passed arguments
     $this->validateFirstName($fn);
     $this->validateLastName($ln);
     $this->validateNewEmail($em, $un);
-
+    
+    // If there is no errors
     if(empty($this->errArray)){
       // Update the details
       $query = $this->con->prepare("UPDATE users SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
+      $query->bindParam(':fn', $fn);
+      $query->bindParam(':ln', $ln);
+      $query->bindParam(':em', $em);
+      $query->bindParam(':un', $un);
+      
+      return $query->execute();
     } else {
       return false;
     }
