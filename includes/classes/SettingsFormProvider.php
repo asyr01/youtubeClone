@@ -9,7 +9,7 @@ class SettingsFormProvider {
         $saveButton = $this->createSaveUserDetailsButton();
 
 
-        return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
+        return "<form action='settings.php' method='POST' enctype='multipart/form-data'> 
                      <span class='title'>User details</span>
                      $firstNameInput
                      $lastNameInput
@@ -27,7 +27,7 @@ class SettingsFormProvider {
         $saveButton = $this->createSavePasswordButton();
 
 
-        return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
+        return "<form action='settings.php' method='POST' enctype='multipart/form-data'> 
                      <span class='title'>Change password</span>
                      $oldPasswordInput
                      $newPasswordInput 

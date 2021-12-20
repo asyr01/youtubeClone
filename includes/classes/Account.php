@@ -60,7 +60,7 @@ class Account {
       $query->bindParam(':ln', $ln);
       $query->bindParam(':em', $em);
       $query->bindParam(':un', $un);
-      
+
       return $query->execute();
     } else {
       return false;
@@ -188,6 +188,14 @@ class Account {
     // If found in array
     if(in_array($error, $this->errArray)) {
         return "<span class='errorMessage'>$error</span>";
+    }
+  }
+
+  public function getFirstError() {
+    if(!empty($this->errArray)) {
+      return $this->errArray[0];
+    } else {
+      return "";
     }
   }
 }

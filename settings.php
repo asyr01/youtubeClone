@@ -9,6 +9,8 @@ if(!User::isLoggedIn()) {
     header("Location: signIn.php");
 }
 
+$detailsMessage = "";
+$passwordMessage = "";
 $formProvider = new SettingsFormProvider();
 
 if(isset($_POST["saveDetailsButton"])) {
@@ -17,8 +19,28 @@ if(isset($_POST["saveDetailsButton"])) {
     $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
     $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
     $email = FormSanitizer::sanitizeFormString($_POST["email"]);
-
     
+    // Update details method called, returns true or false
+    if($account->updateDetails($firstName, $lastName, $email, $userLoggedInObj->getUsername())) {
+        // succesfully updated
+        $detailsMessage = "
+            <div class='alert alert-success'>
+                <b>User details succesfully updated.</b>
+            </div>
+        ";
+    } else {
+        // error
+        $errorMesage = $account->getFirstError();
+        // if, else condition occured in the getFirstError
+        if($errorMesage == "") $errorMesage = "Something went wrong";
+        
+        $detailsMessage = "
+            <div class='alert alert-danger'>
+                <b>User details can't be updated at the moment.</b>
+                <p>$errorMessage</p>
+            </div>
+        ";
+    }
 }
 
 if(isset($_POST["savePasswordButton"])) {
@@ -29,6 +51,9 @@ if(isset($_POST["savePasswordButton"])) {
 
 <div class='settingsContainer column'>
     <div class='formSection'>
+        <div class='message'>
+            <?php $detailsMessage?>
+        </div>
         <?php
             echo $formProvider->createUserDetailsForm(
                 isset($_POST["firstName"]) ? $_POST["firstName"] : $userLoggedInObj->getFirstName(),
