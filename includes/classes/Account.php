@@ -53,6 +53,7 @@ class Account {
 
     if(empty($this->errArray)){
       // Update the details
+      $query = $this->con->prepare("UPDATE users SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
     } else {
       return false;
     }
