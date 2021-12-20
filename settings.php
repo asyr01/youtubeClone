@@ -30,10 +30,10 @@ if(isset($_POST["saveDetailsButton"])) {
         ";
     } else {
         // error
-        $errorMesage = $account->getFirstError();
+        $errorMessage = $account->getFirstError();
         // if, else condition occured in the getFirstError
-        if($errorMesage == "") $errorMesage = "Something went wrong";
-        
+        if($errorMessage == "") $errorMessage = "Something went wrong";
+
         $detailsMessage = "
             <div class='alert alert-danger'>
                 <b>User details can't be updated at the moment.</b>
@@ -52,7 +52,7 @@ if(isset($_POST["savePasswordButton"])) {
 <div class='settingsContainer column'>
     <div class='formSection'>
         <div class='message'>
-            <?php $detailsMessage?>
+            <?php echo $detailsMessage?>
         </div>
         <?php
             echo $formProvider->createUserDetailsForm(

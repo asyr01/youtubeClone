@@ -10,7 +10,7 @@ class SettingsFormProvider {
 
 
         return "<form action='settings.php' method='POST' enctype='multipart/form-data'> 
-                     <span class='title'>User details</span>
+                <span class='title'>User details</span>
                      $firstNameInput
                      $lastNameInput
                      $emailInput
