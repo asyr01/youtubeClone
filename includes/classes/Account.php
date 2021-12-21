@@ -46,7 +46,7 @@ class Account {
   }
 
   // Updates user details
-  public function updateDetails($fn, $ln, $em, $un){
+  public function updateDetails($fn, $ln, $em, $un){ 
     // Validate the passed arguments
     $this->validateFirstName($fn);
     $this->validateLastName($ln);

@@ -13,12 +13,13 @@ $detailsMessage = "";
 $passwordMessage = "";
 $formProvider = new SettingsFormProvider();
 
+// When saveDetailsButton clicked
 if(isset($_POST["saveDetailsButton"])) {
     $account = new Account($con);
 
     $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
     $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
-    $email = FormSanitizer::sanitizeFormString($_POST["email"]);
+    $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
     
     // Update details method called, returns true or false
     if($account->updateDetails($firstName, $lastName, $email, $userLoggedInObj->getUsername())) {
@@ -41,9 +42,17 @@ if(isset($_POST["saveDetailsButton"])) {
             </div>
         ";
     }
+
+    // Refresh the page
+    header("Refresh:4");
 }
 
 if(isset($_POST["savePasswordButton"])) {
+    $account = new Account($con);
+
+    $oldPassword = FormSanitizer::sanitizeFormPassword($_POST["oldPassword"]);
+    $newPassword = FormSanitizer::sanitizeFormPassword($_POST["newPassword"]);
+    $newPassword2 = FormSanitizer::sanitizeFormPassword($_POST["newPassword2"]);
     
 }
 
