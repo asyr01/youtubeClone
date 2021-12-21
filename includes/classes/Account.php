@@ -76,9 +76,9 @@ class Account {
     // If there is no errors
     if(empty($this->errArray)){
       // Update the password
-      $query = $this->con->prepare("UPDATE password=:pw SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
+      $query = $this->con->prepare("UPDATE users SET password = :pw WHERE username = :un");
       $pw = hash("sha512", $pw);
-      $query->bindParam(':em', $pw);
+      $query->bindParam(':pw', $pw);
       $query->bindParam(':un', $un);
 
       return $query->execute();
@@ -114,7 +114,7 @@ class Account {
   // Validates old password
   private function validateOldPassword($oldPw, $un) {
     // Hash the password to compare stored one.
-    $pw = hash("sha512", $pw);
+    $pw = hash("sha512", $oldPw);
 
     // Check DB to validate credentials
     $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");

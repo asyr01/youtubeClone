@@ -74,6 +74,7 @@ if(isset($_POST["savePasswordButton"])) {
                 <p>$errorMessage</p>
             </div>
         ";
+ }
 }
 
 ?>
@@ -101,4 +102,3 @@ if(isset($_POST["savePasswordButton"])) {
         ?>
     </div>
 </div>
-
