@@ -71,14 +71,14 @@ class Account {
   public function updatePassword($oldPw, $pw, $pw2, $un){ 
     // Validate the passed arguments
     $this->validateOldPassword($oldPw, $un);
+    $this->validatePasswords($pw, $pw2);
  
     // If there is no errors
     if(empty($this->errArray)){
       // Update the details
-      $query = $this->con->prepare("UPDATE users SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
-      $query->bindParam(':fn', $fn);
-      $query->bindParam(':ln', $ln);
-      $query->bindParam(':em', $em);
+      $query = $this->con->prepare("UPDATE password=:pw SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
+      $pw = hash("sha512", $pw);
+      $query->bindParam(':em', $pw);
       $query->bindParam(':un', $un);
 
       return $query->execute();
@@ -124,7 +124,7 @@ class Account {
     // If it returns a row, so it means it found a user in db login will be succesful.
     $query->execute();
     if($query->rowCount() == 0){
-      array_push($this->errArray, Constants::$passwordIncorrect)
+      array_push($this->errArray, Constants::$passwordIncorrect);
     } 
   }
 
