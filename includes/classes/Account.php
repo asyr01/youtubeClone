@@ -75,7 +75,7 @@ class Account {
  
     // If there is no errors
     if(empty($this->errArray)){
-      // Update the details
+      // Update the password
       $query = $this->con->prepare("UPDATE password=:pw SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
       $pw = hash("sha512", $pw);
       $query->bindParam(':em', $pw);

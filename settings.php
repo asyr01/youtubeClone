@@ -57,7 +57,7 @@ if(isset($_POST["savePasswordButton"])) {
     // Update details method called, returns true or false
     if($account->updatePassword($oldPassword, $newPassword, $newPassword2, $userLoggedInObj->getUsername())) {
         // succesfully updated
-        $detailsMessage = "
+        $passwordMessage = "
             <div class='alert alert-success'>
                 <b>Password succesfully updated.</b>
             </div>
@@ -68,7 +68,7 @@ if(isset($_POST["savePasswordButton"])) {
         // if, else condition occured in the getFirstError
         if($errorMessage == "") $errorMessage = "Something went wrong";
 
-        $detailsMessage = "
+        $passwordMessage = "
             <div class='alert alert-danger'>
                 <b>Password can't be updated at the moment.</b>
                 <p>$errorMessage</p>
@@ -93,6 +93,9 @@ if(isset($_POST["savePasswordButton"])) {
     </div>
 
     <div class='formSection'>
+        <div class='message'>
+            <?php echo $passwordMessage?>
+        </div>
         <?php
             echo $formProvider->createPasswordsForm();  
         ?>
