@@ -66,6 +66,26 @@ class Account {
       return false;
     }
   }
+
+  // Updates user password
+  public function updatePassword($oldPw, $pw, $pw2, $un){ 
+    // Validate the passed arguments
+    $this->validateOldPassword($oldPw, $un);
+ 
+    // If there is no errors
+    if(empty($this->errArray)){
+      // Update the details
+      $query = $this->con->prepare("UPDATE users SET firstName = :fn, lastName = :ln, email = :em WHERE username = :un");
+      $query->bindParam(':fn', $fn);
+      $query->bindParam(':ln', $ln);
+      $query->bindParam(':em', $em);
+      $query->bindParam(':un', $un);
+
+      return $query->execute();
+    } else {
+      return false;
+    }
+  }
   
   // Inserts user data to the table
   public function insertUserDetails($fn, $ln, $un, $em, $pw) {
@@ -90,6 +110,23 @@ class Account {
       // Execute the query
       return $query->execute();
       }
+
+  // Validates old password
+  private function validateOldPassword($oldPw, $un) {
+    // Hash the password to compare stored one.
+    $pw = hash("sha512", $pw);
+
+    // Check DB to validate credentials
+    $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+    $query->bindParam(':un', $un);
+    $query->bindParam(':pw', $pw);
+
+    // If it returns a row, so it means it found a user in db login will be succesful.
+    $query->execute();
+    if($query->rowCount() == 0){
+      array_push($this->errArray, Constants::$passwordIncorrect)
+    } 
+  }
 
   // Validate first name
   private function validateFirstName($fn) {

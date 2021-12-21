@@ -20,6 +20,9 @@ class Constants {
 
    // log in errors
    public static $loginFailed = "Your username or password was incorrect ";
+
+   // old password not correct
+   public static $passwordIncorrect = "Your old password was incorrect ";
    
 }
 ?>
