@@ -24,7 +24,10 @@ if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
 
 <div class = 'editVideoContainer column'>
     <div class='topSection'>
-
+        <?php
+            $videoPlayer = new VideoPlayer($video);
+            echo $videoPlayer->create(false);
+        ?>
     </div>
 
     <div class='bottomSection'>
