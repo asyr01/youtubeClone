@@ -3,6 +3,7 @@ require_once("includes/header.php");
 require_once("includes/classes/VideoPlayer.php");
 require_once("includes/classes/VideoDetailsFormProvider.php");
 require_once("includes/classes/VideoUploadData.php");
+require_once("includes/classes/SelectThumbnail.php");
 
 // Checks if user logged im
 if(!User::isLoggedIn()) {
@@ -27,6 +28,9 @@ if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
         <?php
             $videoPlayer = new VideoPlayer($video);
             echo $videoPlayer->create(false);
+
+            $selectThumbnail = new SelectThumbnail($con, $video);
+            echo $selectThumbnail->create();
         ?>
     </div>
 
