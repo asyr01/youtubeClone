@@ -20,5 +20,15 @@ if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
     echo "You are not allowed to perform this action";
     exit();
 }
-
 ?>
+
+<div class = 'editVideoContainer column'>
+    <div class='topSection'>
+
+    </div>
+
+    <div class='bottomSection'>
+        
+    </div>
+
+</div>
