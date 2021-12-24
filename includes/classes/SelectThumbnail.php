@@ -11,6 +11,15 @@ class SelectThumbnail {
 
     public function create() {
         $thumbnailData = $this->getThumbnailsData();
+
+        $html = "";
+        foreach($thumbnailData as $data) {
+            $html .= $this->createThumbnailItem();
+        }
+    }
+
+    private function createThumbnailItem() {
+        
     }
 
     private function getThumbnailsData() {
@@ -26,7 +35,8 @@ class SelectThumbnail {
             // array_push($data, $row);
             $data[] = $row;
         }
-
+        
+        return $data;
     }
 
 }
