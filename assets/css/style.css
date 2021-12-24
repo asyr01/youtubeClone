@@ -874,3 +874,39 @@ form .form-group {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* editVideo.php */
+.editVideoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.editVideoContainer .topSection {
+  flex: 1;
+}
+
+.topSection .videoPlayer {
+  max-height: 300px;
+  flex: 1;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  width: 210px;
+}
+
+.editVideoContainer .topSection .thumbnailItem {
+  margin-bottom: 10px;
+  padding: 2px;
+}
+
+.editVideoContainer .topSection .thumbnailItem.selected {
+  border: 3px solid #828282;
+}
+
+.editVideoContainer .topSection .thumbnailItem img {
+  width: 100%;
+  cursor: pointer;
+}
