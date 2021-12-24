@@ -14,12 +14,20 @@ class SelectThumbnail {
 
         $html = "";
         foreach($thumbnailData as $data) {
-            $html .= $this->createThumbnailItem();
+            $html .= $this->createThumbnailItem($data);
         }
     }
 
-    private function createThumbnailItem() {
-        
+    private function createThumbnailItem($data) {
+         $id = $data["id"];
+         $url = $data["filePath"];
+         $videoId = $data["videoId"];
+         $selected = $data["selected"] == 1 ? "selected" : "";
+
+         return "
+          <div class='thumbnailItem $selected'>
+          </div>
+         ";
     }
 
     private function getThumbnailsData() {
