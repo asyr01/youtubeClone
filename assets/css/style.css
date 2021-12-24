@@ -882,7 +882,7 @@ form .form-group {
 }
 
 .editVideoContainer .topSection {
-  flex: 1;
+  display: flex;
 }
 
 .topSection .videoPlayer {
