@@ -1,1 +1,6 @@
-function setNewThumbnail(thumbnailId, videoId, itemElement) {}
+function setNewThumbnail(thumbnailId, videoId, itemElement) {
+  $.post('ajax/updateThumbnail.php', {
+    videoId: videoId,
+    thumbnailId: thumbnailId,
+  }).done(() => {});
+}
