@@ -2,5 +2,10 @@ function setNewThumbnail(thumbnailId, videoId, itemElement) {
   $.post('ajax/updateThumbnail.php', {
     videoId: videoId,
     thumbnailId: thumbnailId,
-  }).done(() => {});
+  }).done(() => {
+    let item = $(itemElement);
+    let itemClass = item.attr('class');
+
+    $('.' + itemClass).removeClass('selected');
+  });
 }
