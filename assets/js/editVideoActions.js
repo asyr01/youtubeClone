@@ -7,5 +7,8 @@ function setNewThumbnail(thumbnailId, videoId, itemElement) {
     let itemClass = item.attr('class');
 
     $('.' + itemClass).removeClass('selected');
+
+    item.addClass('selected');
+    alert('Thumbnail Updated');
   });
 }
