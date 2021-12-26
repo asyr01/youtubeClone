@@ -11,7 +11,7 @@
     $query->execute();
 
     // New Selected thumbnail updated in db with this query
-    $query = $con->prepare("UPDATE thumbnails SET selected=0 WHERE id=:thumbnailId");
+    $query = $con->prepare("UPDATE thumbnails SET selected=1 WHERE id=:thumbnailId");
     $query->bindParam(":thumbnailId", $thumbnailId);
     $query->execute();
 }else {
