@@ -62,19 +62,21 @@ class VideoDetailsFormProvider {
   private function createDescriptionInput($value) {
     if($value == null) $value="";
     return "<div class='form-group'>
-          <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'></textarea> value='$value'
+          <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'>$value</textarea>
         </div>";
     }
 
     private function createPrivacyInput($value) {
       if($value == null) $value="";
+      $privateSelected = ($value == 0) ? "selected='selected'" : "";
+      $publicSelected = ($value == 1) ? "selected='selected'" : "";
       return 
-      "<div class='form-group'>
-      <select class='form-select' name='privacyInput'>
-            <option value='0'>Private</option>
-            <option value='1'>Public</option>
-      </select>
-   </div>";
+        "<div class='form-group'>
+          <select class='form-select' name='privacyInput'>
+                <option value='0' $privateSelected>Private</option>
+                <option value='1' $publicSelected>Public</option>
+          </select>
+        </div>";
     }
 
     private function createCategoriesInput($value) {
@@ -88,7 +90,8 @@ class VideoDetailsFormProvider {
     while($row = $query->fetch(PDO::FETCH_ASSOC)) {
       $name = $row["name"];
       $id = $row["id"];
-      $html .= " <option value='$id'>$name</option>";
+      $selected = ($id == $value) ? "selected='selected'" : "";
+      $html .= " <option $selected value='$id'>$name</option>";
     }
     $html .= "</select>
         </div>";
