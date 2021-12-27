@@ -35,7 +35,7 @@ class VideoDetailsFormProvider {
       $saveButton = $this->createSaveButton();
 
 
-      return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
+      return "<form method='POST'> 
                 $titleInput
                 $descriptionInput
                 $privacyInput
@@ -96,6 +96,13 @@ class VideoDetailsFormProvider {
     return "
     <div class='col text-center'>
     <button type='submit' class='btn btn-primary' name='uploadBtn'>Upload</button>
+    </div>";
+  }
+
+  private function createSaveButton() {
+    return "
+    <div class='col text-center'>
+    <button type='submit' class='btn btn-primary' name='saveBtn'>Save</button>
     </div>";
   }
 }
