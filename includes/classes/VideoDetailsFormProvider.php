@@ -95,14 +95,14 @@ class VideoDetailsFormProvider {
   private function createUploadButton() {
     return "
     <div class='col text-center'>
-    <button type='submit' class='btn btn-primary' name='uploadBtn'>Upload</button>
+      <button type='submit' class='btn btn-primary' name='uploadBtn'>Upload</button>
     </div>";
   }
 
   private function createSaveButton() {
     return "
     <div class='col text-center'>
-    <button type='submit' class='btn btn-primary' name='saveBtn'>Save</button>
+      <button type='submit' class='btn btn-primary' name='saveBtn'>Save</button>
     </div>";
   }
 }
