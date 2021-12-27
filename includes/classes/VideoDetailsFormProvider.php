@@ -9,10 +9,10 @@ class VideoDetailsFormProvider {
 
     public function createUploadForm() {
         $fileInput = $this->createFileInput();
-        $titleInput = $this->createTitleInput();
-        $descriptionInput = $this->createDescriptionInput();
-        $privacyInput = $this->createPrivacyInput();
-        $categoriesInput = $this->createCategoriesInput();
+        $titleInput = $this->createTitleInput(null);
+        $descriptionInput = $this->createDescriptionInput(null);
+        $privacyInput = $this->createPrivacyInput(null);
+        $categoriesInput = $this->createCategoriesInput(null);
         $uploadButton = $this->createUploadButton();
 
 
@@ -27,11 +27,11 @@ class VideoDetailsFormProvider {
         ";
     }
 
-    public function createEditDetailsForm() {
-      $titleInput = $this->createTitleInput();
-      $descriptionInput = $this->createDescriptionInput();
-      $privacyInput = $this->createPrivacyInput();
-      $categoriesInput = $this->createCategoriesInput();
+    public function createEditDetailsForm($video) {
+      $titleInput = $this->createTitleInput($video->getTitle());
+      $descriptionInput = $this->createDescriptionInput($video->getDescription());
+      $privacyInput = $this->createPrivacyInput($video->getPrivacy());
+      $categoriesInput = $this->createCategoriesInput($video->getCategory());
       $saveButton = $this->createSaveButton();
 
 
@@ -52,19 +52,22 @@ class VideoDetailsFormProvider {
        </div>";
   }
 
-  private function createTitleInput() {
+  private function createTitleInput($value) {
+    if($value == null) $value="";
   return "<div class='form-group'>
-            <input class='form-control' type='text' placeholder='Title' name='titleInput' aria-label='default input example'>
+            <input class='form-control' type='text' placeholder='Title' name='titleInput' aria-label='default input example' value='$value'>
         </div>";
   }
 
-  private function createDescriptionInput() {
+  private function createDescriptionInput($value) {
+    if($value == null) $value="";
     return "<div class='form-group'>
-          <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'></textarea>
+          <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'></textarea> value='$value'
         </div>";
     }
 
-    private function createPrivacyInput() {
+    private function createPrivacyInput($value) {
+      if($value == null) $value="";
       return 
       "<div class='form-group'>
       <select class='form-select' name='privacyInput'>
@@ -74,7 +77,7 @@ class VideoDetailsFormProvider {
    </div>";
     }
 
-    private function createCategoriesInput() {
+    private function createCategoriesInput($value) {
     // Retrieve data from categories table
     $query = $this->con->prepare("SELECT * FROM categories");
     $query->execute();
