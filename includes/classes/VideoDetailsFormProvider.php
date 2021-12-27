@@ -8,7 +8,6 @@ class VideoDetailsFormProvider {
     }
 
     public function createUploadForm() {
-
         $fileInput = $this->createFileInput();
         $titleInput = $this->createTitleInput();
         $descriptionInput = $this->createDescriptionInput();
@@ -27,6 +26,24 @@ class VideoDetailsFormProvider {
                </form>
         ";
     }
+
+    public function createEditDetailsForm() {
+      $titleInput = $this->createTitleInput();
+      $descriptionInput = $this->createDescriptionInput();
+      $privacyInput = $this->createPrivacyInput();
+      $categoriesInput = $this->createCategoriesInput();
+      $saveButton = $this->createSaveButton();
+
+
+      return "<form action='processing.php' method='POST' enctype='multipart/form-data'> 
+                $titleInput
+                $descriptionInput
+                $privacyInput
+                $categoriesInput
+                $saveButton
+             </form>
+      ";
+  }
 
     private function createFileInput() {
     return "<div class='form-group'>
