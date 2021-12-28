@@ -23,14 +23,7 @@ if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
 }
 
 if(isset($_POST["saveButton"])) {
-    $videoData = new VideoUploadData(
-        null,
-        $_POST["titleInput"],
-        $_POST["descriptionInput"],
-        $_POST["privacyInput"],
-        $_POST["categoryInput"],
-        $userLoggedInObj->getUsername(),
-    );
+    
 }
 ?>
 
