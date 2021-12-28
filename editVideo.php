@@ -21,6 +21,10 @@ if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
     echo "You are not allowed to perform this action";
     exit();
 }
+
+if(isset($_POST["saveButton"])) {
+    
+}
 ?>
 
 <script src='assets/js/editVideoActions.js'></script>
