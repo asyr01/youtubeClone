@@ -32,6 +32,20 @@ if(isset($_POST["saveButton"])) {
         $userLoggedInObj->getUsername(),
     );
 
+    if($videoData->updateDetails($con, $videoId)) {
+        // succesfully updated
+        $detailsMessage = "
+            <div class='alert alert-success'>
+                <b>User details succesfully updated.</b>
+            </div>
+        ";
+    } else {
+        $detailsMessage = "
+            <div class='alert alert-danger'>
+                <strong>ERROR!</strong> Something went wrong.
+            </div>
+        ";
+    }
     
 }
 ?>
