@@ -39,9 +39,9 @@ if(isset($_POST["saveButton"])) {
                 <b>User details succesfully updated.</b>
             </div>
         ";
-        
+
         // recreate video class
-        $video = new Video($con,$_GET["videoId"],$userLoggedInObj);
+        $video = new Video($con, $_GET["videoId"], $userLoggedInObj);
     } else {
         $detailsMessage = "
             <div class='alert alert-danger'>
