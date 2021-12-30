@@ -22,6 +22,8 @@ if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
     exit();
 }
 
+$detailsMessage = "";
+
 if(isset($_POST["saveBtn"])) {
     $videoData = new VideoUploadData(
         null,
@@ -56,6 +58,9 @@ if(isset($_POST["saveBtn"])) {
 <script src='assets/js/editVideoActions.js'></script>
 
 <div class = 'editVideoContainer column'>
+    <div class='message'>
+       <?php echo $detailsMessage?>
+    </div>
     <div class='topSection'>
         <?php
             $videoPlayer = new VideoPlayer($video);
