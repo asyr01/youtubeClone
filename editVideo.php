@@ -16,13 +16,13 @@ if(!isset($_GET["videoId"])) {
     exit();
 }
 
-$video = new Video($con,$_GET["videoId"],$userLoggedInObj);
+$video = new Video($con, $_GET["videoId"], $userLoggedInObj);
 if($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
     echo "You are not allowed to perform this action";
     exit();
 }
 
-if(isset($_POST["saveButton"])) {
+if(isset($_POST["saveBtn"])) {
     $videoData = new VideoUploadData(
         null,
         $_POST["titleInput"],

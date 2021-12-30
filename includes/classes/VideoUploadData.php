@@ -17,7 +17,8 @@
         $query->bindParam(":title", $this->title);
         $query->bindParam(":description", $this->description);
         $query->bindParam(":privacy", $this->privacy);
-        $query->bindParam(":id", $videoId);
+        $query->bindParam(":category", $this->category);
+        $query->bindParam(":videoId", $videoId);
 
         return $query->execute();
     }
