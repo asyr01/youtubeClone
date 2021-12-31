@@ -176,17 +176,21 @@ class Comment {
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
-            
+
         // will return one number unlike video like dislike.
             return -1;
         }
         else {
+            // Delete if it was a dislike
             $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
-            $count = $query->rowCount();
 
+            // count will return one if there is a dislike
+            $count = $query->rowCount();
+            
+            // insert a like to the likes table
             $query = $this->con->prepare("INSERT INTO likes(username, commentId) VALUES(:username, :commentId)");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
@@ -226,6 +230,7 @@ class Comment {
     }
 
     public function getReplies() {
+        // To get only the comments we give responseTo = 0
         $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
         $query->bindParam(":commentId", $id);
 
