@@ -59,7 +59,7 @@ if(isset($_POST["saveBtn"])) {
 
 <div class = 'editVideoContainer column'>
     <div class='message'>
-       <?php echo $detailsMessage?>
+       <?php echo $detailsMessage; ?>
     </div>
     <div class='topSection'>
         <?php

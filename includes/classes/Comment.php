@@ -1,28 +1,24 @@
-<?php
-
+<?php 
 require_once("ButtonProvider.php");
 require_once("CommentControls.php");
-
-
 class Comment {
+
     private $con, $sqlData, $userLoggedInObj, $videoId;
 
-    public function __construct($con, $input, $userLoggedInObj, $videoId){
+    public function __construct($con, $input, $userLoggedInObj, $videoId) {
+
         if(!is_array($input)) {
-            // if input is not an array and it's an id
             $query = $con->prepare("SELECT * FROM comments where id=:id");
             $query->bindParam(":id", $input);
             $query->execute();
 
-            // overwrite input variable
             $input = $query->fetch(PDO::FETCH_ASSOC);
         }
-
-      // input is sqlData at that point
-      $this->sqlData = $input;
-      $this->con = $con;
-      $this->userLoggedInObj = $userLoggedInObj;
-      $this->videoId = $videoId;
+        
+        $this->sqlData = $input;
+        $this->con = $con;
+        $this->userLoggedInObj = $userLoggedInObj;
+        $this->videoId = $videoId;
     }
 
     public function create() {
@@ -36,55 +32,58 @@ class Comment {
         $commentControlsObj = new CommentControls($this->con, $this, $this->userLoggedInObj);
         $commentControls = $commentControlsObj->create();
 
-        $numResponses =  $this->getNumberOfReplies();
-
+        $numResponses = $this->getNumberOfReplies();
+        
         if($numResponses > 0) {
             $viewRepliesText = "<span class='repliesSection viewReplies' onclick='getReplies($id, this, $videoId)'>
-              View all $numResponses replies </span>";
-        } else {
-            $viewRepliesText = "<div class='repliesSection'><div>";
+                                    View all $numResponses replies</span>";
+        }
+        else {
+            $viewRepliesText = "<div class='repliesSection'></div>";
         }
 
         return "<div class='itemContainer'>
                     <div class='comment'>
-                      $profileButton
-                      <div class='mainContainer'>
-                        <div class='commentHeader'>
-                            <a href='profile.php?username=$postedBy'>
-                                <span class='username'>$postedBy</span>
-                            </a>
-                            <span class='timestamp'>$timespan</span>
+                        $profileButton
+                        <div class='mainContainer'>
+                            <div class='commentHeader'>
+                                <a href='profile.php?username=$postedBy'>
+                                    <span class='username'>$postedBy</span>
+                                </a>
+                                <span class='timestamp'>$timespan</span>
+                            </div>
+
+                            <div class='body'>
+                                $body
+                            </div>
                         </div>
-                        <div class='body'>
-                            $body
-                        </div>
-                      </div>
+
                     </div>
+
                     $commentControls
                     $viewRepliesText
                 </div>";
+
+
     }
 
-
     public function getNumberOfReplies() {
-        // responseTo is video id comment belongs to
         $query = $this->con->prepare("SELECT count(*) FROM comments WHERE responseTo=:responseTo");
         $query->bindParam(":responseTo", $id);
-        $id= $this->sqlData["id"];
+        $id = $this->sqlData["id"];
         $query->execute();
 
-        // The fetchColumn() method returns the value of the column specified by the $column index. If the result set has no more rows, the method returns false.
         return $query->fetchColumn();
     }
 
-     function time_elapsed_string($datetime, $full = false) {
+    function time_elapsed_string($datetime, $full = false) {
         $now = new DateTime;
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);
-
+    
         $diff->w = floor($diff->d / 7);
         $diff->d -= $diff->w * 7;
-
+    
         $string = array(
             'y' => 'year',
             'm' => 'month',
@@ -101,7 +100,7 @@ class Comment {
                 unset($string[$k]);
             }
         }
-
+    
         if (!$full) $string = array_slice($string, 0, 1);
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
@@ -118,12 +117,12 @@ class Comment {
         $query = $this->con->prepare("SELECT * FROM likes WHERE username=:username AND commentId=:commentId");
         $query->bindParam(":username", $username);
         $query->bindParam(":commentId", $id);
+
         $id = $this->getId();
 
         $username = $this->userLoggedInObj->getUsername();
         $query->execute();
 
-        // returns true or false
         return $query->rowCount() > 0;
     }
 
@@ -131,12 +130,12 @@ class Comment {
         $query = $this->con->prepare("SELECT * FROM dislikes WHERE username=:username AND commentId=:commentId");
         $query->bindParam(":username", $username);
         $query->bindParam(":commentId", $id);
+
         $id = $this->getId();
 
         $username = $this->userLoggedInObj->getUsername();
         $query->execute();
 
-        // returns true or false
         return $query->rowCount() > 0;
     }
 
@@ -155,16 +154,14 @@ class Comment {
 
         $data = $query->fetch(PDO::FETCH_ASSOC);
         $numDislikes = $data["count"];
-
+        
         return $numLikes - $numDislikes;
     }
-
 
     public function like() {
         $id = $this->getId();
         $username = $this->userLoggedInObj->getUsername();
 
-        // If a row returns from query executed, so user liked the video.
         if($this->wasLikedBy()) {
             // User has already liked
             $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentId=:commentId");
@@ -172,21 +169,15 @@ class Comment {
             $query->bindParam(":commentId", $id);
             $query->execute();
 
-            // will return one number unlike video like dislike.
             return -1;
         }
         else {
-            // Delete if it was a dislike
             $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
-
-
-            // count will return one if there is a dislike
             $count = $query->rowCount();
 
-            // insert a like to the likes table
             $query = $this->con->prepare("INSERT INTO likes(username, commentId) VALUES(:username, :commentId)");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
@@ -214,7 +205,6 @@ class Comment {
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
-
             $count = $query->rowCount();
 
             $query = $this->con->prepare("INSERT INTO dislikes(username, commentId) VALUES(:username, :commentId)");
@@ -222,28 +212,27 @@ class Comment {
             $query->bindParam(":commentId", $id);
             $query->execute();
 
-            return  -1 - $count;
+            return -1 - $count;
         }
     }
 
     public function getReplies() {
-          // To get only the comments we give responseTo = 0
-          $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
-          $query->bindParam(":commentId", $id);
+        $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
+        $query->bindParam(":commentId", $id);
 
-          $id = $this->getId();
+        $id = $this->getId();
 
-          $query->execute();
+        $query->execute();
 
-          $comments = "";
-          $videoId = $this->getVideoId();
-          while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-              $comment = new Comment($this->con, $row, $this->userLoggedInObj, $videoId);
-              $comments .= $comment->create();
-          }
+        $comments = "";
+        $videoId = $this->getVideoId();
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $comment = new Comment($this->con, $row, $this->userLoggedInObj, $videoId);
+            $comments .= $comment->create();
+        }
 
-          return $comments;
+        return $comments;
     }
-}
 
+}
 ?>
