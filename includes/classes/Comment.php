@@ -8,13 +8,16 @@ class Comment {
     public function __construct($con, $input, $userLoggedInObj, $videoId) {
 
         if(!is_array($input)) {
+            // if input is not an array and it's an id
             $query = $con->prepare("SELECT * FROM comments where id=:id");
             $query->bindParam(":id", $input);
             $query->execute();
-
+            
+            // overwrite input variable
             $input = $query->fetch(PDO::FETCH_ASSOC);
         }
         
+        // input is sqlData at that point
         $this->sqlData = $input;
         $this->con = $con;
         $this->userLoggedInObj = $userLoggedInObj;
@@ -67,12 +70,14 @@ class Comment {
 
     }
 
+    // responseTo is video id comment belongs to
     public function getNumberOfReplies() {
         $query = $this->con->prepare("SELECT count(*) FROM comments WHERE responseTo=:responseTo");
         $query->bindParam(":responseTo", $id);
         $id = $this->sqlData["id"];
         $query->execute();
 
+    // The fetchColumn() method returns the value of the column specified by the $column index. If the result set has no more rows, the method returns false.
         return $query->fetchColumn();
     }
 
@@ -123,6 +128,7 @@ class Comment {
         $username = $this->userLoggedInObj->getUsername();
         $query->execute();
 
+        // returns true or false
         return $query->rowCount() > 0;
     }
 
@@ -136,6 +142,7 @@ class Comment {
         $username = $this->userLoggedInObj->getUsername();
         $query->execute();
 
+        // returns true or false
         return $query->rowCount() > 0;
     }
 
@@ -162,13 +169,15 @@ class Comment {
         $id = $this->getId();
         $username = $this->userLoggedInObj->getUsername();
 
+        // If a row returns from query executed, so user liked the video.
         if($this->wasLikedBy()) {
             // User has already liked
             $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
-
+            
+        // will return one number unlike video like dislike.
             return -1;
         }
         else {
